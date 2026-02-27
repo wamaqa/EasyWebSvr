@@ -1,4 +1,4 @@
-// ·şÎñÆ÷ÉèÖÃ½çÃæ
+ï»¿// æœåŠ¡å™¨è®¾ç½®ç•Œé¢
 
 #include "stdafx.h"
 #include "svrcfgdlg.h"
@@ -23,7 +23,7 @@ END_MESSAGE_MAP()
 
 CConfigMainPage::CConfigMainPage() : PropertyPAGE(IDD_CONFIG_MAIN)
 {
-    SetTitle("³£¹æ");
+    SetTitle("å¸¸è§„");
 }
 
 BOOL CConfigMainPage::OnInitDialog()
@@ -58,12 +58,12 @@ BOOL CConfigMainPage::OnOK(WPARAM WParam, LPARAM LParam)
 
         MtSTRING ErrText;
         if(RootDir.IsEmpty())
-            ErrText = _T("Ö÷Ä¿Â¼²»ÄÜÎª¿Õ!");
+            ErrText = _T("ä¸»ç›®å½•ä¸èƒ½ä¸ºç©º!");
         else
-            ErrText.Format("Ö÷Ä¿Â¼[%s]²»´æÔÚ!", (LPCTSTR)RootDir);
+            ErrText.Format("ä¸»ç›®å½•[%s]ä¸å­˜åœ¨!", (LPCTSTR)RootDir);
         MessageBox(m_hWnd, ErrText, APP_TITLE, MB_ICONWARNING);
         ::SetFocus(::GetDlgItem(m_hWnd, IDC_EDIT_ROOTDIR));
-        SetWindowLong(m_hWnd, DWL_MSGRESULT, TRUE);  // ½ûÖ¹¹Ø±Õ
+        SetWindowLong(m_hWnd, DWL_MSGRESULT, TRUE);  // ç¦æ­¢å…³é—­
         return TRUE;
     }
     pSvrConfig->RootDirectory = RootDir;
@@ -83,7 +83,7 @@ END_MESSAGE_MAP()
 
 CConfigDocPage::CConfigDocPage() : PropertyPAGE(IDD_CONFIG_DOC)
 {
-    SetTitle("ÎÄµµ");
+    SetTitle("æ–‡æ¡£");
 }
 
 BOOL CConfigDocPage::OnInitDialog()
@@ -127,7 +127,7 @@ END_MESSAGE_MAP()
 
 CConfigRightPage::CConfigRightPage() : PropertyPAGE(IDD_CONFIG_RIGHTS)
 {
-    SetTitle("È¨ÏŞ");
+    SetTitle("æƒé™");
 }
 
 BOOL CConfigRightPage::OnInitDialog()
@@ -167,7 +167,7 @@ END_MESSAGE_MAP()
 
 CConfigMapPage::CConfigMapPage() : PropertyPAGE(IDD_CONFIG_MAP)
 {
-    SetTitle("Ó³Éä");
+    SetTitle("æ˜ å°„");
     hWndListView    = NULL;
 }
 
@@ -207,8 +207,8 @@ BOOL CConfigMapPage::OnInitDialog()
         int     Align;
     } ColArray[] =
     {
-        { _T("À©Õ¹Ãû"),             60,     LVCFMT_LEFT   },
-        { _T("¿ÉÖ´ĞĞÎÄ¼şÂ·¾¶"),     246,    LVCFMT_LEFT   },
+        { _T("æ‰©å±•å"),             60,     LVCFMT_LEFT   },
+        { _T("å¯æ‰§è¡Œæ–‡ä»¶è·¯å¾„"),     246,    LVCFMT_LEFT   },
     };
 
     for(int Col = 0; Col < sizeof(ColArray) / sizeof(ColArray[0]); Col++)
@@ -306,7 +306,7 @@ BOOL CConfigMapPage::OnBtnDel(WPARAM WParam, LPARAM LParam)
     int SelIndex = ListView_GetNextItem(hWndListView, -1, LVNI_SELECTED);
     if(SelIndex != -1)
     {
-        int Ret = MessageBox(m_hWnd, "È·ÊµÒªÉ¾³ıÑ¡¶¨µÄ½Å±¾Ó³ÉäÂğ£¿", APP_TITLE, MB_YESNO | MB_ICONQUESTION);
+        int Ret = MessageBox(m_hWnd, "ç¡®å®è¦åˆ é™¤é€‰å®šçš„è„šæœ¬æ˜ å°„å—ï¼Ÿ", APP_TITLE, MB_YESNO | MB_ICONQUESTION);
         if(Ret == IDYES)
         {
             TCHAR ExtNameStr[MAX_ENGINE_EXTNAME];
@@ -338,7 +338,7 @@ END_MESSAGE_MAP()
 
 static BOOL IsValidEngineParam(const MtSTRING &EngineParam)
 {
-    // ²ÎÊıÖĞ×î¶àÖ»ÄÜÓĞÒ»¸ö%£¬ÇÒ±ØĞëÊÇ%s
+    // å‚æ•°ä¸­æœ€å¤šåªèƒ½æœ‰ä¸€ä¸ª%ï¼Œä¸”å¿…é¡»æ˜¯%s
     int FormatPos = EngineParam.Find('%');
     if(FormatPos > 0)
     {
@@ -359,13 +359,13 @@ static BOOL IsValidEnginePath(const MtSTRING &EngineCommandLine, MtSTRING &Engin
     //   "c:\php 5\php.exe" %s
     if(!ParseEngineCommandLine(EngineCommandLine, EnginePath, EngineParam))
     {
-        ErrInfo = "´íÎóµÄ¿ÉÖ´ĞĞÎÄ¼şÃû";
+        ErrInfo = "é”™è¯¯çš„å¯æ‰§è¡Œæ–‡ä»¶å";
         return FALSE;
     }
 
     if(!IsFileExist(EnginePath))
     {
-        ErrInfo.Format("ÎÄ¼ş[%s]²»´æÔÚ!", (LPCTSTR)EnginePath);
+        ErrInfo.Format("æ–‡ä»¶[%s]ä¸å­˜åœ¨!", (LPCTSTR)EnginePath);
         return FALSE;
     }
 
@@ -377,13 +377,13 @@ static BOOL IsValidEnginePath(const MtSTRING &EngineCommandLine, MtSTRING &Engin
         bExe = FALSE;
     else
     {
-        ErrInfo = "±ØĞëÊÇexe»òdllÎÄ¼ş";
+        ErrInfo = "å¿…é¡»æ˜¯exeæˆ–dllæ–‡ä»¶";
         return FALSE;
     }
 
     if((!bExe && !EngineParam.IsEmpty()) || !IsValidEngineParam(EngineParam))
     {
-        ErrInfo = "´íÎóµÄ²ÎÊı";
+        ErrInfo = "é”™è¯¯çš„å‚æ•°";
         return FALSE;
     }
     return TRUE;
@@ -437,7 +437,7 @@ BOOL CScriptEngineDlg::OnBtnBrowse(WPARAM WParam, LPARAM LParam)
     GetDlgItemText(m_hWnd, IDC_EDIT_ENGINEPATH, CommandLine, 300);
     ParseEngineCommandLine(CommandLine, EnginePath, EngineParam);
 
-    const char *pFilter = "¿ÉÖ´ĞĞ³ÌĞò(*.exe)\0*.exe\0¶¯Ì¬Á´½Ó¿â(*.dll)\0*.dll\0ËùÓĞÎÄ¼ş(*.*)\0*.*\0";
+    const char *pFilter = "å¯æ‰§è¡Œç¨‹åº(*.exe)\0*.exe\0åŠ¨æ€é“¾æ¥åº“(*.dll)\0*.dll\0æ‰€æœ‰æ–‡ä»¶(*.*)\0*.*\0";
     DWORD FilterIndex = EnginePath.Right(3).CompareNoCase("dll") == 0 ? 2 : 1;
     CFileDlg FileDlg(true, m_hWnd, pFilter, "exe", FilterIndex, EnginePath);
     if(FileDlg.DoModal())
@@ -458,7 +458,7 @@ BOOL CScriptEngineDlg::OnOK(WPARAM WParam, LPARAM LParam)
     ScriptEngine.ExtName.TrimRight(" \t");
     if(ScriptEngine.ExtName.IsEmpty() || CommandLine.IsEmpty())
     {
-        MessageBox(m_hWnd, _T("ĞÅÏ¢ÌîĞ´²»ÍêÕû"), APP_TITLE, MB_ICONWARNING);
+        MessageBox(m_hWnd, _T("ä¿¡æ¯å¡«å†™ä¸å®Œæ•´"), APP_TITLE, MB_ICONWARNING);
         return TRUE;
     }
     ScriptEngine.ExtName.MakeLower();
@@ -466,7 +466,7 @@ BOOL CScriptEngineDlg::OnOK(WPARAM WParam, LPARAM LParam)
 
     if(ExistExtNameList.Find(ScriptEngine.ExtName) != NULL)
     {
-        MessageBox(m_hWnd, _T("¸ÃÀ©Õ¹ÃûÒÑ¾­´æÔÚ"), APP_TITLE, MB_ICONWARNING);
+        MessageBox(m_hWnd, _T("è¯¥æ‰©å±•åå·²ç»å­˜åœ¨"), APP_TITLE, MB_ICONWARNING);
         return TRUE;
     }
 
@@ -500,7 +500,7 @@ END_MESSAGE_MAP()
 
 CConfigLogPage::CConfigLogPage() : PropertyPAGE(IDD_CONFIG_LOG)
 {
-    SetTitle("ÈÕÖ¾");
+    SetTitle("æ—¥å¿—");
 }
 
 BOOL CConfigLogPage::OnInitDialog()
@@ -545,7 +545,7 @@ BOOL CConfigLogPage::OnBtnBrowse(WPARAM WParam, LPARAM LParam)
         LogFileName.ReleaseBuffer();
     }
 
-    const TCHAR *pFilter = _T("ÈÕÖ¾ÎÄ¼ş(*.log)\0*.log\0ËùÓĞÎÄ¼ş(*.*)\0*.*\0");
+    const TCHAR *pFilter = _T("æ—¥å¿—æ–‡ä»¶(*.log)\0*.log\0æ‰€æœ‰æ–‡ä»¶(*.*)\0*.*\0");
     CFileDlg FileDlg(false, m_hWnd, pFilter, _T("log"), 1, LogFileName);
     if(FileDlg.DoModal())
         ::SetDlgItemText(m_hWnd, IDC_EDIT_LOGFILENAME, FileDlg.GetPathFileName());

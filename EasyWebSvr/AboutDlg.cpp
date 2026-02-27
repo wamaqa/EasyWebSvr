@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resource.h"
 #include "mtstring.h"
 #include "aboutdlg.h"
@@ -12,7 +12,7 @@
 
 using namespace minilib;
 
-// µ¥ÏòÑÕÉ«½¥±äº¯Êý
+// å•å‘é¢œè‰²æ¸å˜å‡½æ•°
 COLORREF GetGradualColor(COLORREF Color1, COLORREF Color2, int TotalLen, int CurPos)
 {
     assert(CurPos >= 0 && CurPos <= TotalLen);
@@ -22,7 +22,7 @@ COLORREF GetGradualColor(COLORREF Color1, COLORREF Color2, int TotalLen, int Cur
     return RGB(R, G, B);
 }
 
-// °ÑÒ»×Ö·û´®¸´ÖÆµ½¼ôÌù°å
+// æŠŠä¸€å­—ç¬¦ä¸²å¤åˆ¶åˆ°å‰ªè´´æ¿
 static bool CopyToClipboard(const char *pText)
 {
     assert(pText != NULL);
@@ -51,32 +51,32 @@ LRESULT APIENTRY StaticSubclassProc(HWND hWnd, UINT Message, WPARAM WParam, LPAR
     static RECT ClientRect;
     static char *pText[] =
     {
-        "¡¶EasyWebServerÍøÕ¾·þÎñÆ÷¡·V1.92",
+        "ã€ŠEasyWebServerç½‘ç«™æœåŠ¡å™¨ã€‹V1.92",
         "",
-        "ÕâÊÇÒ»¿îÐ¡ÐÍµÄWeb·þÎñÆ÷Èí¼þ¡£Ëü¿ÉÒÔºÜ¿ìËÙµØÔÚÄú",
-        "µÄPCÉÏ´´½¨Ò»¸öÕ¾µã£¬¶øÎÞÐèIISµÈÅÓ´ó¸´ÔÓµÄ¹¤¾ß¡£",
-        "ËüµÄÖ÷Òª¹¦ÄÜÌØµãÈçÏÂ£º",
+        "è¿™æ˜¯ä¸€æ¬¾å°åž‹çš„WebæœåŠ¡å™¨è½¯ä»¶ã€‚å®ƒå¯ä»¥å¾ˆå¿«é€Ÿåœ°åœ¨æ‚¨",
+        "çš„PCä¸Šåˆ›å»ºä¸€ä¸ªç«™ç‚¹ï¼Œè€Œæ— éœ€IISç­‰åºžå¤§å¤æ‚çš„å·¥å…·ã€‚",
+        "å®ƒçš„ä¸»è¦åŠŸèƒ½ç‰¹ç‚¹å¦‚ä¸‹ï¼š",
         "",
-        "¡ó ×ñÑ­HTTP/1.1Ð­Òé±ê×¼",
-        "¡ó Ö§³ÖCGI/ISAPI£¬Ö§³ÖPHP/ASP/Perl½Å±¾",
-        "¡ó Ö§³Ö×Ô¶¨Òå¶Ë¿Ú¡¢×î´óÁ¬½ÓÊý¡¢ÍøÂç³¬Ê±",
-        "¡ó Ö§³Ö×Ô¶¨ÒåÈ±Ê¡ÎÄµµÁÐ±í£¬Ö§³ÖÄ¿Â¼ä¯ÀÀ",
-        "¡ó Ö§³ÖÖÐÎÄUTF-8±àÂë",
-        "¡ó Ö§³ÖCookie£¬Ö§³ÖSOAPµÈ",
-        "¡ó Ö§³Ö¶àÏß³ÌÎÄ¼þÏÂÔØ¡¢¶ÏµãÐø´«",
-        "¡ó Ö§³Ö·ÃÎÊÈÕÖ¾¼ÇÂ¼",
-        "¡ó ¼«ÉÙµÄ×ÊÔ´Õ¼ÓÃ£¬¼«¿ìµÄ·ÃÎÊËÙ¶È£¬¼«¼òµ¥µÄÉèÖÃ",
-        "¡ó ÂÌÉ«Èí¼þ£¬ÎÞÐë°²×°£¬²»Ð´×¢²á±í",
-        "¡ó VC++ SDK ±àÐ´£¬Ìå»ý³¬Ð¡",
+        "â—‡ éµå¾ªHTTP/1.1åè®®æ ‡å‡†",
+        "â—‡ æ”¯æŒCGI/ISAPIï¼Œæ”¯æŒPHP/ASP/Perlè„šæœ¬",
+        "â—‡ æ”¯æŒè‡ªå®šä¹‰ç«¯å£ã€æœ€å¤§è¿žæŽ¥æ•°ã€ç½‘ç»œè¶…æ—¶",
+        "â—‡ æ”¯æŒè‡ªå®šä¹‰ç¼ºçœæ–‡æ¡£åˆ—è¡¨ï¼Œæ”¯æŒç›®å½•æµè§ˆ",
+        "â—‡ æ”¯æŒä¸­æ–‡UTF-8ç¼–ç ",
+        "â—‡ æ”¯æŒCookieï¼Œæ”¯æŒSOAPç­‰",
+        "â—‡ æ”¯æŒå¤šçº¿ç¨‹æ–‡ä»¶ä¸‹è½½ã€æ–­ç‚¹ç»­ä¼ ",
+        "â—‡ æ”¯æŒè®¿é—®æ—¥å¿—è®°å½•",
+        "â—‡ æžå°‘çš„èµ„æºå ç”¨ï¼Œæžå¿«çš„è®¿é—®é€Ÿåº¦ï¼Œæžç®€å•çš„è®¾ç½®",
+        "â—‡ ç»¿è‰²è½¯ä»¶ï¼Œæ— é¡»å®‰è£…ï¼Œä¸å†™æ³¨å†Œè¡¨",
+        "â—‡ VC++ SDK ç¼–å†™ï¼Œä½“ç§¯è¶…å°",
         "",
-        "»¶Ó­²âÊÔ£¡",//£¬²¢Ìá³öÄúµÄ±¦¹óÒâ¼ûºÍ½¨Òé",
-        "ÈçÓÐBug»ò½¨ÒéÇëÀ´ÐÅ baojianjob@tom.com",
-        "Copyright (C) 2007.11 Íõ±¦½£"
+        "æ¬¢è¿Žæµ‹è¯•ï¼",//ï¼Œå¹¶æå‡ºæ‚¨çš„å®è´µæ„è§å’Œå»ºè®®",
+        "å¦‚æœ‰Bugæˆ–å»ºè®®è¯·æ¥ä¿¡ baojianjob@tom.com",
+        "Copyright (C) 2007.11 çŽ‹å®å‰‘"
     };
 
     /*
-    ¿¼ÂÇ¸Ä³ÉÔÚWM_ERASEBKGNDÖÐ»­½¥±ä±³¾°
-    ²»ÓÃmemdc£¬¶ø²ÉÓÃµ¥ÐÐË¢ÐÂµÄ·½·¨
+    è€ƒè™‘æ”¹æˆåœ¨WM_ERASEBKGNDä¸­ç”»æ¸å˜èƒŒæ™¯
+    ä¸ç”¨memdcï¼Œè€Œé‡‡ç”¨å•è¡Œåˆ·æ–°çš„æ–¹æ³•
     */
     switch(Message)
     {
@@ -113,7 +113,7 @@ LRESULT APIENTRY StaticSubclassProc(HWND hWnd, UINT Message, WPARAM WParam, LPAR
             ::ReleaseDC(hWnd, hDc);
 
             ::memset(&LogFont, 0, sizeof(LOGFONT));
-            lstrcpy(LogFont.lfFaceName, "ËÎÌå");
+            lstrcpy(LogFont.lfFaceName, "å®‹ä½“");
             LogFont.lfWeight = 400;
             LogFont.lfHeight = -12;
             LogFont.lfCharSet = 134;
@@ -198,7 +198,7 @@ LRESULT APIENTRY StaticSubclassProc(HWND hWnd, UINT Message, WPARAM WParam, LPAR
 
             HMENU hMenu = ::CreateMenu();
             HMENU hMenuPop = ::CreateMenu();
-            ::AppendMenu(hMenuPop, MF_STRING, 100, "¸´ÖÆ(&C)");
+            ::AppendMenu(hMenuPop, MF_STRING, 100, "å¤åˆ¶(&C)");
             ::AppendMenu(hMenu, MF_POPUP, (UINT_PTR)hMenuPop, "");
 
             TrackPopupMenu(hMenuPop, TPM_LEFTALIGN | TPM_RIGHTBUTTON, Pt.x, Pt.y, 0, hWnd, NULL);
@@ -210,7 +210,7 @@ LRESULT APIENTRY StaticSubclassProc(HWND hWnd, UINT Message, WPARAM WParam, LPAR
         }
         case WM_COMMAND:
         {
-            if(WParam == 100) // ¸´ÖÆËµÃ÷ÄÚÈÝµ½ÄÚ´æ
+            if(WParam == 100) // å¤åˆ¶è¯´æ˜Žå†…å®¹åˆ°å†…å­˜
             {
                 MtSTRING Text;
                 for(int i = 0; i < sizeof(pText) / sizeof(pText[0]); i++)

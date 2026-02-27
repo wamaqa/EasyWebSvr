@@ -1,14 +1,14 @@
-#pragma once
+ï»¿#pragma once
 
 class TextMSG
 {
 public:
-  TCHAR         Name[8];      // ĞÕÃû
-  BOOL          bSex;         // ĞÔ±ğ
-  TCHAR         Mail[32];     // ÓÊ¼ş
-  SYSTEMTIME    Time;         // Ê±¼ä
-  int           TextLen;      // ÄÚÈİ³¤¶È
-  TCHAR        *pText;        // ÄÚÈİ
+  TCHAR         Name[8];      // å§“å
+  BOOL          bSex;         // æ€§åˆ«
+  TCHAR         Mail[32];     // é‚®ä»¶
+  SYSTEMTIME    Time;         // æ—¶é—´
+  int           TextLen;      // å†…å®¹é•¿åº¦
+  TCHAR        *pText;        // å†…å®¹
 
 public:
   TextMSG();

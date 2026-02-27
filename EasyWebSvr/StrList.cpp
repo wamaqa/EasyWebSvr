@@ -1,9 +1,9 @@
-//***********************************************
-// ÎÄ¼şÃû³Æ£ºstrlist.cpp
-// ¹¦¡¡¡¡ÄÜ£º×Ö·û´®Á´±í
-// ×÷¡¡¡¡Õß£ºwbj
-// ´´½¨ÈÕÆÚ£º2002-12-22
-// ¸üĞÂÈÕÆÚ£º2003-11-26
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šstrlist.cpp
+// åŠŸã€€ã€€èƒ½ï¼šå­—ç¬¦ä¸²é“¾è¡¨
+// ä½œã€€ã€€è€…ï¼šwbj
+// åˆ›å»ºæ—¥æœŸï¼š2002-12-22
+// æ›´æ–°æ—¥æœŸï¼š2003-11-26
 //***********************************************
 
 // wbj 2006.1.20
@@ -15,7 +15,7 @@
 namespace minilib
 {
 
-// °Ñ×Ö·û´®×ª»»³É×Ö·û´®Á´±í, ÒÔ pSeparator ÖĞµÄ×Ö·û×ö·Ö¸ô
+// æŠŠå­—ç¬¦ä¸²è½¬æ¢æˆå­—ç¬¦ä¸²é“¾è¡¨, ä»¥ pSeparator ä¸­çš„å­—ç¬¦åšåˆ†éš”
 void StrLIST::FromStringToList(const TCHAR *pString, const TCHAR *pSeparator)
 {
   if(pString == NULL)
@@ -34,7 +34,7 @@ void StrLIST::FromStringToList(const TCHAR *pString, const TCHAR *pSeparator)
   free(pTempStr);
 }
 
-// °Ñ×Ö·û´®×ª»»³É×Ö·û´®Á´±í, ÒÔ \r\n ×ö·Ö¸ô
+// æŠŠå­—ç¬¦ä¸²è½¬æ¢æˆå­—ç¬¦ä¸²é“¾è¡¨, ä»¥ \r\n åšåˆ†éš”
 void StrLIST::FromStringToList(const TCHAR *pString)
 {
   if(pString == NULL)
@@ -46,7 +46,7 @@ void StrLIST::FromStringToList(const TCHAR *pString)
   const TCHAR *pStr = pString;
   while(*pStr)
   {
-    int MemLen = 200;   // Ã¿Ò»ĞĞµÄ³õÊ¼ÄÚ´æ´óĞ¡(×îĞ¡Öµ¿ÉÉèÎª1)
+    int MemLen = 200;   // æ¯ä¸€è¡Œçš„åˆå§‹å†…å­˜å¤§å°(æœ€å°å€¼å¯è®¾ä¸º1)
     TCHAR *pRowStr = RowStr.GetBuffer(MemLen); 
     TCHAR *pDest = pRowStr;
     for(int RowLen = 0; *pStr != '\0' && *pStr != '\r' && *pStr != '\n'; pDest++, pStr++)
@@ -55,7 +55,7 @@ void StrLIST::FromStringToList(const TCHAR *pString)
       RowLen++;
       if(RowLen >= MemLen - 1)
       {
-        MemLen += 200;  // Ò»ĞĞÄÚ´æ²»×ãÊ±, Ã¿´Î¶à·ÖÅä200¸ö(×îĞ¡Öµ¿ÉÉèÎª1)
+        MemLen += 200;  // ä¸€è¡Œå†…å­˜ä¸è¶³æ—¶, æ¯æ¬¡å¤šåˆ†é…200ä¸ª(æœ€å°å€¼å¯è®¾ä¸º1)
         RowStr.ReleaseBuffer();
         pRowStr = RowStr.GetBuffer(MemLen);
         pDest = pRowStr + RowLen - 1;
@@ -66,7 +66,7 @@ void StrLIST::FromStringToList(const TCHAR *pString)
     RowStr.ReleaseBuffer();
     //RowStr.TrimRight();
 
-#ifdef TAB_TO_SPACE  // °Ñ tab ×ª»»³É 8 ¸ö¿Õ¸ñ
+#ifdef TAB_TO_SPACE  // æŠŠ tab è½¬æ¢æˆ 8 ä¸ªç©ºæ ¼
     while(1)
     {
       int Index = RowStr.Find('\t');
@@ -85,7 +85,7 @@ void StrLIST::FromStringToList(const TCHAR *pString)
   }
 }
 
-// °Ñ×Ö·û´®Á´±í×ª»»³É×Ö·û´®, ÒÔ pSeparator ×ö·Ö¸ô
+// æŠŠå­—ç¬¦ä¸²é“¾è¡¨è½¬æ¢æˆå­—ç¬¦ä¸², ä»¥ pSeparator åšåˆ†éš”
 void StrLIST::FromListToString(MtSTRING &Str, const TCHAR *pSeparator) const
 {
   int Length = 0, SepLength = lstrlen(pSeparator);
@@ -100,7 +100,7 @@ void StrLIST::FromListToString(MtSTRING &Str, const TCHAR *pSeparator) const
   while(ListPos != NULL)
   {
     const TCHAR *pStr = (LPCTSTR)ListPos->Data;
-    for(; *pStr != '\0'; pBuffer++, pStr++)  // ¸´ÖÆÕı³£´®
+    for(; *pStr != '\0'; pBuffer++, pStr++)  // å¤åˆ¶æ­£å¸¸ä¸²
       *pBuffer = *pStr;
 
     ListPos = ListPos->GetNext();
@@ -108,14 +108,14 @@ void StrLIST::FromListToString(MtSTRING &Str, const TCHAR *pSeparator) const
       break;
 
     const TCHAR *pSep = pSeparator;
-    for(; *pSep != '\0'; pBuffer++, pSep++)  // ¸´ÖÆ·Ö¸ô·û
+    for(; *pSep != '\0'; pBuffer++, pSep++)  // å¤åˆ¶åˆ†éš”ç¬¦
       *pBuffer = *pSep;
   }
   *pBuffer = '\0';
   Str.ReleaseBuffer();
 }
 
-// ¶ÁÈ¡ÎÄ¼şµ½×Ö·û´®Á´±í
+// è¯»å–æ–‡ä»¶åˆ°å­—ç¬¦ä¸²é“¾è¡¨
 bool StrLIST::LoadFromFile(const TCHAR *pFileName)
 {
   assert(pFileName != NULL);
@@ -138,7 +138,7 @@ bool StrLIST::LoadFromFile(const TCHAR *pFileName)
   return true;
 }
 
-// °Ñ×Ö·û´®Á´±íµÄÄÚÈİ±£´æµ½ÎÄ¼ş
+// æŠŠå­—ç¬¦ä¸²é“¾è¡¨çš„å†…å®¹ä¿å­˜åˆ°æ–‡ä»¶
 bool StrLIST::SaveToFile(const TCHAR *pFileName) const
 {
   assert(pFileName != NULL);
@@ -160,7 +160,7 @@ bool StrLIST::SaveToFile(const TCHAR *pFileName) const
   return true;
 }
 
-// É¾³ıÁ´±íÖĞËùÓĞµÄ¿Õ×Ö·û´®½Úµã
+// åˆ é™¤é“¾è¡¨ä¸­æ‰€æœ‰çš„ç©ºå­—ç¬¦ä¸²èŠ‚ç‚¹
 void StrLIST::RemoveNullString()
 {
   StrListPOS ListPos = GetHeadPosition();
@@ -177,15 +177,15 @@ void StrLIST::RemoveNullString()
   }
 }
 
-// ×Ô¶¯»»ĞĞ
-// ÔİÖ»Ö§³Öµ¥ĞĞ×Ö·û´®µÄ×Ô¶¯»»ĞĞ
-// ×¢Òâ£º¶Ô Unicode °æ±¾¿ÉÄÜÓĞÎÊÌâ£¬ÓĞ´ı¸Ä½ø
+// è‡ªåŠ¨æ¢è¡Œ
+// æš‚åªæ”¯æŒå•è¡Œå­—ç¬¦ä¸²çš„è‡ªåŠ¨æ¢è¡Œ
+// æ³¨æ„ï¼šå¯¹ Unicode ç‰ˆæœ¬å¯èƒ½æœ‰é—®é¢˜ï¼Œæœ‰å¾…æ”¹è¿›
 void StrLIST::AutoBreakLineStr(const TCHAR *pString, int MaxLineLength)
 {
   assert(pString != NULL && MaxLineLength >= 2);
   assert(_tcschr(pString, _T('\r')) == NULL && _tcschr(pString, _T('\n')) == NULL);
 
-  bool bInHan = (BYTE)(*pString) > 127;  // ±ÜÃâ°ë¸öºº×ÖÎÊÌâ
+  bool bInHan = (BYTE)(*pString) > 127;  // é¿å…åŠä¸ªæ±‰å­—é—®é¢˜
   const TCHAR *pStartPos = pString;
   for(; *pString != '\0'; pString++)
   {

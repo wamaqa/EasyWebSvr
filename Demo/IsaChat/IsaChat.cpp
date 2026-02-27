@@ -1,16 +1,17 @@
-//***********************************************
-// ¹¦¡¡¡¡ÄÜ: ISAPIÍÆ¼¼ÊõÁÄÌìÊÒÑİÊ¾
-// ´´½¨ÈÕÆÚ: baojian 2007.11.15
-// ¸üĞÂÀúÊ·: 
+ï»¿//***********************************************
+// åŠŸã€€ã€€èƒ½: ISAPIæ¨æŠ€æœ¯èŠå¤©å®¤æ¼”ç¤º
+// åˆ›å»ºæ—¥æœŸ: baojian 2007.11.15
+// æ›´æ–°å†å²: 
 //    2007.11.19 
-//      1. ĞŞÕıÁËä¯ÀÀÆ÷Á¬ĞøË¢ĞÂ¿ÉÄÜ»áµ¼ÖÂËÀËøµÄBug
-//      2. ĞŞÕıÁËg_hEventCmd×ÊÔ´Ğ¹Â¶
+//      1. ä¿®æ­£äº†æµè§ˆå™¨è¿ç»­åˆ·æ–°å¯èƒ½ä¼šå¯¼è‡´æ­»é”çš„Bug
+//      2. ä¿®æ­£äº†g_hEventCmdèµ„æºæ³„éœ²
 //***********************************************
 
 #include "stdafx.h"
 #include "HttpParse.h"
 #include "critsect.H"
-
+#include <string>
+using namespace std;
 enum CmdTYPE
 {
     CT_CHAT,
@@ -31,12 +32,12 @@ struct UserINFO
 };
 typedef list<UserINFO> UserLIST;
 
-static UserLIST     g_UserList;     // ÔÚÏßÓÃ»§ÁĞ±í
-static ChatCmdLIST  g_ChatCmdList;  // ÁÄÌìÏûÏ¢¶ÓÁĞ
-static CCriticalSect g_UserLock;     // g_UserListµÄËø
-static CCriticalSect g_ChatCmdLock;  // g_ChatCmdListµÄËø
-static HANDLE       g_hEventCmd;    // ÃüÁîÊÂ¼ş
-static HANDLE       g_hThreadChat;  // Ö÷ÁÄÌìÏß³Ì
+static UserLIST     g_UserList;     // åœ¨çº¿ç”¨æˆ·åˆ—è¡¨
+static ChatCmdLIST  g_ChatCmdList;  // èŠå¤©æ¶ˆæ¯é˜Ÿåˆ—
+static CCriticalSect g_UserLock;     // g_UserListçš„é”
+static CCriticalSect g_ChatCmdLock;  // g_ChatCmdListçš„é”
+static HANDLE       g_hEventCmd;    // å‘½ä»¤äº‹ä»¶
+static HANDLE       g_hThreadChat;  // ä¸»èŠå¤©çº¿ç¨‹
 static HANDLE       g_hModule;      // dll instance
 
 BOOL WINAPI GetExtensionVersion(OUT HSE_VERSION_INFO *pVer)
@@ -80,7 +81,7 @@ static void SendDataToAllUser(const char *pUser, const char *pMsg)
 
     SYSTEMTIME T;
     ::GetLocalTime(&T);
-    _snprintf(DataStr, 1023, "(%02d:%02d:%02d) <font color=#0000ff>%s</font>Ëµ: %s<br>\r\n", 
+    _snprintf(DataStr, 1023, "(%02d:%02d:%02d) <font color=#0000ff>%s</font>è¯´: %s<br>\r\n", 
         T.wHour, T.wMinute, T.wSecond, pUser, pMsg);
 
     ChatCMD ChatCmd;
@@ -156,7 +157,7 @@ static unsigned int __stdcall IsaChatThreadFunc(void *pData)
                 i = 0;
             char TempStr[1024];
             sprintf(TempStr, "Hello IsaChat %d...(UserCount=%d)", i, GetUserCount());
-            SendDataToAllUser("ÏµÍ³", TempStr);
+            SendDataToAllUser("ç³»ç»Ÿ", TempStr);
         }
         else
         {
@@ -178,11 +179,11 @@ static void AddNewUser(EXTENSION_CONTROL_BLOCK *pECB, const string &UserName)
     } while(0);
 
     char TempStr[1024];
-    sprintf(TempStr, "%s½øÈëÁËÁÄÌìÊÒ£¬µ±Ç°ÓÃ»§Êı%d¸ö", UserName.c_str(), GetUserCount());
-    SendDataToAllUser("ÏµÍ³", TempStr);
+    sprintf(TempStr, "%sè¿›å…¥äº†èŠå¤©å®¤ï¼Œå½“å‰ç”¨æˆ·æ•°%dä¸ª", UserName.c_str(), GetUserCount());
+    SendDataToAllUser("ç³»ç»Ÿ", TempStr);
 }
 
-// ¶ÁÈ¡Ò»¸öÎÄ¼şÄÚÈİ£¬×¢ÒâÓÃ free º¯ÊıÊÍ·Å·µ»ØµÄÄÚ´æ
+// è¯»å–ä¸€ä¸ªæ–‡ä»¶å†…å®¹ï¼Œæ³¨æ„ç”¨ free å‡½æ•°é‡Šæ”¾è¿”å›çš„å†…å­˜
 static BYTE *GetFileData(const TCHAR *pFileName, DWORD &FileSize)
 {
     assert(pFileName != NULL);
@@ -270,7 +271,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
         if(pUser == NULL || *pUser == 0)
             pUser = "Guest";
         Len = sprintf(ResultStr, 
-            "<html><head><title>IsaChatÁÄÌìÊÒ</title></head>\r\n"
+            "<html><head><title>IsaChatèŠå¤©å®¤</title></head>\r\n"
             "<frameset rows=\"*,100\">\r\n"
             "<frame name=\"top\" src=\"isachat.dll?func=recvmsg&user=%s\">\r\n"
             "<frame name=\"bottom\" src=\"isachat.dll?func=sendpage&user=%s\">\r\n"
@@ -286,7 +287,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
             "<form name=\"chatform\" action=\"isachat.dll?func=sendmsg\" method=POST>\r\n"
             "<input type=\"hidden\" name=\"user\" value=\"%s\">\r\n"
             "<input type=\"text\" name=\"msg\" size=45>\r\n"
-            "<input type=\"submit\" value=\"·¢ËÍ\">\r\n"
+            "<input type=\"submit\" value=\"å‘é€\">\r\n"
             "</form></body></html>\r\n", pUser);
     }
     else

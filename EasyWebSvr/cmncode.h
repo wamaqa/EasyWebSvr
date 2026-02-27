@@ -1,7 +1,7 @@
-#pragma once
+﻿#pragma once
 
-// �ж�һ���ļ��Ƿ����
+// 判断一个文件是否存在
 BOOL IsFileExist(const TCHAR *pFileName);
 
-// �ж�һ��Ŀ¼�Ƿ����
+// 判断一个目录是否存在
 BOOL IsDirectoryExist(const TCHAR *pDirName);

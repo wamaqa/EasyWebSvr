@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <httpext.h>
 #include <process.h>
 
@@ -103,13 +103,13 @@ void log_device_manager::put(int module, const char *pLog)
 
 void OutputDebugInfo(int module, const TCHAR *pFormat, ...)
 {
-    va_list ArgList;            // µÈ¼ÛÓÚ char *ArgList;
-    va_start(ArgList, pFormat); // ¸ø ArgList ¸³Öµ£¬µÈ¼ÛÓÚ ArgList = (char *)(&pFormat) + sizeof(void *);
+    va_list ArgList;            // ç­‰ä»·äº char *ArgList;
+    va_start(ArgList, pFormat); // ç»™ ArgList èµ‹å€¼ï¼Œç­‰ä»·äº ArgList = (char *)(&pFormat) + sizeof(void *);
 
     char Buffer[1024];
-    _vsntprintf(Buffer, 1024, pFormat, ArgList); //  Format ºó×Ö·û´®×î´ó³¤¶ÈÎª 1023
+    _vsntprintf(Buffer, 1024, pFormat, ArgList); //  Format åå­—ç¬¦ä¸²æœ€å¤§é•¿åº¦ä¸º 1023
 
-    va_end(ArgList);            // µÈ¼ÛÓÚ ArgList = NULL;
+    va_end(ArgList);            // ç­‰ä»·äº ArgList = NULL;
 
     log_device_manager::instance().put(module, Buffer);
 }
@@ -326,7 +326,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
     DWORD MaxValue;
     BOOL bFixLen;
     GetCalcParam(MaxValue, bFixLen);
-    const char *pTimeFormat = bFixLen ? "¹²ºÄÊ±%05dºÁÃë<hr>\r\n" : "¹²ºÄÊ±%dºÁÃë<hr>\r\n";
+    const char *pTimeFormat = bFixLen ? "å…±è€—æ—¶%05dæ¯«ç§’<hr>\r\n" : "å…±è€—æ—¶%dæ¯«ç§’<hr>\r\n";
 
     const DWORD BufSize = MaxValue * 30 + 1024;
     char *pDataBuf = (char *)malloc(BufSize);
@@ -340,7 +340,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
     for(DWORD i = 1; i <= MaxValue; i++)
     {
         Count += i;
-        Len += wsprintf(pResultStr + Len, "´Ó1¼Óµ½%d=%d<br>\r\n", i, Count);
+        Len += wsprintf(pResultStr + Len, "ä»1åŠ åˆ°%d=%d<br>\r\n", i, Count);
     }
     DWORD T2 = GetTickCount();
 

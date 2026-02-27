@@ -1,7 +1,7 @@
-//***********************************************
-// ¹¦¡¡¡¡ÄÜ: ISAPI Cookie ÑİÊ¾
-// ´´½¨ÈÕÆÚ: baojian 2008.5.19
-// ¸üĞÂÀúÊ·: 
+ï»¿//***********************************************
+// åŠŸã€€ã€€èƒ½: ISAPI Cookie æ¼”ç¤º
+// åˆ›å»ºæ—¥æœŸ: baojian 2008.5.19
+// æ›´æ–°å†å²: 
 //***********************************************
 
 #include "stdafx.h"
@@ -41,7 +41,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
 
     // data
     char ResultStr[1024];
-    DWORD Len = sprintf(ResultStr, "<html><head><title>Isapi Cookie ÑİÊ¾</title></head>\r\n<body>ÕâÊÇÄúµÚ%d´Îä¯ÀÀ±¾Ò³Ãæ</body></html>", Count);
+    DWORD Len = sprintf(ResultStr, "<html><head><title>Isapi Cookie æ¼”ç¤º</title></head>\r\n<body>è¿™æ˜¯æ‚¨ç¬¬%dæ¬¡æµè§ˆæœ¬é¡µé¢</body></html>", Count);
     HttpCtx.WriteClient(ResultStr, Len);
 
     return HSE_STATUS_SUCCESS;

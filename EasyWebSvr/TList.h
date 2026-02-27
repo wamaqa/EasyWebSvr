@@ -1,22 +1,22 @@
-//***********************************************
-// ÎÄ¼şÃû³Æ£ºtlist.h
-// ¹¦¡¡¡¡ÄÜ£ºÁ´±íÄ£°å
-// ×÷¡¡¡¡Õß£ºwbj
-// ´´½¨ÈÕÆÚ£º2002-12-10
-// ¸üĞÂÈÕÆÚ£º2007-02-01
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼štlist.h
+// åŠŸã€€ã€€èƒ½ï¼šé“¾è¡¨æ¨¡æ¿
+// ä½œã€€ã€€è€…ï¼šwbj
+// åˆ›å»ºæ—¥æœŸï¼š2002-12-10
+// æ›´æ–°æ—¥æœŸï¼š2007-02-01
 //***********************************************
 /*
-¸üĞÂÀúÊ·:
+æ›´æ–°å†å²:
 
-2003.10.25 Ôö¼Ó RemoveValue º¯Êı
-2004.12.2  ĞŞ¸Ä SortQuick º¯ÊıµÄÒ»¸öBug
-2004.12.2  Ôö¼Ó CuteNode º¯Êı
-2004.12.3  Ôö¼Ó RemoveSame º¯Êı
-2004.12.7  Ôö¼Ó SortInsert º¯Êı
-           Ôö¼Ó AddHead, InsertBefore, InsertAfterµÈprotectedÀàĞÍº¯Êı
-2006-05-29 ĞŞÕıÁËÔÚVc2003ÏÂ±àÒë²»ÄÜÍ¨¹ıµÄBug
-2006-12-12 Ôö¼Ó»Øµ÷·½Ê½ÅÅĞò²åÈëInsertSortedº¯Êı
-2007-02-01 °ÑpNext¡¢pPrev³ÉÔ±¸ÄÎªË½ÓĞ£¬Ìá¹©GetNext()ºÍGetPrev()¹«ÓĞº¯Êı
+2003.10.25 å¢åŠ  RemoveValue å‡½æ•°
+2004.12.2  ä¿®æ”¹ SortQuick å‡½æ•°çš„ä¸€ä¸ªBug
+2004.12.2  å¢åŠ  CuteNode å‡½æ•°
+2004.12.3  å¢åŠ  RemoveSame å‡½æ•°
+2004.12.7  å¢åŠ  SortInsert å‡½æ•°
+           å¢åŠ  AddHead, InsertBefore, InsertAfterç­‰protectedç±»å‹å‡½æ•°
+2006-05-29 ä¿®æ­£äº†åœ¨Vc2003ä¸‹ç¼–è¯‘ä¸èƒ½é€šè¿‡çš„Bug
+2006-12-12 å¢åŠ å›è°ƒæ–¹å¼æ’åºæ’å…¥InsertSortedå‡½æ•°
+2007-02-01 æŠŠpNextã€pPrevæˆå‘˜æ”¹ä¸ºç§æœ‰ï¼Œæä¾›GetNext()å’ŒGetPrev()å…¬æœ‰å‡½æ•°
 */
 #ifndef __TLIST_H__
 #define __TLIST_H__
@@ -46,9 +46,9 @@ public:
   typedef NODE * POSITION;
 
 protected:
-  NODE         *pHead;     // Á´±íÍ·½ÚµãÖ¸Õë
-  NODE         *pTail;     // Á´±íÎ²½ÚµãÖ¸Õë
-  int           NodeCount; // Á´±íÖĞ½ÚµãµÄ¸öÊı
+  NODE         *pHead;     // é“¾è¡¨å¤´èŠ‚ç‚¹æŒ‡é’ˆ
+  NODE         *pTail;     // é“¾è¡¨å°¾èŠ‚ç‚¹æŒ‡é’ˆ
+  int           NodeCount; // é“¾è¡¨ä¸­èŠ‚ç‚¹çš„ä¸ªæ•°
 
 public:
   TLIST();
@@ -105,8 +105,8 @@ public:
 
   int                   CutSameGroup(TLIST &GroupList, int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2));
   void                  SortQuick(POSITION LowPos, POSITION HighPosint, int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2));
-  void                  SortQuick(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2));  // ¿ìËÙÅÅĞò
-  void                  SortInsert(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2)); // ²åÈëÅÅĞò
+  void                  SortQuick(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2));  // å¿«é€Ÿæ’åº
+  void                  SortInsert(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2)); // æ’å…¥æ’åº
   void                  Swap(POSITION Pos1, POSITION Pos2);
 
 #ifdef __BASEIO_H__
@@ -273,8 +273,8 @@ void TLIST<ARG_TYPE>::AddTail(const TLIST &OtherList)
   }
 }
 
-// ¿½±´ OtherList ´ÓÏÂ±ê BeginIndex ¿ªÊ¼µÄ Count ¸ö½Úµã
-// ·µ»ØÖµ: ³É¹¦¿½±´µÄ½Úµã¸öÊı
+// æ‹·è´ OtherList ä»ä¸‹æ ‡ BeginIndex å¼€å§‹çš„ Count ä¸ªèŠ‚ç‚¹
+// è¿”å›å€¼: æˆåŠŸæ‹·è´çš„èŠ‚ç‚¹ä¸ªæ•°
 template <class ARG_TYPE>
 int TLIST<ARG_TYPE>::CopyList(const TLIST &OtherList, int BeginIndex, int Count)
 {
@@ -499,25 +499,25 @@ void TLIST<ARG_TYPE>::RemoveAll()
 template <class ARG_TYPE>
 typename TLIST<ARG_TYPE>::POSITION TLIST<ARG_TYPE>::CutAt(POSITION Position)
 {
-  if(IsEmpty())     // Á´±íÎª¿Õ
+  if(IsEmpty())     // é“¾è¡¨ä¸ºç©º
     return NULL;
 
   if(Position == pHead || Position == pTail)
   {
-    if(pHead == pTail)           //  Ö»ÓĞÒ»¸ö½Úµã
+    if(pHead == pTail)           //  åªæœ‰ä¸€ä¸ªèŠ‚ç‚¹
       pHead = pTail = NULL;
-    else if(Position == pHead)   //   É¾³ıµÄÊÇÍ·½Úµã
+    else if(Position == pHead)   //   åˆ é™¤çš„æ˜¯å¤´èŠ‚ç‚¹
     {
       pHead = pHead->pNext;
       pHead->pPrev = NULL;
     }
-    else                         //   É¾³ıµÄÊÇÎ²½Úµã
+    else                         //   åˆ é™¤çš„æ˜¯å°¾èŠ‚ç‚¹
     {
       pTail = pTail->pPrev;
       pTail->pNext = NULL;
     }
   }
-  else   //   É¾³ıµÄÊÇÖĞ¼ä½Úµã
+  else   //   åˆ é™¤çš„æ˜¯ä¸­é—´èŠ‚ç‚¹
   {
     Position->pPrev->pNext = Position->pNext;
     Position->pNext->pPrev = Position->pPrev;
@@ -582,8 +582,8 @@ ARG_TYPE TLIST<ARG_TYPE>::RemoveTail()
   return TailData;
 }
 
-// É¾³ıÁ´±íÖĞËùÓĞÖµÎª Value µÄ½Úµã
-// ·µ»Ø³É¹¦É¾³ıµÄ½Úµã¸öÊı
+// åˆ é™¤é“¾è¡¨ä¸­æ‰€æœ‰å€¼ä¸º Value çš„èŠ‚ç‚¹
+// è¿”å›æˆåŠŸåˆ é™¤çš„èŠ‚ç‚¹ä¸ªæ•°
 template <class ARG_TYPE>
 int TLIST<ARG_TYPE>::RemoveValue(const ARG_TYPE &Value)
 {
@@ -667,8 +667,8 @@ void PrintIntList(const IntLIST &IntList, TSTRING &ResultStr)
 }
 */
 
-// É¾³ıÁ´±íÖĞµÄÖØ¸´½Úµã
-// ·µ»Ø³É¹¦É¾³ıµÄ½Úµã¸öÊı
+// åˆ é™¤é“¾è¡¨ä¸­çš„é‡å¤èŠ‚ç‚¹
+// è¿”å›æˆåŠŸåˆ é™¤çš„èŠ‚ç‚¹ä¸ªæ•°
 template <class ARG_TYPE>
 int TLIST<ARG_TYPE>::RemoveSame()
 {
@@ -692,7 +692,7 @@ int TLIST<ARG_TYPE>::RemoveSame()
   return RemoveCount;
 }
 
-// ¼ôÇĞµôÁ´±íÖĞµÄµÚÒ»¸ö½Úµã¼°ÓëµÚÒ»¸ö½ÚµãÏàÍ¬µÄËùÓĞ½Úµã£¬°Ñ¼ôÇĞµôµÄ½Úµã×é³ÉÒ»¸öĞÂµÄÁ´±í GroupList
+// å‰ªåˆ‡æ‰é“¾è¡¨ä¸­çš„ç¬¬ä¸€ä¸ªèŠ‚ç‚¹åŠä¸ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ç›¸åŒçš„æ‰€æœ‰èŠ‚ç‚¹ï¼ŒæŠŠå‰ªåˆ‡æ‰çš„èŠ‚ç‚¹ç»„æˆä¸€ä¸ªæ–°çš„é“¾è¡¨ GroupList
 template <class ARG_TYPE>
 int TLIST<ARG_TYPE>::CutSameGroup(TLIST &GroupList, int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2))
 {
@@ -719,8 +719,8 @@ int TLIST<ARG_TYPE>::CutSameGroup(TLIST &GroupList, int (*CompareFunc)(const ARG
   return GroupList.GetCount();
 }
 
-// ²åÈëÅÅĞò
-// £¨²åÈëÅÅĞòÊÇÎÈ¶¨µÄ£©
+// æ’å…¥æ’åº
+// ï¼ˆæ’å…¥æ’åºæ˜¯ç¨³å®šçš„ï¼‰
 template <class ARG_TYPE>
 inline void TLIST<ARG_TYPE>::SortInsert(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2))
 {
@@ -740,15 +740,15 @@ inline void TLIST<ARG_TYPE>::SortInsert(int (*CompareFunc)(const ARG_TYPE &Data1
   SortList.NodeCount = 0;
 }
 
-// ¿ìËÙÅÅĞò
-// £¨¿ìËÙÅÅĞòÊÇ²»ÎÈ¶¨µÄ£©
+// å¿«é€Ÿæ’åº
+// ï¼ˆå¿«é€Ÿæ’åºæ˜¯ä¸ç¨³å®šçš„ï¼‰
 template <class ARG_TYPE>
 inline void TLIST<ARG_TYPE>::SortQuick(int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2))
 {
   SortQuick(GetHeadPosition(), GetTailPosition(), CompareFunc);
 }
 
-// ¿ìËÙÅÅĞò
+// å¿«é€Ÿæ’åº
 template <class ARG_TYPE>
 void TLIST<ARG_TYPE>::SortQuick(POSITION LowPos, POSITION HighPos, int (*CompareFunc)(const ARG_TYPE &Data1, const ARG_TYPE &Data2))
 {
@@ -798,19 +798,19 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
 
   if(Pos1->pNext != Pos2)
   {
-    // ÉèÖÃ Pos1 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos1 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     (Pos1->pNext == NULL ? pTail : Pos1->pNext->pPrev) = Pos2;
 
-    // ÉèÖÃ Pos2 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos2 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     (Pos2->pPrev == NULL ? pHead : Pos2->pPrev->pNext) = Pos1;
   }
 
   if(Pos1->pPrev != Pos2)
   {
-    // ÉèÖÃ Pos1 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos1 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     (Pos1->pPrev == NULL ? pHead : Pos1->pPrev->pNext) = Pos2;
 
-    // ÉèÖÃ Pos2 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos2 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     (Pos2->pNext == NULL ? pTail : Pos2->pNext->pPrev) = Pos1;
   }
 
@@ -832,12 +832,12 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
   }
   else
   {
-    // ½»»» Pos1, Pos2 µÄ pPrev Öµ
+    // äº¤æ¢ Pos1, Pos2 çš„ pPrev å€¼
     POSITION TempPos = Pos1->pPrev;
     Pos1->pPrev = Pos2->pPrev;
     Pos2->pPrev = TempPos;
 
-    // ½»»» Pos1, Pos2 µÄ pNext Öµ
+    // äº¤æ¢ Pos1, Pos2 çš„ pNext å€¼
     TempPos = Pos1->pNext;
     Pos1->pNext = Pos2->pNext;
     Pos2->pNext = TempPos;
@@ -855,13 +855,13 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
 
   if(Pos1->pNext == Pos2)
   {
-    // ÉèÖÃ Pos1 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos1 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     if(Pos1->pPrev == NULL)
       pHead = Pos2;
     else
       Pos1->pPrev->pNext = Pos2;
 
-    // ÉèÖÃ Pos2 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos2 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     if(Pos2->pNext == NULL)
       pTail = Pos1;
     else
@@ -875,13 +875,13 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
   }
   else if(Pos1->pPrev == Pos2)
   {
-    // ÉèÖÃ Pos1 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos1 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     if(Pos1->pNext == NULL)
       pTail = Pos2;
     else
       Pos1->pNext->pPrev = Pos2;
 
-    // ÉèÖÃ Pos2 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos2 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     if(Pos2->pPrev == NULL)
       pHead = Pos1;
     else
@@ -895,36 +895,36 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
   }
   else
   {
-    // ÉèÖÃ Pos1 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos1 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     if(Pos1->pPrev == NULL)
       pHead = Pos2;
     else
       Pos1->pPrev->pNext = Pos2;
 
-    // ÉèÖÃ Pos2 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos2 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     if(Pos2->pNext == NULL)
       pTail = Pos1;
     else
       Pos2->pNext->pPrev = Pos1;
 
-    // ÉèÖÃ Pos1 µÄºóÒ»¸ö½ÚµãµÄ pPrev Öµ
+    // è®¾ç½® Pos1 çš„åä¸€ä¸ªèŠ‚ç‚¹çš„ pPrev å€¼
     if(Pos1->pNext == NULL)
       pTail = Pos2;
     else
       Pos1->pNext->pPrev = Pos2;
 
-    // ÉèÖÃ Pos2 µÄÇ°Ò»¸ö½ÚµãµÄ pNext Öµ
+    // è®¾ç½® Pos2 çš„å‰ä¸€ä¸ªèŠ‚ç‚¹çš„ pNext å€¼
     if(Pos2->pPrev == NULL)
       pHead = Pos1;
     else
       Pos2->pPrev->pNext = Pos1;
 
-    // ½»»» Pos1, Pos2 µÄ pPrev Öµ
+    // äº¤æ¢ Pos1, Pos2 çš„ pPrev å€¼
     POSITION TempPos = Pos1->pPrev;
     Pos1->pPrev = Pos2->pPrev;
     Pos2->pPrev = TempPos;
 
-    // ½»»» Pos1, Pos2 µÄ pNext Öµ
+    // äº¤æ¢ Pos1, Pos2 çš„ pNext å€¼
     TempPos = Pos1->pNext;
     Pos1->pNext = Pos2->pNext;
     Pos2->pNext = TempPos;
@@ -934,7 +934,7 @@ void TLIST<ARG_TYPE>::Swap(POSITION Pos1, POSITION Pos2)
 
 #ifdef __BASEIO_H__
 
-// °ÑÕû¸öÁ´±í±£´æµ½ pIoStream Êı¾İÁ÷ÖĞ
+// æŠŠæ•´ä¸ªé“¾è¡¨ä¿å­˜åˆ° pIoStream æ•°æ®æµä¸­
 template <class ARG_TYPE>
 bool TLIST<ARG_TYPE>::Save(BaseIO *pIoStream) const
 {
@@ -951,7 +951,7 @@ bool TLIST<ARG_TYPE>::Save(BaseIO *pIoStream) const
   return true;
 }
 
-// ´Ó pIoStream Êı¾İÁ÷ÖĞ¼ÓÔØÕû¸öÁ´±í
+// ä» pIoStream æ•°æ®æµä¸­åŠ è½½æ•´ä¸ªé“¾è¡¨
 template <class ARG_TYPE>
 bool TLIST<ARG_TYPE>::Load(BaseIO *pIoStream)
 {
@@ -981,7 +981,7 @@ bool TLIST<ARG_TYPE>::Load(BaseIO *pIoStream)
 
 #ifdef _DEBUG
 
-// ÓÃÓÚµ÷ÊÔÒ»¸öËã·¨Ê±, ÅĞ¶ÏÁ´±íµÄ½á¹¹»¹ÊÇ·ñÕıÈ·
+// ç”¨äºè°ƒè¯•ä¸€ä¸ªç®—æ³•æ—¶, åˆ¤æ–­é“¾è¡¨çš„ç»“æ„è¿˜æ˜¯å¦æ­£ç¡®
 template <class ARG_TYPE>
 bool TLIST<ARG_TYPE>::CheckList() const
 {

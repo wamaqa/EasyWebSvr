@@ -1,4 +1,4 @@
-// Ñ¡ÔñÄ¿Â¼¶Ô»°¿ò
+ï»¿// é€‰æ‹©ç›®å½•å¯¹è¯æ¡†
 // wbj 2002.12.16
 // wbj 2003.10.9
 // wbj 2004.2.6
@@ -12,16 +12,16 @@ public:
   CDirdlg();
   virtual ~CDirdlg();
 
-  BOOL DoModal(HWND hWndParent,                 // ¸¸´°¿Ú¾ä±ú
-               const TCHAR *pIniSelDir = NULL,  // ³õÊ¼Ñ¡ÖĞµÄÄ¿Â¼(¾ø¶ÔÂ·¾¶)
-               const TCHAR *pDlgTitle = NULL    // ÌáÊ¾±êÌâ
+  BOOL DoModal(HWND hWndParent,                 // çˆ¶çª—å£å¥æŸ„
+               const TCHAR *pIniSelDir = NULL,  // åˆå§‹é€‰ä¸­çš„ç›®å½•(ç»å¯¹è·¯å¾„)
+               const TCHAR *pDlgTitle = NULL    // æç¤ºæ ‡é¢˜
               );
 
   const TCHAR *GetDirPathName() { return PathName; }
 
 protected:
-  TCHAR  PathName[MAX_PATH];  // ´æ·Å·µ»ØµÄÂ·¾¶ĞÅÏ¢
-  TCHAR  IniSelDir[MAX_PATH]; // ³õÊ¼Ñ¡ÖĞµÄÄ¿Â¼Ãû
+  TCHAR  PathName[MAX_PATH];  // å­˜æ”¾è¿”å›çš„è·¯å¾„ä¿¡æ¯
+  TCHAR  IniSelDir[MAX_PATH]; // åˆå§‹é€‰ä¸­çš„ç›®å½•å
 
   static int CALLBACK BrowseCtrlCallback(HWND, UINT, LPARAM, LPARAM);
 };

@@ -1,4 +1,4 @@
-// ÏµÍ³ÍĞÅÌÀà
+ï»¿// ç³»ç»Ÿæ‰˜ç›˜ç±»
 // wbj 2003.3
 #ifndef __SYSTEMTRAY_H__
 #define __SYSTEMTRAY_H__
@@ -17,10 +17,10 @@ public:
 
   virtual void OnTrayNotification(WPARAM WParam, LPARAM LParam);
 
-  void SetMenuItemDoubleClick(UINT MenuItemId) { m_nDbClickMenuItem = MenuItemId; }  // Ë«»÷Í¼±êÊ±¶ÔÓ¦µÄ²Ëµ¥Ïî
-  void SetMenuItemLeftClick(UINT MenuItemId) { m_nLeftClickMenuItem = MenuItemId; }  // ×ó¼üµ¥»÷Í¼±êÊ±¶ÔÓ¦µÄ²Ëµ¥Ïî
+  void SetMenuItemDoubleClick(UINT MenuItemId) { m_nDbClickMenuItem = MenuItemId; }  // åŒå‡»å›¾æ ‡æ—¶å¯¹åº”çš„èœå•é¡¹
+  void SetMenuItemLeftClick(UINT MenuItemId) { m_nLeftClickMenuItem = MenuItemId; }  // å·¦é”®å•å‡»å›¾æ ‡æ—¶å¯¹åº”çš„èœå•é¡¹
 
-  void RemoveIcon();   // ÔÚ³ÌĞòÍË³öÊ±É¾³ıÍĞÅÌÍ¼±ê
+  void RemoveIcon();   // åœ¨ç¨‹åºé€€å‡ºæ—¶åˆ é™¤æ‰˜ç›˜å›¾æ ‡
   bool SetIcon(HICON hIcon);
   bool SetIcon(UINT IconIDResource);
 

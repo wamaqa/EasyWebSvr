@@ -1,9 +1,9 @@
-//***********************************************
-// ÎÄ¼þÃû³Æ£ºmtstring.h
-// ¹¦¡¡¡¡ÄÜ£º×Ö·û´®Àà
-// ×÷¡¡¡¡Õß£ºwbj
-// ´´½¨ÈÕÆÚ£º2002-10-18
-// ¸üÐÂÈÕÆÚ£º2007-02-05
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šmtstring.h
+// åŠŸã€€ã€€èƒ½ï¼šå­—ç¬¦ä¸²ç±»
+// ä½œã€€ã€€è€…ï¼šwbj
+// åˆ›å»ºæ—¥æœŸï¼š2002-10-18
+// æ›´æ–°æ—¥æœŸï¼š2007-02-05
 //***********************************************
 #ifndef __MTSTRING_H__
 #define __MTSTRING_H__
@@ -51,7 +51,7 @@ public:
   bool          operator <(const MtSTRING &OtherStr) const;
 
   operator LPCTSTR() const;
-  TCHAR        &operator[](int Index); // ÈôÊ¹ÓÃ´Ëº¯Êý½Ø¶ÏÁË×Ö·û´®, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer º¯Êý
+  TCHAR        &operator[](int Index); // è‹¥ä½¿ç”¨æ­¤å‡½æ•°æˆªæ–­äº†å­—ç¬¦ä¸², ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer å‡½æ•°
   TCHAR         operator[](int Index) const;
 
   bool          Attach(TCHAR *pOtherStr, int StrLen = -1);
@@ -74,8 +74,8 @@ public:
   void          FormatV(const TCHAR *pFormat, va_list ArgList);
 
   int           GetLength() const { return Length; }
-  TCHAR        *GetBuffer(int BufferLength);          // Ê¹ÓÃ´Ëº¯Êý¿ÉÒÔÖ±½Ó·ÃÎÊÄÚ²¿ÄÚ´æ¿Õ¼ä
-  void          ReleaseBuffer(int NewLength = -1);    // ÓÃ GetBuffer º¯Êýºó, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer º¯Êý
+  TCHAR        *GetBuffer(int BufferLength);          // ä½¿ç”¨æ­¤å‡½æ•°å¯ä»¥ç›´æŽ¥è®¿é—®å†…éƒ¨å†…å­˜ç©ºé—´
+  void          ReleaseBuffer(int NewLength = -1);    // ç”¨ GetBuffer å‡½æ•°åŽ, ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer å‡½æ•°
   void          FreeExtra();
 
   void          Empty();
@@ -174,8 +174,8 @@ inline MtSTRING operator +(TCHAR Ch, const MtSTRING &Str)
   return MtSTRING(Ch) += Str;
 }
 
-// Ö±½Ó·ÃÎÊÄÚ²¿»º³åÇø
-// ÈôÊ¹ÓÃ´Ëº¯Êý½Ø¶ÏÁË×Ö·û´®, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer º¯Êý, ÒÔÈ¡µÃÕýÈ·µÄ×Ö·û´®³¤¶È
+// ç›´æŽ¥è®¿é—®å†…éƒ¨ç¼“å†²åŒº
+// è‹¥ä½¿ç”¨æ­¤å‡½æ•°æˆªæ–­äº†å­—ç¬¦ä¸², ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer å‡½æ•°, ä»¥å–å¾—æ­£ç¡®çš„å­—ç¬¦ä¸²é•¿åº¦
 inline TCHAR &MtSTRING::operator[](int Index)
 {
   assert(Index >= 0 && Index < Length);

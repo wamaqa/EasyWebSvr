@@ -1,4 +1,4 @@
-// baojian 2007.11.15
+﻿// baojian 2007.11.15
 #include "stdafx.h"
 #include "httpparse.h"
 #include <time.h>

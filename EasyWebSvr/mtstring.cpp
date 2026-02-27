@@ -1,12 +1,12 @@
-//***********************************************
-// ÎÄ¼þÃû³Æ£ºmtstring.cpp
-// ¹¦¡¡¡¡ÄÜ£º×Ö·û´®Àà
-// ×÷¡¡¡¡Õß£ºwbj
-// ´´½¨ÈÕÆÚ£º2002-10-18
-// ¸üÐÂÈÕÆÚ£º2007-02-05
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šmtstring.cpp
+// åŠŸã€€ã€€èƒ½ï¼šå­—ç¬¦ä¸²ç±»
+// ä½œã€€ã€€è€…ï¼šwbj
+// åˆ›å»ºæ—¥æœŸï¼š2002-10-18
+// æ›´æ–°æ—¥æœŸï¼š2007-02-05
 //***********************************************
 /*
-¸üÐÂÀúÊ·:
+æ›´æ–°åŽ†å²:
 2004-06-22 Add Func "TCHAR operator[](int Index) const;"
 2006-12-18 Modify ReleaseBuffer()
 2007-01-03 Add Func ReverseFindNoCase()
@@ -91,9 +91,9 @@ MtSTRING::~MtSTRING()
   }
 }
 
-// Ê¹ÓÃ´Ëº¯Êý¿ÉÒÔÖ±½Ó·ÃÎÊÄÚ²¿ÄÚ´æ¿Õ¼ä
-// Ê¹ÓÃ´Ëº¯ÊýµÃµ½³¤¶ÈÎª BufferLength µÄÄÚ´æ»º³åÇø, Ö±½Ó·ÃÎÊÒ»¶¨²»ÄÜ³¬³ö´Ë»º³åÇø
-// ²»ÔÙÖ±½Ó·ÃÎÊÊ±, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer() º¯Êý
+// ä½¿ç”¨æ­¤å‡½æ•°å¯ä»¥ç›´æŽ¥è®¿é—®å†…éƒ¨å†…å­˜ç©ºé—´
+// ä½¿ç”¨æ­¤å‡½æ•°å¾—åˆ°é•¿åº¦ä¸º BufferLength çš„å†…å­˜ç¼“å†²åŒº, ç›´æŽ¥è®¿é—®ä¸€å®šä¸èƒ½è¶…å‡ºæ­¤ç¼“å†²åŒº
+// ä¸å†ç›´æŽ¥è®¿é—®æ—¶, ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer() å‡½æ•°
 TCHAR *MtSTRING::GetBuffer(int BufferLength)
 {
   assert(BufferLength >= 1);
@@ -105,9 +105,9 @@ TCHAR *MtSTRING::GetBuffer(int BufferLength)
   return pString;
 }
 
-// º¯Êý×÷ÓÃ: È¡µÃÐÂµÄ×Ö·û´®³¤¶È, ÖØÐÂ·ÖÅäÄÚ´æ¿Õ¼ä
-// ÓÃ GetBuffer º¯Êýºó, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer º¯Êý
-// Ê¹ÓÃoperator[]º¯Êý½Ø¶ÏÁË×Ö·û´®ºó, Ò»¶¨Òªµ÷ÓÃ ReleaseBuffer º¯Êý
+// å‡½æ•°ä½œç”¨: å–å¾—æ–°çš„å­—ç¬¦ä¸²é•¿åº¦, é‡æ–°åˆ†é…å†…å­˜ç©ºé—´
+// ç”¨ GetBuffer å‡½æ•°åŽ, ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer å‡½æ•°
+// ä½¿ç”¨operator[]å‡½æ•°æˆªæ–­äº†å­—ç¬¦ä¸²åŽ, ä¸€å®šè¦è°ƒç”¨ ReleaseBuffer å‡½æ•°
 void MtSTRING::ReleaseBuffer(int NewLength/* = -1*/)
 {
   if(NewLength == -1)
@@ -179,8 +179,8 @@ const MtSTRING &MtSTRING::operator +=(TCHAR Ch)
   return operator +=(S);
 }
 
-// pOtherStr ±ØÐëÊÇÓÃ malloc »ò realloc ·ÖÅäµÄ¿Õ¼ä
-// µ÷ÓÃ´Ëº¯Êýºó, ²»ÄÜÔÙÓÃ free ÊÍ·Å pOtherStr µÄÄÚ´æ
+// pOtherStr å¿…é¡»æ˜¯ç”¨ malloc æˆ– realloc åˆ†é…çš„ç©ºé—´
+// è°ƒç”¨æ­¤å‡½æ•°åŽ, ä¸èƒ½å†ç”¨ free é‡Šæ”¾ pOtherStr çš„å†…å­˜
 bool MtSTRING::Attach(TCHAR *pOtherStr, int StrLen)
 {
   assert(pOtherStr != NULL);
@@ -196,7 +196,7 @@ bool MtSTRING::Attach(TCHAR *pOtherStr, int StrLen)
   return true;
 }
 
-// ´Ëº¯ÊýµÄ·µ»ØÖµÒ»¶¨Òª¼ÇµÃÓÃ free º¯ÊýÊÍ·Å¿Õ¼ä
+// æ­¤å‡½æ•°çš„è¿”å›žå€¼ä¸€å®šè¦è®°å¾—ç”¨ free å‡½æ•°é‡Šæ”¾ç©ºé—´
 TCHAR *MtSTRING::Detach(int *pStrLen)
 {
   TCHAR *pStrRet = pString;
@@ -293,19 +293,19 @@ void MtSTRING::Format(const TCHAR *pFormat, ...)
 {
   assert(pFormat);
 
-  va_list ArgList;            // µÈ¼ÛÓÚ char *ArgList;
-  va_start(ArgList, pFormat); // ¸ø ArgList ¸³Öµ£¬µÈ¼ÛÓÚ ArgList = (char *)(&pFormat) + sizeof(void *);
+  va_list ArgList;            // ç­‰ä»·äºŽ char *ArgList;
+  va_start(ArgList, pFormat); // ç»™ ArgList èµ‹å€¼ï¼Œç­‰ä»·äºŽ ArgList = (char *)(&pFormat) + sizeof(void *);
 
   FormatV(pFormat, ArgList);
   
-  va_end(ArgList);            // µÈ¼ÛÓÚ ArgList = NULL;
+  va_end(ArgList);            // ç­‰ä»·äºŽ ArgList = NULL;
 }
 
 void MtSTRING::FormatV(const TCHAR *pFormat, va_list ArgList)
 {
   assert(pFormat);
 
-#if _MSC_VER >= 1300  // VC++.NET »òÒÔÉÏ°æ±¾
+#if _MSC_VER >= 1300  // VC++.NET æˆ–ä»¥ä¸Šç‰ˆæœ¬
 
   TCHAR *pBuf = GetBuffer(_vsctprintf(pFormat, ArgList) + 1);
   _vstprintf(pBuf, pFormat, ArgList);
@@ -313,14 +313,14 @@ void MtSTRING::FormatV(const TCHAR *pFormat, va_list ArgList)
 #else
 
   TCHAR *pBuf = GetBuffer(1024);
-  _vsntprintf(pBuf, 1024, pFormat, ArgList); //  Format ºó×Ö·û´®×î´ó³¤¶ÈÎª 1023
+  _vsntprintf(pBuf, 1024, pFormat, ArgList); //  Format åŽå­—ç¬¦ä¸²æœ€å¤§é•¿åº¦ä¸º 1023
 
 #endif
 
   ReleaseBuffer();
 }
 
-// °Ñ´ÓÏÂ±ê BeginIndex ¿ªÊ¼µÄ Count ¸ö×Ö·ûÌæ»»³É pNewStr
+// æŠŠä»Žä¸‹æ ‡ BeginIndex å¼€å§‹çš„ Count ä¸ªå­—ç¬¦æ›¿æ¢æˆ pNewStr
 int MtSTRING::Replace(int BeginIndex, int Count, const TCHAR *pNewStr)
 {
   assert(BeginIndex >= 0 && BeginIndex <= Length);

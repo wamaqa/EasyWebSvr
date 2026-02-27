@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "cgilib.h"
 #include "cgihtml.h"
 #include "mtstring.h"
@@ -14,7 +14,7 @@ static char RecordFileName[300];
 static const TCHAR *pViewTextBegin = 
   _T("<html>\n")
   _T("<head>\n")
-  _T("<title>ÁôÑÔ±¾</title>\n")
+  _T("<title>ç•™è¨€æœ¬</title>\n")
   _T("<style>\n")
   _T("<!-- \n")
   _T("p\n")
@@ -28,7 +28,7 @@ static const TCHAR *pViewTextBegin =
   _T("</style>\n")
   _T("</head>\n")
   _T("<body>\n")
-  _T("<p><span class='title'><center><h1>Áô  ÑÔ  ±¾</h1></center></span>\n")
+  _T("<p><span class='title'><center><h1>ç•™  è¨€  æœ¬</h1></center></span>\n")
   _T("</p>\n")
   _T("<center>\n")
   _T("<table border=\"1\" cellpadding=\"0\" cellspacing=\"0\" bordercolorlight=\"#C0C0C0\" bordercolordark=\"#FFFFFF\" style=\"font-size: 9pt\" width=650>\n");
@@ -38,15 +38,15 @@ static const TCHAR *pViewTextEndFormat =
   _T("</table>\n")
   _T("</center>\n")
   _T("<form action=\"%s?func=add\" method=\"post\">\n")
-  _T("<center><p>ĞÕÃû£º\n")
+  _T("<center><p>å§“åï¼š\n")
   _T("<input type=\"text\" name=\"name\">\n")
-  _T("<p>ĞÔ±ğ£º<input type=\"radio\" name=\"sex\" value=\"0\">Å®ĞÔ\n")
-  _T("<input type=\"radio\" name=\"sex\" value=\"1\">ÄĞĞÔ\n")
-  _T("<p>EMail£º<input type£½\"Text\" name=\"email\" value=\"\">\n")
-  _T("<p>ÎÒÒªÁôÑÔ£º</p>\n")
+  _T("<p>æ€§åˆ«ï¼š<input type=\"radio\" name=\"sex\" value=\"0\">å¥³æ€§\n")
+  _T("<input type=\"radio\" name=\"sex\" value=\"1\">ç”·æ€§\n")
+  _T("<p>EMailï¼š<input typeï¼\"Text\" name=\"email\" value=\"\">\n")
+  _T("<p>æˆ‘è¦ç•™è¨€ï¼š</p>\n")
   _T("<textarea name=\"content\" rows=15 cols=95%%></textarea>\n")
-  _T("<p><input type=submit value=\"·¢ ±í\">\n")
-  _T("<input type=reset value=\"Çå³ıÖØĞ´\"></p>\n")
+  _T("<p><input type=submit value=\"å‘ è¡¨\">\n")
+  _T("<input type=reset value=\"æ¸…é™¤é‡å†™\"></p>\n")
   _T("</form>\n")
   _T("</center>\n")
   _T("</body>\n")
@@ -78,9 +78,9 @@ void ViewTextMsg(CgiDATA &Cgi)
     while(TextMsg.ReadFile(pFile))
     {
       printf("<tr height=20  bgcolor=\"#DADADA\">\n");
-      printf("<td>×÷Õß: %s </td>\n", TextMsg.Name);
-      printf("<td>ĞÔ±ğ: %s </td>\n", TextMsg.bSex ? _T("ÄĞ") : _T("Å®"));
-      printf("<td>ÓÊ¼ş: %s </td>\n", TextMsg.Mail);
+      printf("<td>ä½œè€…: %s </td>\n", TextMsg.Name);
+      printf("<td>æ€§åˆ«: %s </td>\n", TextMsg.bSex ? _T("ç”·") : _T("å¥³"));
+      printf("<td>é‚®ä»¶: %s </td>\n", TextMsg.Mail);
 
       _stprintf(TimeStr, _T("%4d-%d-%d %02d:%02d:%02d"),
         TextMsg.Time.wYear, TextMsg.Time.wMonth, TextMsg.Time.wDay, 
@@ -115,7 +115,7 @@ void JumpNewPage(const TCHAR *pUrl, const TCHAR *pContent, int TimeSecond = 0)
   printf(_T("<html>\n"));
   printf(_T("<head>"));
   printf(_T("<meta http-equiv=\"refresh\" content=\"%d; url=%s\">"), TimeSecond, pUrl);
-  printf(_T("<title>ÕıÔÚÌø×ª...</title>\n"));
+  printf(_T("<title>æ­£åœ¨è·³è½¬...</title>\n"));
   printf(_T("</head>\n"));
   printf(_T("<body>%s</body></html>\n"), pContent);
 }
@@ -132,7 +132,7 @@ void AddTextMsg(CgiDATA &Cgi)
   char *pText = Cgi.GetValue(_T("content"));
   if(ISEMPTY(pName) || ISEMPTY(pMail) || ISEMPTY(pText))
   {
-    JumpNewPage(pScriptName, "ĞÕÃû¡¢ÓÊ¼ş¡¢ÄÚÈİ²»ÄÜÎª¿Õ", 2);
+    JumpNewPage(pScriptName, "å§“åã€é‚®ä»¶ã€å†…å®¹ä¸èƒ½ä¸ºç©º", 2);
     return;
   }
   lstrcpyn(NewMsg.Name, pName, ARRAY_SIZE(NewMsg.Name) - 1);
@@ -145,13 +145,13 @@ void AddTextMsg(CgiDATA &Cgi)
   FILE *pFile = _tfopen(RecordFileName, _T("ab"));
   if(pFile == NULL)
   {
-    printf("Ğ´Êı¾İÎÄ¼şÊ§°Ü£¡");
+    printf("å†™æ•°æ®æ–‡ä»¶å¤±è´¥ï¼");
     return;
   }
   NewMsg.WriteFile(pFile);
   fclose(pFile);
 
-  JumpNewPage(pScriptName, "ÁôÑÔ³É¹¦£¬ÕıÔÚÌø×ª...", 1);
+  JumpNewPage(pScriptName, "ç•™è¨€æˆåŠŸï¼Œæ­£åœ¨è·³è½¬...", 1);
 }
 
 void main(int argc,char *argv[])
@@ -181,17 +181,17 @@ void main(int argc,char *argv[])
 }
 
 /*
-ÈçºÎµ÷ÊÔCGI³ÌĞò£¿
-´ğ£º¿ÉÒÔÍ¨¹ıÉèÖÃËÀÑ­»·µÄ·½·¨¡£¾ßÌåÈçÏÂ£º
-±ÈÈçÓĞCGI³ÌĞòcgi.exe
-1). ÔÚcgi.exeµÄ´úÂë×î¿ªÊ¼¼ÓÉÏÈçÏÂ´úÂë
+å¦‚ä½•è°ƒè¯•CGIç¨‹åºï¼Ÿ
+ç­”ï¼šå¯ä»¥é€šè¿‡è®¾ç½®æ­»å¾ªç¯çš„æ–¹æ³•ã€‚å…·ä½“å¦‚ä¸‹ï¼š
+æ¯”å¦‚æœ‰CGIç¨‹åºcgi.exe
+1). åœ¨cgi.exeçš„ä»£ç æœ€å¼€å§‹åŠ ä¸Šå¦‚ä¸‹ä»£ç 
     int i = 1;
     while(i == 1)
     {
       Sleep(100);
     }
-2). ÔÚwhile´¦ÉèÖÃ¶Ïµã
-3). Í¨¹ıÍøÒ³Ö´ĞĞ´Ëcgi³ÌĞò¡£Ôòcgi³ÌĞò±Ø¶¨»áÔÚ´ËÏİÈëËÀÑ­»·
-4). µ½VcÖĞµ÷ÊÔ½ø³Ì£¬Ñ¡Ôñcgi.exe£¬¾Í»áÔÚwhile¶Ïµã´¦Í£ÏÂ
-5). È»ºóÔÚ¾Ö²¿±äÁ¿¼àÊÓÆ÷ÖĞ£¬ÊÖ¹¤°ÑiµÄÖµ¸ÄÎª0£¬ÕâÑù¾Í¿ÉÒÔÌø³öÑ­»·£¬½Ó×ÅÏòÏÂ¸ú×ÙÁË
+2). åœ¨whileå¤„è®¾ç½®æ–­ç‚¹
+3). é€šè¿‡ç½‘é¡µæ‰§è¡Œæ­¤cgiç¨‹åºã€‚åˆ™cgiç¨‹åºå¿…å®šä¼šåœ¨æ­¤é™·å…¥æ­»å¾ªç¯
+4). åˆ°Vcä¸­è°ƒè¯•è¿›ç¨‹ï¼Œé€‰æ‹©cgi.exeï¼Œå°±ä¼šåœ¨whileæ–­ç‚¹å¤„åœä¸‹
+5). ç„¶ååœ¨å±€éƒ¨å˜é‡ç›‘è§†å™¨ä¸­ï¼Œæ‰‹å·¥æŠŠiçš„å€¼æ”¹ä¸º0ï¼Œè¿™æ ·å°±å¯ä»¥è·³å‡ºå¾ªç¯ï¼Œæ¥ç€å‘ä¸‹è·Ÿè¸ªäº†
 */

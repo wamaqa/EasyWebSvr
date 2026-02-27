@@ -1,8 +1,8 @@
-// baojian 2007.11.15
+﻿// baojian 2007.11.15
 #ifndef __HTTPPARSE_H__
 #define __HTTPPARSE_H__
 #pragma once
-
+#include <string>
 struct CKeyNode
 {
     char *pName;

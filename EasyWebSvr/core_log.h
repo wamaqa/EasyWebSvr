@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #define GID_NETSERVER          1  
 #define GID_WEBSERVER          2
@@ -26,7 +26,7 @@ private:
 //////////////////////////////////////////////////////////////////////////
 
 //#ifdef _DEBUG
-    #define _ENABLE_LOG       // ÊÇ·ñÆôÓÃÈÕÖ¾Êä³ö
+    #define _ENABLE_LOG       // æ˜¯å¦å¯ç”¨æ—¥å¿—è¾“å‡º
 //#endif
 
 #if _MSC_VER >= 1300

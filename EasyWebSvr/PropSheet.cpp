@@ -1,4 +1,4 @@
-// wbj 2006.1.5
+ï»¿// wbj 2006.1.5
 
 #include "stdafx.h"
 #include "propsheet.h"
@@ -119,7 +119,7 @@ BOOL PropertySHEET::ImpAddPage(PropertyPAGE *pPage)
   ::ScreenToClient(m_hWnd, &(((POINT *)(&Rect))[1]));
   MoveWindow(pPage->m_hWnd, Rect.left + 2, Rect.top + HeadRect.bottom + 2, 
     Rect.right - Rect.left - 4, Rect.bottom - Rect.top - HeadRect.bottom - 4, 0);
-  SetWindowPos(pPage->m_hWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE); // ÈÃSpy++¿ÉÒÔÑ¡ÖĞ¸Ã¶Ô»°¿ò×Ó´°¿Ú
+  SetWindowPos(pPage->m_hWnd, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE); // è®©Spy++å¯ä»¥é€‰ä¸­è¯¥å¯¹è¯æ¡†å­çª—å£
   return TRUE;
 }
 
@@ -134,7 +134,7 @@ BOOL PropertySHEET::SetActivePage(int Index)
     ::ShowWindow(pPageArray[CurPageIndex]->m_hWnd, SW_HIDE);
     ::ShowWindow(pPageArray[Index]->m_hWnd, SW_SHOW);
 
-    TabCtrl_SetCurSel(hWndTabCtrl, Index); // ²»»á¼¤·¢TCN_SELCHANGE
+    TabCtrl_SetCurSel(hWndTabCtrl, Index); // ä¸ä¼šæ¿€å‘TCN_SELCHANGE
   }
   CurPageIndex = Index;
   return TRUE;

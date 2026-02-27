@@ -1,10 +1,10 @@
-// stdafx.h : ╠Йв╪о╣мЁ╟Э╨╛нд╪Ч╣д╟Э╨╛нд╪Чё╛
-// ╩РйгЁёсц╣╚╡╩Ёё╦Э╦д╣доНд©ль╤╗╣д╟Э╨╛нд╪Ч
+О╩©// stdafx.h : Ф═┤Е┤├ГЁ╩Г╩÷Е▄┘Е░╚Ф√┤Д╩╤Г └Е▄┘Е░╚Ф√┤Д╩╤О╪▄
+// Ф┬√Ф≤╞Е╦╦Г■╗Д╫├Д╦█Е╦╦Ф⌡╢Ф■╧Г └И║╧Г⌡╝Г┴╧Е╝ Г └Е▄┘Е░╚Ф√┤Д╩╤
 //
 
 #pragma once
-#define WIN32_LEAN_AND_MEAN		// ╢с Windows м╥жпееЁЩ╪╚иый╧сц╣двйао
-// Windows м╥нд╪Ч:
+#define WIN32_LEAN_AND_MEAN		// Д╩▌ Windows Е╓╢Д╦╜Ф▌▓И≥╓Ф·│Е╟▒Д╫©Г■╗Г └Х╣└Ф√≥
+// Windows Е╓╢Ф√┤Д╩╤:
 #include <windows.h>
 #include <tchar.h>
 #include <process.h>

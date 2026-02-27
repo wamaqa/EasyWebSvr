@@ -1,4 +1,4 @@
-// wbj 2006.1.5
+﻿// wbj 2006.1.5
 
 #pragma once
 #include "basedlg.h"

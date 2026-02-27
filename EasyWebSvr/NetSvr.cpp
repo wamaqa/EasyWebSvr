@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "netsvr.h"
 
 #define DEFAULT_SERVER_PORT 5050
@@ -28,7 +28,7 @@ BOOL CNetServer::Init(int Port, int MaxThreadNum)
     assert(Port >= 1 && Port <= 65535);
     if(Port <= 0 || Port > 65535)
     {
-        LastErrStr = _T("¶Ë¿Ú±ØĞëÔÚ1--65535Ö®¼ä");
+        LastErrStr = _T("ç«¯å£å¿…é¡»åœ¨1--65535ä¹‹é—´");
         return FALSE;
     }
     assert(MaxThreadNum >= 0);
@@ -42,7 +42,7 @@ BOOL CNetServer::StartServer()
 {
     if(ListenSocket.IsValidSocket())
     {
-        LastErrStr = _T("·şÎñÆ÷ÒÑ¾­Æô¶¯");
+        LastErrStr = _T("æœåŠ¡å™¨å·²ç»å¯åŠ¨");
         return FALSE;
     }
 
@@ -55,8 +55,8 @@ BOOL CNetServer::StartServer()
     if(!ListenSocket.Bind(ListenPort))
     {
         //LastErrStr = _T("Bind Port Error");
-        //LastErrStr.Format(_T("°ó¶¨µ½%d¶Ë¿ÚÊ§°Ü"), ListenPort);
-        LastErrStr.Format(_T("Çë¼ì²é%d¶Ë¿ÚÊÇ·ñ±»Õ¼ÓÃ"), ListenPort);
+        //LastErrStr.Format(_T("ç»‘å®šåˆ°%dç«¯å£å¤±è´¥"), ListenPort);
+        LastErrStr.Format(_T("è¯·æ£€æŸ¥%dç«¯å£æ˜¯å¦è¢«å ç”¨"), ListenPort);
         ListenSocket.Close();
         return FALSE;
     }
@@ -151,7 +151,7 @@ BOOL CNetServer::StopServer()
 {
     if(ListenSocket.GetHandle() == INVALID_SOCKET)
     {
-        LastErrStr = "·şÎñÆ÷Ã»ÓĞÆô¶¯";
+        LastErrStr = "æœåŠ¡å™¨æ²¡æœ‰å¯åŠ¨";
         return FALSE;
     }
 

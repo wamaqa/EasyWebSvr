@@ -1,4 +1,4 @@
-// Ñ¡ÔñÄ¿Â¼¶Ô»°¿ò
+ï»¿// é€‰æ‹©ç›®å½•å¯¹è¯æ¡†
 // wbj 2002.12.16
 // wbj 2003.10.9
 // wbj 2004.2.6
@@ -21,7 +21,7 @@ CDirdlg::~CDirdlg()
 {
 }
 
-// SHBrowseForFolder¿Ø¼þÔÚ³õÊ¼»¯»òÑ¡Ôñ¸Ä±äºóµÄ»Øµ÷º¯Êý
+// SHBrowseForFolderæŽ§ä»¶åœ¨åˆå§‹åŒ–æˆ–é€‰æ‹©æ”¹å˜åŽçš„å›žè°ƒå‡½æ•°
 int CALLBACK CDirdlg::BrowseCtrlCallback(HWND hWnd, UINT Msg, LPARAM LParam, LPARAM pData) // static
 {
   CDirdlg *pDirDlg = (CDirdlg *)pData;
@@ -47,9 +47,9 @@ BOOL CDirdlg::DoModal(HWND hWndParent, const TCHAR *pIniSelDir, const TCHAR *pDl
 
   Bi.hwndOwner      = hWndParent;
   Bi.pszDisplayName = PathName;
-  Bi.lpszTitle      = (pDlgTitle && *pDlgTitle) ? pDlgTitle : _T("ÇëÑ¡ÔñÄ¿Â¼:");
+  Bi.lpszTitle      = (pDlgTitle && *pDlgTitle) ? pDlgTitle : _T("è¯·é€‰æ‹©ç›®å½•:");
   Bi.ulFlags        = BIF_RETURNONLYFSDIRS;
-  Bi.lpfn           = BrowseCtrlCallback;   //»Øµ÷º¯ÊýµØÖ·
+  Bi.lpfn           = BrowseCtrlCallback;   //å›žè°ƒå‡½æ•°åœ°å€
   Bi.lParam         = (LPARAM)this;
 
   if(pIniSelDir && pIniSelDir[0])
@@ -60,7 +60,7 @@ BOOL CDirdlg::DoModal(HWND hWndParent, const TCHAR *pIniSelDir, const TCHAR *pDl
     if(SelDirLen > 0 && IniSelDir[SelDirLen - 1] == _T('\\'))
       IniSelDir[SelDirLen - 1] = _T('\0');
 
-    if(SelDirLen >= 2 && IniSelDir[1] == _T(':') && IniSelDir[2] == 0)  // ÓÐ´ýµ½ Win98 ÏÂ²âÊÔ
+    if(SelDirLen >= 2 && IniSelDir[1] == _T(':') && IniSelDir[2] == 0)  // æœ‰å¾…åˆ° Win98 ä¸‹æµ‹è¯•
       lstrcat(IniSelDir, _T("\\"));
   }
   else

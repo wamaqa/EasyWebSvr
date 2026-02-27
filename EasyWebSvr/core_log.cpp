@@ -1,4 +1,4 @@
-#include <windows.h>
+ï»¿#include <windows.h>
 #include <stdio.h>
 #include <crtdbg.h>
 #include "core_log.h"
@@ -203,15 +203,15 @@ void log_device_manager::put(int module, const char *pLog)
 
 void OutputDebugInfo(int ModuleID, const char *pFormat, ...)
 {
-    va_list ArgList;            // µÈ¼ÛÓÚ char *ArgList;
-    va_start(ArgList, pFormat); // ¸ø ArgList ¸³Öµ£¬µÈ¼ÛÓÚ ArgList = (char *)(&pFormat) + sizeof(void *);
+    va_list ArgList;            // ç­‰ä»·äº char *ArgList;
+    va_start(ArgList, pFormat); // ç»™ ArgList èµ‹å€¼ï¼Œç­‰ä»·äº ArgList = (char *)(&pFormat) + sizeof(void *);
 
     char Buffer[1024];
-    int Ret = _vsnprintf(Buffer, 1024, pFormat, ArgList); //  Format ºó×Ö·û´®×î´ó³¤¶ÈÎª 1023
+    int Ret = _vsnprintf(Buffer, 1024, pFormat, ArgList); //  Format åå­—ç¬¦ä¸²æœ€å¤§é•¿åº¦ä¸º 1023
     if(Ret < 0)
         Buffer[1023] = '\0';
 
-    va_end(ArgList);            // µÈ¼ÛÓÚ ArgList = NULL;
+    va_end(ArgList);            // ç­‰ä»·äº ArgList = NULL;
 
     log_device_manager::instance().put(ModuleID, Buffer);
 }

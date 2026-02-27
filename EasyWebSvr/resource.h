@@ -1,4 +1,4 @@
-//{{NO_DEPENDENCIES}}
+Ôªø//{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
 // Used by EasyWebSvr.rc
 //
@@ -32,17 +32,17 @@
 #define IDI_TRAYSTOP                    307
 #define IDD_ENGINE                      308
 
-// ÷˜ΩÁ√Ê
+// ‰∏ªÁïåÈù¢
 #define IDC_BTN_STARTSTOP               1001
 #define IDC_BTN_SHOWMENU                1002
 
-// πÿ”⁄
+// ÂÖ≥‰∫é
 #define IDC_STATIC_ABOUT                1003
 
-// ≈‰÷√
+// ÈÖçÁΩÆ
 #define IDC_TAB_CONFIG                  1011
 
-// ≥£πÊ
+// Â∏∏ËßÑ
 #define IDC_EDIT_ROOTDIR                1012
 #define IDC_BTN_BROWSE                  1013
 #define IDC_EDIT_PORT                   1014
@@ -50,10 +50,10 @@
 #define IDC_EDIT_TIMEOUT                1016
 #define IDC_CHECK_AUTORUN               1017
 
-// Œƒµµ
+// ÊñáÊ°£
 #define IDC_EDIT_DEFAULTHTML            1018
 
-// »®œﬁ
+// ÊùÉÈôê
 #define IDC_CHECK_ENABLECGI             1019
 #define IDC_CHECK_ENABLEISAPI           1020
 #define IDC_CHECK_ISAPICACHE            1021
@@ -62,7 +62,7 @@
 #define IDC_RADIO_SHOWDIR1              1024
 #define IDC_RADIO_SHOWDIR2              1025
 
-// ”≥…‰
+// Êò†Â∞Ñ
 #define IDC_LIST_MAP                    1031
 #define IDC_BTN_ADD                     1032
 #define IDC_BTN_EDIT                    1033
@@ -70,7 +70,7 @@
 #define IDC_EDIT_EXTNAME                1035
 #define IDC_EDIT_ENGINEPATH             1036
 
-// »’÷æ
+// Êó•Âøó
 #define IDC_LIST_LOG                    1037
 #define IDC_CHECK_LOGTOWINDOW           1038
 #define IDC_EDIT_MAXLOGWNDLINE          1039

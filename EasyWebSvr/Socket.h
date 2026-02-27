@@ -1,4 +1,4 @@
-#ifndef __BASESOCKET_H__
+Ôªø#ifndef __BASESOCKET_H__
 #define __BASESOCKET_H__
 #pragma once
 
@@ -13,7 +13,7 @@ namespace minilib
   #define WSAEVENT      HANDLE
 #endif
 
-// SOCKET ª˘¿‡
+// SOCKET Âü∫Á±ª
 // wbj 2003.4.4
 // wbj 2003.6.24  add SendTo, ReceiveFrom
 // wbj 2003.10    add SendAll, RecvAll
@@ -275,7 +275,7 @@ inline void BaseSOCKET::LongToDotIp(unsigned long LongIp, char *pStrIpBuf, int B
     (int)((BYTE *)&LongIp)[1], (int)((BYTE *)&LongIp)[2], (int)((BYTE *)&LongIp)[3]);
 }
 
-//  «∑Ò≤…”√—” ±À„∑® 
+// ÊòØÂê¶ÈááÁî®Âª∂Êó∂ÁÆóÊ≥ï 
 inline bool BaseSOCKET::SetOptNoDelay(BOOL bNoDelay)
 {
   assert(hSocket != INVALID_SOCKET);

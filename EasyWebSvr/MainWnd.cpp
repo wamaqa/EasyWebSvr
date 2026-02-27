@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "resource.h"
 #include "FileDlg.h"
 #include "cmncode.h"
@@ -67,7 +67,7 @@ static BOOL WritePrivateProfileInt(LPCTSTR pAppName, LPCTSTR pKeyName, int IntVa
     return ::WritePrivateProfileString(pAppName, pKeyName, TempStr, pFileName);
 }
 
-// Ğ´µ½×¢²á±íµÄÆô¶¯×é
+// å†™åˆ°æ³¨å†Œè¡¨çš„å¯åŠ¨ç»„
 static BOOL WriteRegStartRun(BOOL bStartRun)
 {
     char RegKeyPos[] = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -147,7 +147,7 @@ CMainWnd::CMainWnd()
     // Create Font
     LOGFONT LogFont;
     ::memset(&LogFont, 0, sizeof(LOGFONT));
-    lstrcpy(LogFont.lfFaceName, "ËÎÌå");
+    lstrcpy(LogFont.lfFaceName, "å®‹ä½“");
     LogFont.lfWeight = 400;
     LogFont.lfHeight = -12;
     LogFont.lfCharSet = 134;
@@ -195,7 +195,7 @@ LONG CMainWnd::OnInitMenuPop(WPARAM WParam, LPARAM LParam)
     EnableMenuItem(hMenuTray, IDM_TRAY_RESTARTSERVER, (bRunning ? MF_ENABLED : MF_GRAYED) | MF_BYCOMMAND);
     EnableMenuItem(hMenuTray, IDM_TRAY_BROWSE, (bRunning ? MF_ENABLED : MF_GRAYED) | MF_BYCOMMAND);
 
-    const TCHAR *pMenuItemName = IsWindowVisible(m_hWnd) ? "Òş²ØÖ÷´°¿Ú" : "ÏÔÊ¾Ö÷´°¿Ú";
+    const TCHAR *pMenuItemName = IsWindowVisible(m_hWnd) ? "éšè—ä¸»çª—å£" : "æ˜¾ç¤ºä¸»çª—å£";
     ModifyMenu(hMenuTray, IDM_TRAY_MAINWND, MF_BYCOMMAND | MF_STRING, IDM_TRAY_MAINWND, pMenuItemName);
     return 0;
 }
@@ -207,7 +207,7 @@ LONG CMainWnd::OnPaint(WPARAM WParam, LPARAM LParam)
 
     ::SetBkMode(hDc, TRANSPARENT);
     HFONT hFontOld = (HFONT)::SelectObject(hDc, hFontList);
-    ::TextOut(hDc, 0, 8, "·ÃÎÊÈÕÖ¾:", 9);
+    ::TextOut(hDc, 0, 8, "è®¿é—®æ—¥å¿—:", 9);
     ::SelectObject(hDc, hFontOld);
 
     EndPaint(m_hWnd, &Ps);
@@ -240,7 +240,7 @@ LONG CMainWnd::OnCreate(WPARAM WParam, LPARAM LParam)
 
     hTooltips = CreateTooltips(m_hWnd);
     AddTooltips(hTooltips, m_hWnd, BtnStartStop.m_hWnd, LPSTR_TEXTCALLBACK, TRUE);
-    AddTooltips(hTooltips, m_hWnd, BtnShowMenu.m_hWnd, "ÏÔÊ¾²Ëµ¥");
+    AddTooltips(hTooltips, m_hWnd, BtnShowMenu.m_hWnd, "æ˜¾ç¤ºèœå•");
 
     BOOL bShowWnd = TRUE, bStartRun = FALSE;
     LoadStartParam(bShowWnd, bStartRun);
@@ -301,15 +301,15 @@ LONG CMainWnd::OnNotify(WPARAM WParam, LPARAM LParam)
         LPNMTTDISPINFO pDispInfo = (LPNMTTDISPINFO)LParam;
         char TipsText[100];
         if(WebServer.IsServerRunning())
-            lstrcpy(TipsText, "Í£Ö¹·şÎñÆ÷");
+            lstrcpy(TipsText, "åœæ­¢æœåŠ¡å™¨");
         else
-            lstrcpy(TipsText, "Æô¶¯·şÎñÆ÷");
+            lstrcpy(TipsText, "å¯åŠ¨æœåŠ¡å™¨");
         pDispInfo->lpszText = TipsText;
     }
     return 0;
 }
 
-// ÏµÍ³¹Ø»ú
+// ç³»ç»Ÿå…³æœº
 LONG CMainWnd::OnEndSession(WPARAM WParam, LPARAM LParam)
 {
     CloseApplication(FALSE);
@@ -334,7 +334,7 @@ LONG CMainWnd::OnTrayBrowse(WPARAM WParam, LPARAM LParam)
 {
     if(!WebServer.IsServerRunning())
     {
-        MessageBox(m_hWnd, "ÇëÏÈÆô¶¯·şÎñÆ÷", APP_TITLE, MB_ICONWARNING);
+        MessageBox(m_hWnd, "è¯·å…ˆå¯åŠ¨æœåŠ¡å™¨", APP_TITLE, MB_ICONWARNING);
         return 0;
     }
     else
@@ -358,20 +358,20 @@ LONG CMainWnd::OnStartServer(WPARAM WParam, LPARAM LParam)
 {
     if(WebServer.IsServerRunning())
     {
-        MessageBox(m_hWnd, "·şÎñÆ÷ÒÑ¾­Æô¶¯!", APP_TITLE, MB_ICONWARNING);
+        MessageBox(m_hWnd, "æœåŠ¡å™¨å·²ç»å¯åŠ¨!", APP_TITLE, MB_ICONWARNING);
         return TRUE;
     }
 
     if(!WebServer.Init(ServerConfig) || !WebServer.StartServer())
     {
         MtSTRING ErrText;
-        ErrText.Format(_T("Æô¶¯·şÎñÆ÷Ê§°Ü! (%s)"), (LPCTSTR)WebServer.GetLastErrStr());
+        ErrText.Format(_T("å¯åŠ¨æœåŠ¡å™¨å¤±è´¥! (%s)"), (LPCTSTR)WebServer.GetLastErrStr());
         WebServer.SvrLog.ListBoxLog.AddLog(ErrText, TRUE);
         return TRUE;
     }
 
     MtSTRING LogText;
-    LogText.Format("·şÎñÆ÷³É¹¦Æô¶¯! (%s:%d)", 
+    LogText.Format("æœåŠ¡å™¨æˆåŠŸå¯åŠ¨! (%s:%d)", 
         (LPCTSTR)ServerConfig.RootDirectory, ServerConfig.ListenPort);
     WebServer.SvrLog.ListBoxLog.AddLog(LogText, TRUE);
 
@@ -384,7 +384,7 @@ void CMainWnd::SetServerStatusView(BOOL bRunning)
     if(bRunning)
     {
         MtSTRING StatusText;
-        StatusText.Format("·şÎñÆ÷ÔËĞĞÖĞ... (%s)", 
+        StatusText.Format("æœåŠ¡å™¨è¿è¡Œä¸­... (%s)", 
             (LPCTSTR)ServerConfig.RootDirectory);
         StatusBar.SetPaneText(0, StatusText);
         StatusText.Format("127.0.0.1:%d", ServerConfig.ListenPort);
@@ -393,17 +393,17 @@ void CMainWnd::SetServerStatusView(BOOL bRunning)
         BtnStartStop.SetIcon(IDI_LEDRUN);
 
         SysTray.SetIcon(IDI_TRAYRUN);
-        SysTray.SetTooltipText("EasyWebServer - ÔËĞĞÖĞ");
+        SysTray.SetTooltipText("EasyWebServer - è¿è¡Œä¸­");
     }
     else
     {
-        StatusBar.SetPaneText(0, "·şÎñÆ÷ÒÑÍ£Ö¹");
+        StatusBar.SetPaneText(0, "æœåŠ¡å™¨å·²åœæ­¢");
         StatusBar.SetPaneText(3, _T("0.0.0.0:0"));
 
         BtnStartStop.SetIcon(IDI_LEDSTOP);
 
         SysTray.SetIcon(IDI_TRAYSTOP);
-        SysTray.SetTooltipText("EasyWebServer - ÒÑÍ£Ö¹");
+        SysTray.SetTooltipText("EasyWebServer - å·²åœæ­¢");
     }
 }
 
@@ -415,7 +415,7 @@ LONG CMainWnd::OnStopServer(WPARAM WParam, LPARAM LParam)
         return TRUE;
     }
 
-    WebServer.SvrLog.ListBoxLog.AddLog("·şÎñÆ÷³É¹¦Í£Ö¹!", TRUE);
+    WebServer.SvrLog.ListBoxLog.AddLog("æœåŠ¡å™¨æˆåŠŸåœæ­¢!", TRUE);
     SetServerStatusView(FALSE);
     return 0;
 }
@@ -459,7 +459,7 @@ LONG CMainWnd::OnTrayConfig(WPARAM WParam, LPARAM LParam)
 
             if(WebServer.IsServerRunning())
             {
-                int Ret = MessageBox(m_hWnd, "ÒªÏëÉèÖÃÉúĞ§£¬±ØĞëÖØÆô·şÎñÆ÷£¬ÒªÖØÆôÂğ£¿", APP_TITLE, MB_YESNO | MB_ICONWARNING);
+                int Ret = MessageBox(m_hWnd, "è¦æƒ³è®¾ç½®ç”Ÿæ•ˆï¼Œå¿…é¡»é‡å¯æœåŠ¡å™¨ï¼Œè¦é‡å¯å—ï¼Ÿ", APP_TITLE, MB_YESNO | MB_ICONWARNING);
                 if(Ret == IDYES)
                     ::SendMessage(m_hWnd, WM_COMMAND, IDM_TRAY_RESTARTSERVER, 0);
             }
@@ -479,7 +479,7 @@ LONG CMainWnd::OnTrayClearLog(WPARAM WParam, LPARAM LParam)
 
 LONG CMainWnd::OnTraySaveLog(WPARAM WParam, LPARAM LParam)
 {
-    const char *pFilter = "ÎÄ±¾ÎÄ¼ş(*.txt)\0*.txt\0ËùÓĞÎÄ¼ş(*.*)\0*.*\0";
+    const char *pFilter = "æ–‡æœ¬æ–‡ä»¶(*.txt)\0*.txt\0æ‰€æœ‰æ–‡ä»¶(*.*)\0*.*\0";
     CFileDlg FileDlg(false, m_hWnd, pFilter, "txt");
     if(!FileDlg.DoModal())
         return 0;
@@ -488,7 +488,7 @@ LONG CMainWnd::OnTraySaveLog(WPARAM WParam, LPARAM LParam)
     if(pFile == NULL)
     {
         MtSTRING ErrInfo;
-        ErrInfo.Format("Ğ´ÎÄ¼ş[%s]Ê§°Ü£¡", (LPCTSTR)(FileDlg.GetPathFileName()));
+        ErrInfo.Format("å†™æ–‡ä»¶[%s]å¤±è´¥ï¼", (LPCTSTR)(FileDlg.GetPathFileName()));
         MessageBox(m_hWnd, ErrInfo, APP_TITLE, MB_ICONWARNING);
         return 0;
     }
@@ -519,7 +519,7 @@ BOOL CMainWnd::CloseApplication(BOOL bSure)
         bStartRun = TRUE;
         if(bSure)
         {
-            int Ret = MessageBox(m_hWnd, "·şÎñÆ÷ÕıÔÚÔËĞĞ£¬È·¶¨ÍË³ö£¿", "ÍË³öÈ·ÈÏ", MB_YESNO | MB_DEFBUTTON2 | MB_ICONWARNING);
+            int Ret = MessageBox(m_hWnd, "æœåŠ¡å™¨æ­£åœ¨è¿è¡Œï¼Œç¡®å®šé€€å‡ºï¼Ÿ", "é€€å‡ºç¡®è®¤", MB_YESNO | MB_DEFBUTTON2 | MB_ICONWARNING);
             if(Ret != IDYES)
                 return FALSE;
         }

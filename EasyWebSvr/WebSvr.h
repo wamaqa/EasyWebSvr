@@ -1,4 +1,4 @@
-#ifndef __WEBSVR_H__
+ï»¿#ifndef __WEBSVR_H__
 #define __WEBSVR_H__
 #pragma once
 
@@ -21,11 +21,11 @@ QUERY_STRING=def
 class CRequestData
 {
 public:
-    BOOL        bValidate;              // httpÇëÇóÊÇ·ñÓĞĞ§(ÊÇ·ñ½âÎö³É¹¦)
-    MtSTRING    RequestMethod;          // ÇëÇó·½·¨ GET/POST/HEAD
-    MtSTRING    WebFileName;            // ÍøÒ³ÎÄ¼şÃû
+    BOOL        bValidate;              // httpè¯·æ±‚æ˜¯å¦æœ‰æ•ˆ(æ˜¯å¦è§£ææˆåŠŸ)
+    MtSTRING    RequestMethod;          // è¯·æ±‚æ–¹æ³• GET/POST/HEAD
+    MtSTRING    WebFileName;            // ç½‘é¡µæ–‡ä»¶å
     MtSTRING    ScriptName;
-    MtSTRING    LocalFileName;          // ×ª»»ºóµÄ±¾µØÎÄ¼şÃû
+    MtSTRING    LocalFileName;          // è½¬æ¢åçš„æœ¬åœ°æ–‡ä»¶å
     MtSTRING    PathInfo;
     DWORD       ContentLength;  
     MtSTRING    QueryString;
@@ -43,10 +43,10 @@ public:
     SYSTEMTIME  IfModifiedSince;        // If-Modified-Since
     __int64     RangeBegin;
     __int64     RangeEnd;
-    BYTE        bIfModifiedSinceValid;  // Ö¸¶¨IfModifiedSinceÊÇ·ñÓĞĞ§
-    BYTE        bRangeValid;            // Ö¸¶¨RangeBeginºÍRangeEndÊÇ·ñÓĞĞ§
+    BYTE        bIfModifiedSinceValid;  // æŒ‡å®šIfModifiedSinceæ˜¯å¦æœ‰æ•ˆ
+    BYTE        bRangeValid;            // æŒ‡å®šRangeBeginå’ŒRangeEndæ˜¯å¦æœ‰æ•ˆ
     BYTE        bKeepAlive;             // KeepAlive
-    BYTE        Reserve;                // ±£Áô
+    BYTE        Reserve;                // ä¿ç•™
 
 public:
     CRequestData();
@@ -81,27 +81,27 @@ typedef TLIST<CScriptEngine> EngineLIST;
 class CWebServerConfig
 {
 public:
-    MtSTRING    RootDirectory;    // Ö÷Ä¿Â¼
-    StrLIST     DefaultDoclList;  // È±Ê¡ÎÄµµÁĞ±í
-    int         ListenPort;       // ¶Ë¿ÚºÅ
-    int         MaxThreadNum;     // ×î´óÁ¬½ÓÊı£¨0±íÊ¾²»ÏŞÖÆ£©
-    BOOL        bEnableCgi;       // ÊÇ·ñÔÊĞíÖ´ĞĞCGI
-    BOOL        bEnableIsapi;     // ÊÇ·ñÔÊĞíÖ´ĞĞISAPI
-    BOOL        bEnableScript;    // ÊÇ·ñÔÊĞíÖ´ĞĞ½Å±¾
-    BOOL        bIsapiCache;      // »º´æISAPI(½öÔÚbEnableIsapiÎªTRUEÊ±ÓĞĞ§)
-    int         NetTimeout;       // ³¬Ê±Ê±¼ä£¨µ¥Î»1/1000Ãë£©
-    BOOL        bAutoRun;         // ÊÇ·ñ¿ª»ú×Ô¶¯ÔËĞĞ
-    BOOL        bIconStartStop;   // ÊÇ·ñµãÍĞÅÌÍ¼±êÆô¶¯Í£Ö¹·şÎñÆ÷
-    BOOL        bEnableShowDir;   // ÊÇ·ñÔÊĞíÄ¿Â¼ä¯ÀÀ
-    BOOL        bShowDirAlways;   // ÊÇ·ñ×ÜÊÇÏÔÊ¾Ä¿Â¼ÄÚÈİ(½öÔÚbEnableShowDirÎªTRUEÊ±ÓĞĞ§)
-    BOOL        bLogToWindow;     // ¼ÇÂ¼ÈÕÖ¾µ½´°¿Ú
-    int         LogWndMaxLine;    // ÈÕÖ¾´°¿Ú×î´óÏÔÊ¾ĞĞÊı(½öÔÚbLogToWindowÎªTRUEÊ±ÓĞĞ§)
-    BOOL        bLogToFile;       // ¼ÇÂ¼ÈÕÖ¾µ½ÎÄ¼ş
-    MtSTRING    LogFileName;      // ÈÕÖ¾ÎÄ¼şÃû(½öÔÚbLogToFileÎªTRUEÊ±ÓĞĞ§)
-    MtSTRING    ServerName;       // ·şÎñÆ÷Ãû³Æ/°æ±¾
-    DWORD       MaxContentLength; // ½ÓÊÕµÄ×î´óContentLength
-    DWORD       MaxHeaderLength;  // ½ÓÊÕµÄ×î´óHeaderLength£¨\r\n\r\nÖ®Ç°µÄ£©
-    EngineLIST  ScriptEngineList; // ½Å±¾ÒıÇæÁĞ±í
+    MtSTRING    RootDirectory;    // ä¸»ç›®å½•
+    StrLIST     DefaultDoclList;  // ç¼ºçœæ–‡æ¡£åˆ—è¡¨
+    int         ListenPort;       // ç«¯å£å·
+    int         MaxThreadNum;     // æœ€å¤§è¿æ¥æ•°ï¼ˆ0è¡¨ç¤ºä¸é™åˆ¶ï¼‰
+    BOOL        bEnableCgi;       // æ˜¯å¦å…è®¸æ‰§è¡ŒCGI
+    BOOL        bEnableIsapi;     // æ˜¯å¦å…è®¸æ‰§è¡ŒISAPI
+    BOOL        bEnableScript;    // æ˜¯å¦å…è®¸æ‰§è¡Œè„šæœ¬
+    BOOL        bIsapiCache;      // ç¼“å­˜ISAPI(ä»…åœ¨bEnableIsapiä¸ºTRUEæ—¶æœ‰æ•ˆ)
+    int         NetTimeout;       // è¶…æ—¶æ—¶é—´ï¼ˆå•ä½1/1000ç§’ï¼‰
+    BOOL        bAutoRun;         // æ˜¯å¦å¼€æœºè‡ªåŠ¨è¿è¡Œ
+    BOOL        bIconStartStop;   // æ˜¯å¦ç‚¹æ‰˜ç›˜å›¾æ ‡å¯åŠ¨åœæ­¢æœåŠ¡å™¨
+    BOOL        bEnableShowDir;   // æ˜¯å¦å…è®¸ç›®å½•æµè§ˆ
+    BOOL        bShowDirAlways;   // æ˜¯å¦æ€»æ˜¯æ˜¾ç¤ºç›®å½•å†…å®¹(ä»…åœ¨bEnableShowDirä¸ºTRUEæ—¶æœ‰æ•ˆ)
+    BOOL        bLogToWindow;     // è®°å½•æ—¥å¿—åˆ°çª—å£
+    int         LogWndMaxLine;    // æ—¥å¿—çª—å£æœ€å¤§æ˜¾ç¤ºè¡Œæ•°(ä»…åœ¨bLogToWindowä¸ºTRUEæ—¶æœ‰æ•ˆ)
+    BOOL        bLogToFile;       // è®°å½•æ—¥å¿—åˆ°æ–‡ä»¶
+    MtSTRING    LogFileName;      // æ—¥å¿—æ–‡ä»¶å(ä»…åœ¨bLogToFileä¸ºTRUEæ—¶æœ‰æ•ˆ)
+    MtSTRING    ServerName;       // æœåŠ¡å™¨åç§°/ç‰ˆæœ¬
+    DWORD       MaxContentLength; // æ¥æ”¶çš„æœ€å¤§ContentLength
+    DWORD       MaxHeaderLength;  // æ¥æ”¶çš„æœ€å¤§HeaderLengthï¼ˆ\r\n\r\nä¹‹å‰çš„ï¼‰
+    EngineLIST  ScriptEngineList; // è„šæœ¬å¼•æ“åˆ—è¡¨
 
 public:
     CWebServerConfig();
@@ -130,13 +130,13 @@ typedef CacheDllLIST::POSITION CacheDllListPOS;
 enum HTTP_ERROR
 {
     HERROR_SUCCESS,
-    HERROR_NETWORK,         // ¶ÁÈ¡HttpÇëÇóÊ±ÍøÂç´íÎó
-    HERROR_CONTENTLENGTH,   // ¶ÁÈ¡HttpÇëÇóÊ±ContentLengthÌ«´ó
-    HERROR_HEADERLENGTH,    // ¶ÁÈ¡HttpÇëÇóÊ±HeaderÌ«³¤
-    HERROR_BADREQUEST,      // ÎŞĞ§µÄHttpÇëÇó
-    HERROR_FORBIDDEN,       // HttpÇëÇóµÄUrlÖĞº¬ÓĞ..µÈ
-    HERROR_BADISAPI,        // ´íÎóµÄISAPI dll
-    HERROR_EXCEPTION,       // ISAPIÖ´ĞĞÅ×³öÒì³£»ò·µ»ØÊ§°Ü
+    HERROR_NETWORK,         // è¯»å–Httpè¯·æ±‚æ—¶ç½‘ç»œé”™è¯¯
+    HERROR_CONTENTLENGTH,   // è¯»å–Httpè¯·æ±‚æ—¶ContentLengthå¤ªå¤§
+    HERROR_HEADERLENGTH,    // è¯»å–Httpè¯·æ±‚æ—¶Headerå¤ªé•¿
+    HERROR_BADREQUEST,      // æ— æ•ˆçš„Httpè¯·æ±‚
+    HERROR_FORBIDDEN,       // Httpè¯·æ±‚çš„Urlä¸­å«æœ‰..ç­‰
+    HERROR_BADISAPI,        // é”™è¯¯çš„ISAPI dll
+    HERROR_EXCEPTION,       // ISAPIæ‰§è¡ŒæŠ›å‡ºå¼‚å¸¸æˆ–è¿”å›å¤±è´¥
 };
 
 class CWebServer;
@@ -209,8 +209,8 @@ protected:
     void          AddOneCacheDll(const CCacheDllData &CacheDllData);
 
 protected:
-    CWebServerConfig ServerConfig;  // ·şÎñÆ÷ÅäÖÃ
-    CacheDllLIST  CacheDllList;     // ISAPIµÄdll»º´æ
+    CWebServerConfig ServerConfig;  // æœåŠ¡å™¨é…ç½®
+    CacheDllLIST  CacheDllList;     // ISAPIçš„dllç¼“å­˜
     CCriticalSect CacheDllListCs;
 
     friend class CWebServerThread;

@@ -1,4 +1,4 @@
-#ifndef __MAINWND_H__
+﻿#ifndef __MAINWND_H__
 #define __MAINWND_H__
 
 #include "basewnd.h"

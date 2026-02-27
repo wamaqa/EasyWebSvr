@@ -1,8 +1,8 @@
-// ÈÕÖ¾Àà
+ï»¿// æ—¥å¿—ç±»
 // wbj 2005.9.21
-// 2005.10.10 Ôö¼Ó EditWndLOG
-// 2005.12.29 Ôö¼Ó ListBoxLOG
-//            ÐÞ¸ÄFileLOGºÍEditWndLOG£¬¶àÏß³Ì±£»¤
+// 2005.10.10 å¢žåŠ  EditWndLOG
+// 2005.12.29 å¢žåŠ  ListBoxLOG
+//            ä¿®æ”¹FileLOGå’ŒEditWndLOGï¼Œå¤šçº¿ç¨‹ä¿æŠ¤
 
 #ifndef __BASELOG_H__
 #define __BASELOG_H__

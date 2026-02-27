@@ -1,9 +1,9 @@
-//***********************************************
-// ÎÄ¼şÃû³Æ£ºBaseWnd.cpp
-// ¹¦¡¡¡¡ÄÜ£º´°¿Ú»ùÀà
-// ×÷¡¡¡¡Õß£ºwbj
-// ÈÕ¡¡¡¡ÆÚ£º2003-4-19
-// ¸üĞÂÈÕÆÚ: 2006-2-10
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šBaseWnd.cpp
+// åŠŸã€€ã€€èƒ½ï¼šçª—å£åŸºç±»
+// ä½œã€€ã€€è€…ï¼šwbj
+// æ—¥ã€€ã€€æœŸï¼š2003-4-19
+// æ›´æ–°æ—¥æœŸ: 2006-2-10
 //***********************************************
 #include "stdafx.h"
 #include "basewnd.h"
@@ -236,7 +236,7 @@ LONG BaseWND::OnDrawItem(WPARAM WParam, LPARAM LParam)
 
   if(pDrawItem->CtlType == ODT_MENU)
   {
-    // Menu ÔİÎ´ÊµÏÖ
+    // Menu æš‚æœªå®ç°
     assert(false);
     return FALSE;
   }
@@ -253,7 +253,7 @@ LONG BaseWND::OnDrawItem(WPARAM WParam, LPARAM LParam)
 
 BOOL BaseWND::OnChildNotify(UINT Message, WPARAM WParam, LPARAM LParam, LRESULT *pResult)
 {
-  // ´ıÊµÏÖ
+  // å¾…å®ç°
   return FALSE;
 }
 
@@ -273,35 +273,35 @@ void MakePoint(POINT *pPt, LPARAM LParam)
   (*pPt).y = PosY;
 }
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³ÉÆÁÄ»×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆå±å¹•åæ ‡
 void ClientToScreen(HWND hWnd, RECT *pRect)
 {
   ::ClientToScreen(hWnd, (LPPOINT)pRect);
   ::ClientToScreen(hWnd, ((LPPOINT)pRect) + 1);
 }
 
-// °ÑÆÁÄ»×ø±ê×ª»»³Éµ±Ç°¿Í»§Çø×ø±ê
+// æŠŠå±å¹•åæ ‡è½¬æ¢æˆå½“å‰å®¢æˆ·åŒºåæ ‡
 void ScreenToClient(HWND hWnd, RECT *pRect)
 {
   ::ScreenToClient(hWnd, (LPPOINT)pRect);
   ::ScreenToClient(hWnd, ((LPPOINT)pRect) + 1);
 }
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³É¸¸´°¿Ú¿Í»§Çø×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆçˆ¶çª—å£å®¢æˆ·åŒºåæ ‡
 void ClientToParent(HWND hWnd, POINT *pPos)
 {
   ::ClientToScreen(hWnd, pPos);
   ::ScreenToClient(::GetParent(hWnd), pPos);
 }
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³É¸¸´°¿Ú¿Í»§Çø×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆçˆ¶çª—å£å®¢æˆ·åŒºåæ ‡
 void ClientToParent(HWND hWnd, RECT *pRect)
 {
   ClientToParent(hWnd, (LPPOINT)pRect);
   ClientToParent(hWnd, ((LPPOINT)pRect) + 1);
 }
 
-// Ìî³ä¾ØĞÎ
+// å¡«å……çŸ©å½¢
 void FillRect(HDC hDc, const RECT *pRect, COLORREF Color)
 {
   HBRUSH hBrush = ::CreateSolidBrush(Color);
@@ -309,7 +309,7 @@ void FillRect(HDC hDc, const RECT *pRect, COLORREF Color)
   ::DeleteObject(hBrush);
 }
 
-// ÓÃ XOR ·½Ê½Ìî³ä¾ØĞÎ
+// ç”¨ XOR æ–¹å¼å¡«å……çŸ©å½¢
 void FillFocusRect(HDC hDc, CONST RECT *pRect)
 {
   RECT Rect;
@@ -327,7 +327,7 @@ void FillFocusRect(HDC hDc, CONST RECT *pRect)
   }
 }
 
-// ¾ÓÖĞ´°¿Ú
+// å±…ä¸­çª—å£
 BOOL CenterWindow(HWND hWnd, HWND hWndCenter)
 {
     assert(::IsWindow(hWnd));

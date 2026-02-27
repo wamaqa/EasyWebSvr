@@ -1,4 +1,4 @@
-#if !defined(CGIDATA_H____INCLUDED_)
+﻿#if !defined(CGIDATA_H____INCLUDED_)
 #define CGIDATA_H____INCLUDED_
 
 #include <stdio.h>

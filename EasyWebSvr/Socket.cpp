@@ -1,6 +1,6 @@
-// SOCKET »ùÀà
+ï»¿// SOCKET åŸºç±»
 // wbj 2003.4.4
-// SOCKET »ùÀà
+// SOCKET åŸºç±»
 // wbj 2003.4.4
 // wbj 2003.6.24  add SendTo, ReceiveFrom
 // wbj 2003.10    add SendAll, RecvAll
@@ -136,7 +136,7 @@ int BaseSOCKET::SendAll(const BYTE *pBuf, int Size, int TimeOutSecond /* = -1*/)
       else
       {
         //int Err = WSAGetLastError();
-        break;//return false; // ÆäËû´íÎó
+        break;//return false; // å…¶ä»–é”™è¯¯
       }
     }
     Left -= Ret;
@@ -164,7 +164,7 @@ bool BaseSOCKET::WaitData(bool bIsForRead, DWORD MilliSeconds)
 }
 
 int BaseSOCKET::RecvAll(BYTE *pBuf, int Size, int TimeOutSecond/* = -1*/)
-{ // ±¾º¯Êı¶Ô×èÈûºÍ·Ç×èÈûµÄsocket¶¼ÊÊÓÃ
+{ // æœ¬å‡½æ•°å¯¹é˜»å¡å’Œéé˜»å¡çš„socketéƒ½é€‚ç”¨
   if(TimeOutSecond > 0)
     SetRecvTimeout(TimeOutSecond * 1000);
 
@@ -185,7 +185,7 @@ int BaseSOCKET::RecvAll(BYTE *pBuf, int Size, int TimeOutSecond/* = -1*/)
         continue;
       }
       else
-        break;//return false; // ÆäËû´íÎó
+        break;//return false; // å…¶ä»–é”™è¯¯
     }
 
     Left -= Ret;
@@ -195,7 +195,7 @@ int BaseSOCKET::RecvAll(BYTE *pBuf, int Size, int TimeOutSecond/* = -1*/)
 }
 
 bool BaseSOCKET::RecvAllStr(char *pBuf, int Size, const char *pEndFlag)
-{ // ±¾º¯Êı¶Ô×èÈûºÍ·Ç×èÈûµÄsocket¶¼ÊÊÓÃ
+{ // æœ¬å‡½æ•°å¯¹é˜»å¡å’Œéé˜»å¡çš„socketéƒ½é€‚ç”¨
   int Total = 0;
   int EndFlagLen = lstrlen(pEndFlag);
   Size--;
@@ -212,11 +212,11 @@ bool BaseSOCKET::RecvAllStr(char *pBuf, int Size, const char *pEndFlag)
           MilliSeconds = 60 * 1000;
           
         if(!WaitData(true, MilliSeconds))
-          return false;  // ·Ç×èÈûÄ£Ê½µÄ³¬Ê±
+          return false;  // éé˜»å¡æ¨¡å¼çš„è¶…æ—¶
         continue;
       }
       else
-        return false; // ÆäËû´íÎó
+        return false; // å…¶ä»–é”™è¯¯
     }
 
     Total += Ret;
@@ -224,11 +224,11 @@ bool BaseSOCKET::RecvAllStr(char *pBuf, int Size, const char *pEndFlag)
     if(strcmp(pBuf + Total - EndFlagLen, pEndFlag) == 0)
       return true;
   }
-  return false;  // ¿Õ¼äÂú
+  return false;  // ç©ºé—´æ»¡
 }
 
 bool BaseSOCKET::RecvAllStr2(char *pBuf, int Size, const char *pEndFlag)
-{ // ±¾º¯Êı¶Ô×èÈûºÍ·Ç×èÈûµÄsocket¶¼ÊÊÓÃ
+{ // æœ¬å‡½æ•°å¯¹é˜»å¡å’Œéé˜»å¡çš„socketéƒ½é€‚ç”¨
   int Total = 0;
   int EndFlagLen = lstrlen(pEndFlag);
   Size--;
@@ -238,7 +238,7 @@ bool BaseSOCKET::RecvAllStr2(char *pBuf, int Size, const char *pEndFlag)
     
     if(Ret == 0)
     {
-      // ¿Í»§¶ËÕı³£¶Ï¿ª
+      // å®¢æˆ·ç«¯æ­£å¸¸æ–­å¼€
       return false; 
     }
     else if(Ret < 0)
@@ -254,19 +254,19 @@ bool BaseSOCKET::RecvAllStr2(char *pBuf, int Size, const char *pEndFlag)
 
           if(!WaitData(true, MilliSeconds))
           {
-            // ·Ç×èÈûÄ£Ê½µÄ³¬Ê±
+            // éé˜»å¡æ¨¡å¼çš„è¶…æ—¶
             return false;
           }
           continue;
         }
         else if(Err == WSAETIMEDOUT)
         {
-          // ×èÈûÄ£Ê½µÄ³¬Ê±
+          // é˜»å¡æ¨¡å¼çš„è¶…æ—¶
           return false;
         }
         else
         {
-          // ÆäËû´íÎó
+          // å…¶ä»–é”™è¯¯
           return false;
         }
       }
@@ -282,21 +282,21 @@ bool BaseSOCKET::RecvAllStr2(char *pBuf, int Size, const char *pEndFlag)
     if(strcmp(pBuf + Total - EndFlagLen, pEndFlag) == 0)
       return true;
   }
-  return false;  // ¿Õ¼äÂú
+  return false;  // ç©ºé—´æ»¡
 }
 
 /*
-// ·µ»ØÊµ¼ÊÊÕµ½µÄÊı¾İ×Ö½ÚÊı
+// è¿”å›å®é™…æ”¶åˆ°çš„æ•°æ®å­—èŠ‚æ•°
 int BaseSOCKET::ReceiveEx(BYTE *pRecvBuffer, int BufSize, UINT TimeOutSecond)
 {
   int CurGetSize = 0;
   DWORD BeginTime = ::GetTickCount();
   while(1)
   {
-    if(::GetTickCount() - BeginTime > TimeOutSecond * 1000L)  // ÅĞ¶ÏÊÇ·ñ³¬Ê±
+    if(::GetTickCount() - BeginTime > TimeOutSecond * 1000L)  // åˆ¤æ–­æ˜¯å¦è¶…æ—¶
       break;
 
-    bool bIsReadable = IsReadable();  // ÅĞ¶ÏÊÇ·ñ¿É¶Á
+    bool bIsReadable = IsReadable();  // åˆ¤æ–­æ˜¯å¦å¯è¯»
     if(!bIsReadable)
     {
       Sleep(100);
@@ -310,7 +310,7 @@ int BaseSOCKET::ReceiveEx(BYTE *pRecvBuffer, int BufSize, UINT TimeOutSecond)
         CurGetSize += TempSize;
         if(CurGetSize >= BufSize)
           break;
-        BeginTime = ::GetTickCount();    // ¸üĞÂÆğÊ¼Ê±¼ä
+        BeginTime = ::GetTickCount();    // æ›´æ–°èµ·å§‹æ—¶é—´
       }
     }
   }
@@ -318,11 +318,11 @@ int BaseSOCKET::ReceiveEx(BYTE *pRecvBuffer, int BufSize, UINT TimeOutSecond)
   return CurGetSize;
 }
 
-// ×¢ÒâÓÃ free º¯ÊıÊÍ·Å·µ»ØµÄÄÚ´æ
+// æ³¨æ„ç”¨ free å‡½æ•°é‡Šæ”¾è¿”å›çš„å†…å­˜
 char *BaseSOCKET::ReceiveEx(const char *pEndFlagStr, UINT TimeOutSecond, UINT *pRecvSize)
 {
-  int BufSize    = 1000;  // ³õÊ¼·ÖÅäÄÚ´æ´óĞ¡
-  int CurGetSize = 0;     // ÒÑÊÕµ½µÄ×Ö½ÚÊı
+  int BufSize    = 1000;  // åˆå§‹åˆ†é…å†…å­˜å¤§å°
+  int CurGetSize = 0;     // å·²æ”¶åˆ°çš„å­—èŠ‚æ•°
   
   char *pRecvBuffer = (char *)malloc(BufSize);
   assert(pRecvBuffer != NULL);
@@ -331,13 +331,13 @@ char *BaseSOCKET::ReceiveEx(const char *pEndFlagStr, UINT TimeOutSecond, UINT *p
   DWORD BeginTime = ::GetTickCount();
   while(1)
   {
-    if(::GetTickCount() - BeginTime > TimeOutSecond * 1000L)  // ÅĞ¶ÏÊÇ·ñ³¬Ê±
+    if(::GetTickCount() - BeginTime > TimeOutSecond * 1000L)  // åˆ¤æ–­æ˜¯å¦è¶…æ—¶
     {
       free(pRecvBuffer);
       return NULL;
     }
 
-    bool bIsReadable = IsReadable();  // ÅĞ¶ÏÊÇ·ñ¿É¶Á
+    bool bIsReadable = IsReadable();  // åˆ¤æ–­æ˜¯å¦å¯è¯»
     if(!bIsReadable)
     {
       Sleep(100);
@@ -345,10 +345,10 @@ char *BaseSOCKET::ReceiveEx(const char *pEndFlagStr, UINT TimeOutSecond, UINT *p
     }
     else
     {
-      if(BufSize - CurGetSize - 1 <= 0)  // µ±Ç°·ÖÅäµÄÄÚ´æ²»×ã
+      if(BufSize - CurGetSize - 1 <= 0)  // å½“å‰åˆ†é…çš„å†…å­˜ä¸è¶³
       {
         BufSize += 2000;
-        pRecvBuffer = (char *)realloc(pRecvBuffer, BufSize);  // Ôö¼ÓÄÚ´æ·ÖÅä
+        pRecvBuffer = (char *)realloc(pRecvBuffer, BufSize);  // å¢åŠ å†…å­˜åˆ†é…
         assert(pRecvBuffer);
         memset(pRecvBuffer + CurGetSize, 0, BufSize - CurGetSize);
       }
@@ -357,9 +357,9 @@ char *BaseSOCKET::ReceiveEx(const char *pEndFlagStr, UINT TimeOutSecond, UINT *p
       if(TempSize > 0)
       {
         CurGetSize += TempSize;
-        if(strstr(pRecvBuffer, pEndFlagStr) != NULL)  // ²éÕÒ½ÓÊÕµÄ½áÊø±êÖ¾
+        if(strstr(pRecvBuffer, pEndFlagStr) != NULL)  // æŸ¥æ‰¾æ¥æ”¶çš„ç»“æŸæ ‡å¿—
           break;
-        BeginTime = ::GetTickCount();    // ¸üĞÂÆğÊ¼Ê±¼ä
+        BeginTime = ::GetTickCount();    // æ›´æ–°èµ·å§‹æ—¶é—´
       }
     }
   }
@@ -448,7 +448,7 @@ bool BaseSOCKET::Bind(int Port, const char *pSocketAddress)
   return ::bind(hSocket, (struct sockaddr FAR *)&LocalSockAddr, sizeof(LocalSockAddr)) != SOCKET_ERROR;
 }
 
-// Òì²½Ñ¡Ôñ
+// å¼‚æ­¥é€‰æ‹©
 bool BaseSOCKET::AsyncSelect(HWND hWnd, UINT Msg, long Event)
 {
   assert(hSocket != INVALID_SOCKET);
@@ -458,14 +458,14 @@ bool BaseSOCKET::AsyncSelect(HWND hWnd, UINT Msg, long Event)
   return ::WSAAsyncSelect(hSocket, hWnd, Msg, Event) != SOCKET_ERROR;
 }
 
-// ÊÂ¼şÑ¡Ôñ
+// äº‹ä»¶é€‰æ‹©
 bool BaseSOCKET::EventSelect(WSAEVENT hEvent, long NetworkEvents)
 {
   assert(hSocket != INVALID_SOCKET);
   return ::WSAEventSelect(hSocket, hEvent, NetworkEvents) != SOCKET_ERROR;
 }
 
-// ·µ»Ø±¾µØ¶Ë¿ÚºÅ¡£ Èç¹û´íÎó£¬Ôò·µ»Ø -1
+// è¿”å›æœ¬åœ°ç«¯å£å·ã€‚ å¦‚æœé”™è¯¯ï¼Œåˆ™è¿”å› -1
 int BaseSOCKET::GetLocalPort()
 {
   assert(hSocket != INVALID_SOCKET);
@@ -478,7 +478,7 @@ int BaseSOCKET::GetLocalPort()
   return ntohs(LocalSockAddr.sin_port);
 }
 
-// ·µ»ØÔ¶¶Ë¶Ë¿ÚºÅ¡£ Èç¹û´íÎó£¬Ôò·µ»Ø -1
+// è¿”å›è¿œç«¯ç«¯å£å·ã€‚ å¦‚æœé”™è¯¯ï¼Œåˆ™è¿”å› -1
 int BaseSOCKET::GetRemotePort()
 {
   assert(hSocket != INVALID_SOCKET);
@@ -491,7 +491,7 @@ int BaseSOCKET::GetRemotePort()
   return ntohs(RemoteSockAddr.sin_port);
 }
 
-// È¡µÃ±¾µØÖ÷»úÃû
+// å–å¾—æœ¬åœ°ä¸»æœºå
 bool BaseSOCKET::GetLocalHostName(char *pHostNameBuf, int BufSize) // static
 {
   assert(pHostNameBuf != NULL);
@@ -501,7 +501,7 @@ bool BaseSOCKET::GetLocalHostName(char *pHostNameBuf, int BufSize) // static
   return ::gethostname(pHostNameBuf, BufSize) != SOCKET_ERROR;
 }
 
-// È¡µÃÔ¶¶ËÖ÷»úÃû
+// å–å¾—è¿œç«¯ä¸»æœºå
 bool BaseSOCKET::GetRemoteHostName(char *pHostNameBuf, int BufSize)
 {
   assert(hSocket != INVALID_SOCKET);
@@ -540,7 +540,7 @@ bool BaseSOCKET::GetLocalIpStatic(char *pStrIpBuf, int BufSize) // static
   return true;
 }
 
-// È¡µÃ±¾µØ IP µØÖ·
+// å–å¾—æœ¬åœ° IP åœ°å€
 bool BaseSOCKET::GetLocalIp(char *pStrIpBuf, int BufSize)
 {
   assert(hSocket != INVALID_SOCKET);
@@ -557,7 +557,7 @@ bool BaseSOCKET::GetLocalIp(char *pStrIpBuf, int BufSize)
   return true;
 }
 
-// È¡µÃÔ¶¶Ë IP µØÖ·
+// å–å¾—è¿œç«¯ IP åœ°å€
 bool BaseSOCKET::GetRemoteIp(char *pStrIpBuf, int BufSize)
 {
   assert(pStrIpBuf != NULL);

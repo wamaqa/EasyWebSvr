@@ -1,11 +1,11 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "cmncode.h"
 
 #ifndef INVALID_FILE_ATTRIBUTES
   #define INVALID_FILE_ATTRIBUTES ((DWORD)-1)
 #endif
 
-// ÅĞ¶ÏÒ»¸öÎÄ¼şÊÇ·ñ´æÔÚ
+// åˆ¤æ–­ä¸€ä¸ªæ–‡ä»¶æ˜¯å¦å­˜åœ¨
 BOOL IsFileExist(const TCHAR *pFileName)
 {
   DWORD Attr = GetFileAttributes(pFileName);
@@ -14,7 +14,7 @@ BOOL IsFileExist(const TCHAR *pFileName)
   return (Attr & FILE_ATTRIBUTE_DIRECTORY) ? FALSE : TRUE;
 }
 
-// ÅĞ¶ÏÒ»¸öÄ¿Â¼ÊÇ·ñ´æÔÚ
+// åˆ¤æ–­ä¸€ä¸ªç›®å½•æ˜¯å¦å­˜åœ¨
 BOOL IsDirectoryExist(const TCHAR *pDirName)  
 {
   DWORD Attr = GetFileAttributes(pDirName);

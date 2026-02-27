@@ -1,12 +1,12 @@
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šflatbtn.cpp
+// åŠŸã€€ã€€èƒ½ï¼šå¹³é¢æŒ‰é’®
+// ä½œã€€ã€€è€…ï¼šwbj
+// æ—¥ã€€ã€€æœŸï¼š2006-2-10
+// æ›´æ–°æ—¥æœŸ: 2007-11-7
 //***********************************************
-// ÎÄ¼şÃû³Æ£ºflatbtn.cpp
-// ¹¦¡¡¡¡ÄÜ£ºÆ½Ãæ°´Å¥
-// ×÷¡¡¡¡Õß£ºwbj
-// ÈÕ¡¡¡¡ÆÚ£º2006-2-10
-// ¸üĞÂÈÕÆÚ: 2007-11-7
-//***********************************************
-// 2006.2.11 ĞŞÕıÁË¼¸¸öBug
-// 2007.11.7 ĞŞÕıÁËÔÚÊ¹ÓÃXP·ç¸ñ£¨manifestÎÄ¼ş£©Ê±£¬¶ÔÓÚĞÂ´´½¨µÄ°´Å¥ÎŞĞ§µÄBug
+// 2006.2.11 ä¿®æ­£äº†å‡ ä¸ªBug
+// 2007.11.7 ä¿®æ­£äº†åœ¨ä½¿ç”¨XPé£æ ¼ï¼ˆmanifestæ–‡ä»¶ï¼‰æ—¶ï¼Œå¯¹äºæ–°åˆ›å»ºçš„æŒ‰é’®æ— æ•ˆçš„Bug
 #include "stdafx.h"
 #include "flatbtn.h"
 
@@ -184,7 +184,7 @@ BOOL FlatBUTTON::GetIconInfo(STRUCT_ICONS &IconInfo, HICON hIcon)
     return TRUE;
 }
 
-// Íâ²¿´«ÈëµÄhIconÊÇ·ñĞèÒªÊÍ·Å£¿ -------
+// å¤–éƒ¨ä¼ å…¥çš„hIconæ˜¯å¦éœ€è¦é‡Šæ”¾ï¼Ÿ -------
 BOOL FlatBUTTON::SetIcon(HICON hIconIn, HICON hIconOut, HICON hIconDisable)
 {
     FreeResources();
@@ -221,7 +221,7 @@ BOOL FlatBUTTON::SetIcon(HICON hIconIn, HICON hIconOut, HICON hIconDisable)
 }
 
 /*
-// Ìî³ä¾ØĞÎ
+// å¡«å……çŸ©å½¢
 static void FillRect(HDC hDc, const RECT *pRect, COLORREF Color)
 {
     HBRUSH hBrush = ::CreateSolidBrush(Color);
@@ -274,17 +274,17 @@ void FlatBUTTON::DrawItem(DRAWITEMSTRUCT *pDis)
         {
             if(bDrawBorder)
             {
-                // »­°¼Ïİ±ß¿ò
+                // ç”»å‡¹é™·è¾¹æ¡†
                 HPEN bPenBtnHilight = ::CreatePen(PS_SOLID, 0, GetSysColor(COLOR_BTNHILIGHT));
                 HPEN hPenBtnShadow = ::CreatePen(PS_SOLID, 0, GetSysColor(COLOR_BTNSHADOW));
 
-                // ×óÉÏ°µ±ß
+                // å·¦ä¸Šæš—è¾¹
                 HPEN hPenOld = (HPEN)::SelectObject(hDc, hPenBtnShadow);
                 ::MoveToEx(hDc, ItemRect.left, ItemRect.bottom - 1, NULL);
                 ::LineTo(hDc, ItemRect.left, ItemRect.top);
                 ::LineTo(hDc, ItemRect.right, ItemRect.top);
 
-                // ÓÒÏÂÁÁ±ß
+                // å³ä¸‹äº®è¾¹
                 ::SelectObject(hDc, bPenBtnHilight);
                 ::MoveToEx(hDc, ItemRect.left, ItemRect.bottom - 1, NULL);
                 ::LineTo(hDc, ItemRect.right - 1, ItemRect.bottom - 1);
@@ -314,14 +314,14 @@ void FlatBUTTON::DrawItem(DRAWITEMSTRUCT *pDis)
         {
             if(bMouseOnButton && bDrawBorder)
             {
-                // »­Í¹Æğ±ß¿ò
-                // ×óÉÏÁÁ±ß
+                // ç”»å‡¸èµ·è¾¹æ¡†
+                // å·¦ä¸Šäº®è¾¹
                 HPEN hPenOld = (HPEN)::SelectObject(hDc, bPenBtnHilight);
                 ::MoveToEx(hDc, ItemRect.left, ItemRect.bottom - 1, NULL);
                 ::LineTo(hDc, ItemRect.left, ItemRect.top);
                 ::LineTo(hDc, ItemRect.right, ItemRect.top);
 
-                // ÓÒÏÂ°µ±ß
+                // å³ä¸‹æš—è¾¹
                 ::SelectObject(hDc, hPenBtnShadow);
                 ::MoveToEx(hDc, ItemRect.left, ItemRect.bottom - 1, NULL);
                 ::LineTo(hDc, ItemRect.right - 1, ItemRect.bottom - 1);
@@ -391,7 +391,7 @@ void FlatBUTTON::DrawItem(DRAWITEMSTRUCT *pDis)
             ::SetBkColor(hDc, GetColor(FLATBTN_COLOR_INACTIVE_BK));
         }
 
-//#define DISABLED_GRAYTEXT // °´Å¥DisableÊ±£¬ÊÇ·ñÊ¹ÓÃ»ÒÉ«ÎÄ±¾
+//#define DISABLED_GRAYTEXT // æŒ‰é’®Disableæ—¶ï¼Œæ˜¯å¦ä½¿ç”¨ç°è‰²æ–‡æœ¬
 
 #ifdef DISABLED_GRAYTEXT
         if(bIsDisabled)
@@ -450,7 +450,7 @@ void FlatBUTTON::DrawTheIcon(HDC hDc, BOOL bHasTitle, const RECT &ItemRect,
         IconRect.left += 3;
         CaptionRect.left += BtnIcons[IconIndex].Width + 3;
     }
-    // ¼Ólong×ª»»£¬±ÜÃâµ±°´Å¥¸ß¶ÈĞ¡ÓÚÍ¼±ê¸ß¶È£¬ÇÒDisableÊ±£¬Í¼±ê²»ÄÜÏÔÊ¾µÄBug
+    // åŠ longè½¬æ¢ï¼Œé¿å…å½“æŒ‰é’®é«˜åº¦å°äºå›¾æ ‡é«˜åº¦ï¼Œä¸”Disableæ—¶ï¼Œå›¾æ ‡ä¸èƒ½æ˜¾ç¤ºçš„Bug
     IconRect.top += (IconRect.bottom - IconRect.top - (long)BtnIcons[IconIndex].Height) / 2;
 
     if(bIsPressed) 

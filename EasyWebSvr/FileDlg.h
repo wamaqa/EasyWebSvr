@@ -1,7 +1,7 @@
-#ifndef __FILEDLG_H__
+О╩©#ifndef __FILEDLG_H__
 #define __FILEDLG_H__
 
-// ╢Р©╙/╠ё╢Фнд╪Ч╤т╩╟©Р
+// Ф┴⌠Е╪─/Д©²Е╜≤Ф√┤Д╩╤Е╞╧Х╞²Ф║├
 // wbj 2002.12.10
 // wbj 2003.6.12
 // wbj 2003.8.7
@@ -32,7 +32,7 @@ protected:
 }
 /* Example:
 
-  const char *pFilter = "нд╠╬нд╪Ч(*.txt)\0*.txt\0м╪ф╛нд╪Ч\0*.bmp;*.jpg\0кЫспнд╪Ч(*.*)\0*.*\0"
+  const char *pFilter = "Ф√┤Ф°╛Ф√┤Д╩╤(*.txt)\0*.txt\0Е⌡╬Г┴┤Ф√┤Д╩╤\0*.bmp;*.jpg\0Ф┴─Ф°┴Ф√┤Д╩╤(*.*)\0*.*\0"
   CFileDlg FileDlg(false, m_hWnd, pFilter, "txt");
   if(FileDlg.DoModal())
   {

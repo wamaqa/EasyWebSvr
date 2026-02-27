@@ -1,9 +1,9 @@
-//***********************************************
-// ÎÄ¼şÃû³Æ£ºstrlist.h
-// ¹¦¡¡¡¡ÄÜ£º×Ö·û´®Á´±í
-// ×÷¡¡¡¡Õß£ºwbj
-// ´´½¨ÈÕÆÚ£º2002-12-22
-// ¸üĞÂÈÕÆÚ£º2003-11-26
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šstrlist.h
+// åŠŸã€€ã€€èƒ½ï¼šå­—ç¬¦ä¸²é“¾è¡¨
+// ä½œã€€ã€€è€…ï¼šwbj
+// åˆ›å»ºæ—¥æœŸï¼š2002-12-22
+// æ›´æ–°æ—¥æœŸï¼š2003-11-26
 //***********************************************
 #ifndef __STRLIST_H__
 #define __STRLIST_H__
@@ -17,25 +17,25 @@ namespace minilib
 class StrLIST : public TLIST<MtSTRING>
 {
 public:
-  // °Ñ×Ö·û´®×ª»»³É×Ö·û´®Á´±í, ÒÔ \r\n ×ö·Ö¸ô
+  // æŠŠå­—ç¬¦ä¸²è½¬æ¢æˆå­—ç¬¦ä¸²é“¾è¡¨, ä»¥ \r\n åšåˆ†éš”
   void FromStringToList(const TCHAR *pString);
 
-  // °Ñ×Ö·û´®×ª»»³É×Ö·û´®Á´±í, ÒÔ pSeparator ÖĞµÄ×Ö·û×ö·Ö¸ô
+  // æŠŠå­—ç¬¦ä¸²è½¬æ¢æˆå­—ç¬¦ä¸²é“¾è¡¨, ä»¥ pSeparator ä¸­çš„å­—ç¬¦åšåˆ†éš”
   void FromStringToList(const TCHAR *pString, const TCHAR *pSeparator);
 
-  // °Ñ×Ö·û´®Á´±í×ª»»³É×Ö·û´®, ÒÔ pSeparator ×ö·Ö¸ô
+  // æŠŠå­—ç¬¦ä¸²é“¾è¡¨è½¬æ¢æˆå­—ç¬¦ä¸², ä»¥ pSeparator åšåˆ†éš”
   void FromListToString(MtSTRING &Str, const TCHAR *pSeparator = _T("\r\n")) const;
 
-  // ¶ÁÈ¡ÎÄ¼şµ½×Ö·û´®Á´±í
+  // è¯»å–æ–‡ä»¶åˆ°å­—ç¬¦ä¸²é“¾è¡¨
   bool LoadFromFile(const TCHAR *pFileName);
 
-  // °Ñ×Ö·û´®Á´±íµÄÄÚÈİ±£´æµ½ÎÄ¼ş
+  // æŠŠå­—ç¬¦ä¸²é“¾è¡¨çš„å†…å®¹ä¿å­˜åˆ°æ–‡ä»¶
   bool SaveToFile(const TCHAR *pFileName) const;
 
-  // É¾³ıÁ´±íÖĞËùÓĞµÄ¿Õ×Ö·û´®½Úµã
+  // åˆ é™¤é“¾è¡¨ä¸­æ‰€æœ‰çš„ç©ºå­—ç¬¦ä¸²èŠ‚ç‚¹
   void RemoveNullString();
 
-  // ×Ô¶¯»»ĞĞ.  ×¢Òâ£º¶Ô Unicode °æ±¾¿ÉÄÜÓĞÎÊÌâ£¬ÓĞ´ı¸Ä½ø
+  // è‡ªåŠ¨æ¢è¡Œ.  æ³¨æ„ï¼šå¯¹ Unicode ç‰ˆæœ¬å¯èƒ½æœ‰é—®é¢˜ï¼Œæœ‰å¾…æ”¹è¿›
   void AutoBreakLineStr(const TCHAR *pString, int MaxLineLength);
 };
 

@@ -1,4 +1,4 @@
-// Microsoft Visual C++ generated resource script.
+ï»¿// Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
 
@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// ÖÐÎÄ(ÖÐ»ªÈËÃñ¹²ºÍ¹ú) resources
+// ä¸­æ–‡(ä¸­åŽäººæ°‘å…±å’Œå›½) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
 #ifdef _WIN32
@@ -56,23 +56,23 @@ IDR_MENU_TRAY MENU
 BEGIN
     POPUP "Popup"
     BEGIN
-        MENUITEM "ÏÔÊ¾Ö÷´°¿Ú",                  IDM_TRAY_MAINWND
-        MENUITEM "ä¯ÀÀÖ÷Ò³",                    IDM_TRAY_BROWSE
-        MENUITEM "¹ØÓÚ...",                     IDM_TRAY_ABOUT
+        MENUITEM "æ˜¾ç¤ºä¸»çª—å£",                  IDM_TRAY_MAINWND
+        MENUITEM "æµè§ˆä¸»é¡µ",                    IDM_TRAY_BROWSE
+        MENUITEM "å…³äºŽ...",                     IDM_TRAY_ABOUT
         MENUITEM SEPARATOR
-        MENUITEM "¹Ø±Õ·þÎñÆ÷",                  IDM_TRAY_EXIT
+        MENUITEM "å…³é—­æœåŠ¡å™¨",                  IDM_TRAY_EXIT
         MENUITEM SEPARATOR
-        MENUITEM "Æô¶¯·þÎñÆ÷",                  IDM_TRAY_STARTSERVER
-        MENUITEM "Í£Ö¹·þÎñÆ÷",                  IDM_TRAY_STOPSERVER
-        MENUITEM "ÖØÆô·þÎñÆ÷",                  IDM_TRAY_RESTARTSERVER
+        MENUITEM "å¯åŠ¨æœåŠ¡å™¨",                  IDM_TRAY_STARTSERVER
+        MENUITEM "åœæ­¢æœåŠ¡å™¨",                  IDM_TRAY_STOPSERVER
+        MENUITEM "é‡å¯æœåŠ¡å™¨",                  IDM_TRAY_RESTARTSERVER
         MENUITEM SEPARATOR
-        POPUP "ÈÕÖ¾"
+        POPUP "æ—¥å¿—"
         BEGIN
-            MENUITEM "Çå¿ÕÈÕÖ¾",                    IDM_TRAY_CLEARLOG
-            MENUITEM "±£´æÈÕÖ¾",                    IDM_TRAY_SAVELOG
+            MENUITEM "æ¸…ç©ºæ—¥å¿—",                    IDM_TRAY_CLEARLOG
+            MENUITEM "ä¿å­˜æ—¥å¿—",                    IDM_TRAY_SAVELOG
         END
         MENUITEM SEPARATOR
-        MENUITEM "ÉèÖÃ...",                     IDM_TRAY_CONFIG
+        MENUITEM "è®¾ç½®...",                     IDM_TRAY_CONFIG
     END
 END
 
@@ -85,13 +85,13 @@ END
 IDD_ABOUTBOX DIALOGEX 0, 0, 205, 113
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "¹ØÓÚ"
-FONT 9, "ËÎÌå", 400, 0, 0x0
+CAPTION "å…³äºŽ"
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "È·¶¨",IDOK,149,9,50,14
+    DEFPUSHBUTTON   "ç¡®å®š",IDOK,149,9,50,14
     ICON            IDI_ICON_MAIN,IDC_STATIC,5,5,21,21
-    LTEXT           "EasyWebServer 1.92 °æ",IDC_STATIC,35,12,101,8
-    LTEXT           "°æÈ¨ËùÓÐ (C) 2007.11  baojianjob@tom.com",IDC_STATIC,35,
+    LTEXT           "EasyWebServer 1.92 ç‰ˆ",IDC_STATIC,35,12,101,8
+    LTEXT           "ç‰ˆæƒæ‰€æœ‰ (C) 2007.11  baojianjob@tom.com",IDC_STATIC,35,
                     34,161,8
     LTEXT           "",IDC_STATIC_ABOUT,5,49,194,58,0,WS_EX_STATICEDGE
 END
@@ -99,11 +99,11 @@ END
 IDD_CONFIG DIALOGEX 0, 0, 247, 188
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "·þÎñÆ÷ÉèÖÃ"
-FONT 9, "ËÎÌå", 400, 0, 0x86
+CAPTION "æœåŠ¡å™¨è®¾ç½®"
+FONT 9, "å®‹ä½“", 400, 0, 0x86
 BEGIN
-    DEFPUSHBUTTON   "È·¶¨",IDOK,154,169,39,14
-    PUSHBUTTON      "È¡Ïû",IDCANCEL,202,169,39,14
+    DEFPUSHBUTTON   "ç¡®å®š",IDOK,154,169,39,14
+    PUSHBUTTON      "å–æ¶ˆ",IDCANCEL,202,169,39,14
     CONTROL         "",IDC_TAB_CONFIG,"SysTabControl32",WS_TABSTOP,5,5,236,
                     158
 END
@@ -111,7 +111,7 @@ END
 IDD_CONFIG_MAIN DIALOGEX 0, 0, 240, 146
 STYLE DS_SETFONT | WS_CHILD
 EXSTYLE WS_EX_CONTROLPARENT
-FONT 9, "ËÎÌå", 400, 0, 0x0
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_ROOTDIR,44,19,156,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
@@ -119,100 +119,100 @@ BEGIN
                     BS_FLAT
     EDITTEXT        IDC_EDIT_PORT,44,39,32,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
-    LTEXT           "Ö÷Ä¿Â¼:",IDC_STATIC,13,21,29,8
-    LTEXT           "¶Ë¿ÚºÅ:",IDC_STATIC,13,41,29,8
-    GROUPBOX        "·þÎñÆ÷",IDC_STATIC,5,5,221,54
-    GROUPBOX        "ÍøÂçÁ¬½Ó",IDC_STATIC,5,66,221,53
-    LTEXT           "×î´óÁ¬½ÓÊý:",IDC_STATIC,13,83,46,8
+    LTEXT           "ä¸»ç›®å½•:",IDC_STATIC,13,21,29,8
+    LTEXT           "ç«¯å£å·:",IDC_STATIC,13,41,29,8
+    GROUPBOX        "æœåŠ¡å™¨",IDC_STATIC,5,5,221,54
+    GROUPBOX        "ç½‘ç»œè¿žæŽ¥",IDC_STATIC,5,66,221,53
+    LTEXT           "æœ€å¤§è¿žæŽ¥æ•°:",IDC_STATIC,13,83,46,8
     EDITTEXT        IDC_EDIT_MAXTHREADNUM,59,81,41,12,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    LTEXT           "³¬Ê±Ê±¼ä:",IDC_STATIC,13,101,46,8
+    LTEXT           "è¶…æ—¶æ—¶é—´:",IDC_STATIC,13,101,46,8
     EDITTEXT        IDC_EDIT_TIMEOUT,59,99,41,12,ES_CENTER | ES_AUTOHSCROLL | 
                     ES_NUMBER | NOT WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "¿ª»ú×Ô¶¯ÔËÐÐ",IDC_CHECK_AUTORUN,"Button",
+    CONTROL         "å¼€æœºè‡ªåŠ¨è¿è¡Œ",IDC_CHECK_AUTORUN,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,5,125,62,8
-    LTEXT           "(µ¥Î»:1/1000Ãë)",IDC_STATIC,105,101,63,8
-    LTEXT           "(0Îª²»ÏÞÖÆ)",IDC_STATIC,105,83,63,8
+    LTEXT           "(å•ä½:1/1000ç§’)",IDC_STATIC,105,101,63,8
+    LTEXT           "(0ä¸ºä¸é™åˆ¶)",IDC_STATIC,105,83,63,8
 END
 
 IDD_CONFIG_DOC DIALOGEX 0, 0, 239, 147
 STYLE DS_SETFONT | WS_CHILD
 EXSTYLE WS_EX_CONTROLPARENT
-FONT 9, "ËÎÌå", 400, 0, 0x0
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_DEFAULTHTML,12,32,206,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
-    CONTROL         "ÔÊÐíÄ¿Â¼ä¯ÀÀ",IDC_CHECK_ENABLESHOWDIR,"Button",
+    CONTROL         "å…è®¸ç›®å½•æµè§ˆ",IDC_CHECK_ENABLESHOWDIR,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,12,74,67,8
-    CONTROL         "×ÜÊÇÏÔÊ¾Ä¿Â¼ÄÚÈÝ(ºöÂÔÈ±Ê¡ÎÄµµÁÐ±í)",IDC_RADIO_SHOWDIR1,
+    CONTROL         "æ€»æ˜¯æ˜¾ç¤ºç›®å½•å†…å®¹(å¿½ç•¥ç¼ºçœæ–‡æ¡£åˆ—è¡¨)",IDC_RADIO_SHOWDIR1,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED | WS_GROUP,23,
                     89,157,8
-    CONTROL         "½öµ±ÒÔÉÏÈ±Ê¡ÎÄµµÁÐ±í¶¼Ã»ÓÐÕÒµ½Ê±",IDC_RADIO_SHOWDIR2,
+    CONTROL         "ä»…å½“ä»¥ä¸Šç¼ºçœæ–‡æ¡£åˆ—è¡¨éƒ½æ²¡æœ‰æ‰¾åˆ°æ—¶",IDC_RADIO_SHOWDIR2,
                     "Button",BS_AUTORADIOBUTTON | WS_DISABLED,23,104,157,8
-    GROUPBOX        "È±Ê¡ÎÄµµ",IDC_STATIC,5,5,221,47
-    GROUPBOX        "Ä¿Â¼ä¯ÀÀ",IDC_STATIC,5,59,221,62
-    LTEXT           "È±Ê¡ÎÄµµÁÐ±í:",IDC_STATIC,12,20,92,7
+    GROUPBOX        "ç¼ºçœæ–‡æ¡£",IDC_STATIC,5,5,221,47
+    GROUPBOX        "ç›®å½•æµè§ˆ",IDC_STATIC,5,59,221,62
+    LTEXT           "ç¼ºçœæ–‡æ¡£åˆ—è¡¨:",IDC_STATIC,12,20,92,7
 END
 
 IDD_CONFIG_RIGHTS DIALOGEX 0, 0, 240, 146
 STYLE DS_SETFONT | WS_CHILD
 EXSTYLE WS_EX_CONTROLPARENT
-FONT 9, "ËÎÌå", 400, 0, 0x0
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
-    CONTROL         "ÔÊÐíÖ´ÐÐCGI³ÌÐò",IDC_CHECK_ENABLECGI,"Button",
+    CONTROL         "å…è®¸æ‰§è¡ŒCGIç¨‹åº",IDC_CHECK_ENABLECGI,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,22,92,8
-    CONTROL         "ÔÊÐíÖ´ÐÐISAPI³ÌÐò",IDC_CHECK_ENABLEISAPI,"Button",
+    CONTROL         "å…è®¸æ‰§è¡ŒISAPIç¨‹åº",IDC_CHECK_ENABLEISAPI,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,40,92,8
-    CONTROL         "»º´æISAPI",IDC_CHECK_ISAPICACHE,"Button",
+    CONTROL         "ç¼“å­˜ISAPI",IDC_CHECK_ISAPICACHE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,25,57,92,8
-    CONTROL         "ÔÊÐíÖ´ÐÐ½Å±¾£¨PHP¡¢ASPµÈ£©",IDC_CHECK_ENABLESCRIPT,"Button",
+    CONTROL         "å…è®¸æ‰§è¡Œè„šæœ¬ï¼ˆPHPã€ASPç­‰ï¼‰",IDC_CHECK_ENABLESCRIPT,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,74,119,8
-    GROUPBOX        "Ö´ÐÐÈ¨ÏÞ",IDC_STATIC,5,5,221,105
+    GROUPBOX        "æ‰§è¡Œæƒé™",IDC_STATIC,5,5,221,105
 END
 
 IDD_CONFIG_MAP DIALOGEX 0, 0, 240, 146
 STYLE DS_SETFONT | DS_CONTROL | WS_CHILD | WS_TABSTOP
 EXSTYLE WS_EX_CONTROLPARENT
-FONT 9, "ËÎÌå", 400, 0, 0x0
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
-    PUSHBUTTON      "Ìí¼Ó(&D)",IDC_BTN_ADD,12,109,38,14
-    PUSHBUTTON      "±à¼­(&E)",IDC_BTN_EDIT,62,109,38,14
-    PUSHBUTTON      "É¾³ý(&R)",IDC_BTN_DEL,112,109,38,14
+    PUSHBUTTON      "æ·»åŠ (&D)",IDC_BTN_ADD,12,109,38,14
+    PUSHBUTTON      "ç¼–è¾‘(&E)",IDC_BTN_EDIT,62,109,38,14
+    PUSHBUTTON      "åˆ é™¤(&R)",IDC_BTN_DEL,112,109,38,14
     CONTROL         "",IDC_LIST_MAP,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
                     WS_TABSTOP,12,18,207,85
-    GROUPBOX        "½Å±¾³ÌÐòÓ³Éä",IDC_STATIC,5,5,221,124
+    GROUPBOX        "è„šæœ¬ç¨‹åºæ˜ å°„",IDC_STATIC,5,5,221,124
 END
 
 IDD_CONFIG_LOG DIALOGEX 0, 0, 240, 146
 STYLE DS_SETFONT | WS_CHILD
 EXSTYLE WS_EX_CONTROLPARENT
-FONT 9, "ËÎÌå", 400, 0, 0x0
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
     GROUPBOX        "",IDC_STATIC,5,5,221,37
     GROUPBOX        "",IDC_STATIC,5,49,221,37
-    CONTROL         "¼ÇÂ¼ÈÕÖ¾µ½´°¿Ú",IDC_CHECK_LOGTOWINDOW,"Button",
+    CONTROL         "è®°å½•æ—¥å¿—åˆ°çª—å£",IDC_CHECK_LOGTOWINDOW,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,11,6,69,8
-    LTEXT           "´°¿ÚÏÔÊ¾µÄ×î´óÐÐÊý:",IDC_STATIC,12,23,77,8
+    LTEXT           "çª—å£æ˜¾ç¤ºçš„æœ€å¤§è¡Œæ•°:",IDC_STATIC,12,23,77,8
     EDITTEXT        IDC_EDIT_MAXLOGWNDLINE,91,21,38,12,ES_CENTER | 
                     ES_AUTOHSCROLL | ES_NUMBER | NOT WS_BORDER,
                     WS_EX_STATICEDGE
-    CONTROL         "¼ÇÂ¼ÈÕÖ¾µ½ÎÄ¼þ",IDC_CHECK_LOGTOFILE,"Button",
+    CONTROL         "è®°å½•æ—¥å¿—åˆ°æ–‡ä»¶",IDC_CHECK_LOGTOFILE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,11,50,69,8
     EDITTEXT        IDC_EDIT_LOGFILENAME,43,64,156,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
     PUSHBUTTON      "...",IDC_BTN_BROWSE,203,64,15,12,BS_CENTER | BS_VCENTER | 
                     BS_FLAT
-    LTEXT           "ÎÄ¼þÃû:",IDC_STATIC,12,66,29,8
-    LTEXT           "(0Îª²»ÏÞÖÆ)",IDC_STATIC,133,23,63,8
+    LTEXT           "æ–‡ä»¶å:",IDC_STATIC,12,66,29,8
+    LTEXT           "(0ä¸ºä¸é™åˆ¶)",IDC_STATIC,133,23,63,8
 END
 
 IDD_ENGINE DIALOGEX 0, 0, 228, 86
 STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | 
     WS_SYSMENU
-CAPTION "Ìí¼Ó/±à¼­½Å±¾Ó³Éä"
-FONT 9, "ËÎÌå", 400, 0, 0x0
+CAPTION "æ·»åŠ /ç¼–è¾‘è„šæœ¬æ˜ å°„"
+FONT 9, "å®‹ä½“", 400, 0, 0x0
 BEGIN
     EDITTEXT        IDC_EDIT_EXTNAME,56,16,60,12,ES_AUTOHSCROLL | NOT 
                     WS_BORDER,WS_EX_STATICEDGE
@@ -220,10 +220,10 @@ BEGIN
                     WS_BORDER,WS_EX_STATICEDGE
     PUSHBUTTON      "...",IDC_BTN_BROWSE,200,35,15,12,BS_CENTER | BS_VCENTER | 
                     BS_FLAT
-    DEFPUSHBUTTON   "È·¶¨",IDOK,133,65,39,14
-    PUSHBUTTON      "È¡Ïû",IDCANCEL,182,65,39,14
-    LTEXT           "À©Õ¹Ãû:",IDC_STATIC,11,17,31,8
-    LTEXT           "¿ÉÖ´ÐÐÎÄ¼þ:",IDC_STATIC,10,37,45,8
+    DEFPUSHBUTTON   "ç¡®å®š",IDOK,133,65,39,14
+    PUSHBUTTON      "å–æ¶ˆ",IDCANCEL,182,65,39,14
+    LTEXT           "æ‰©å±•å:",IDC_STATIC,11,17,31,8
+    LTEXT           "å¯æ‰§è¡Œæ–‡ä»¶:",IDC_STATIC,10,37,45,8
     GROUPBOX        "",IDC_STATIC,5,5,216,53
 END
 
@@ -267,7 +267,7 @@ BEGIN
             VALUE "FileDescription", "EasyWebServer V1.92"
             VALUE "FileVersion", "1.92 Build 2007.11.14"
             VALUE "InternalName", "EasyWebServer"
-            VALUE "LegalCopyright", "°æÈ¨ËùÓÐ (C) 2007 Íõ±¦½£"
+            VALUE "LegalCopyright", "ç‰ˆæƒæ‰€æœ‰ (C) 2007 çŽ‹å®å‰‘"
             VALUE "OriginalFilename", "EasyWebSvr.exe"
             VALUE "ProductName", "EasyWebServer"
             VALUE "ProductVersion", "1, 9, 0, 0"
@@ -279,7 +279,7 @@ BEGIN
     END
 END
 
-#endif    // ÖÐÎÄ(ÖÐ»ªÈËÃñ¹²ºÍ¹ú) resources
+#endif    // ä¸­æ–‡(ä¸­åŽäººæ°‘å…±å’Œå›½) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

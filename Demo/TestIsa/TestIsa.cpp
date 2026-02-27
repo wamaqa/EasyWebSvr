@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include <httpext.h>
 
 static HANDLE g_hModule;
@@ -53,7 +53,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
     DWORD MaxValue;
     BOOL bFixLen;
     GetCalcParam(MaxValue, bFixLen);
-    const char *pTimeFormat = bFixLen ? "¹²ºÄÊ±%05dºÁÃë<hr>\r\n" : "¹²ºÄÊ±%dºÁÃë<hr>\r\n";
+    const char *pTimeFormat = bFixLen ? "å…±è€—æ—¶%05dæ¯«ç§’<hr>\r\n" : "å…±è€—æ—¶%dæ¯«ç§’<hr>\r\n";
 
     const DWORD BufSize = MaxValue * 30 + 1024;
     char *pDataBuf = (char *)malloc(BufSize);
@@ -67,7 +67,7 @@ DWORD WINAPI HttpExtensionProc(IN EXTENSION_CONTROL_BLOCK *pECB)
     for(DWORD i = 1; i <= MaxValue; i++)
     {
         Count += i;
-        Len += wsprintf(pResultStr + Len, "´Ó1¼Óµ½%d=%d<br>\r\n", i, Count);
+        Len += wsprintf(pResultStr + Len, "ä»Ž1åŠ åˆ°%d=%d<br>\r\n", i, Count);
     }
     DWORD T2 = GetTickCount();
 

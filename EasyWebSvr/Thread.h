@@ -1,4 +1,4 @@
-// ¶àÏß³Ì·â×°Àà
+ï»¿// å¤šçº¿ç¨‹å°è£…ç±»
 // wbj 2004.1.15
 #ifndef __BASETHREAD_H__
 #define __BASETHREAD_H__
@@ -6,7 +6,7 @@
 //#include <process.h>
 
 #ifndef _MT
-  #error "±ØĞëÉèÖÃÎª¶àÏß³ÌÄ£Ê½"
+  #error "å¿…é¡»è®¾ç½®ä¸ºå¤šçº¿ç¨‹æ¨¡å¼"
 #endif
 
 namespace minilib

@@ -1,17 +1,19 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cgi1", "Demo\Cgi1\Cgi1.vcproj", "{D56F59CC-374D-4AAF-8B33-BB19B15E020E}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11520.95 d18.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cgi1", "Demo\Cgi1\Cgi1.vcxproj", "{D56F59CC-374D-4AAF-8B33-BB19B15E020E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cgi2", "Demo\Cgi2\Cgi2.vcproj", "{331323EF-F824-4BC1-9531-5C3173E0C3E8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cgi2", "Demo\Cgi2\Cgi2.vcxproj", "{331323EF-F824-4BC1-9531-5C3173E0C3E8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EasyWebSvr", "EasyWebSvr\EasyWebSvr.vcproj", "{F2B8DEF3-4E71-4F41-ADEB-6A6CC29BA907}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EasyWebSvr", "EasyWebSvr\EasyWebSvr.vcxproj", "{F2B8DEF3-4E71-4F41-ADEB-6A6CC29BA907}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IsaChat", "Demo\IsaChat\IsaChat.vcproj", "{964866CC-ACF0-491B-BA5C-E520DAB08657}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IsaChat", "Demo\IsaChat\IsaChat.vcxproj", "{964866CC-ACF0-491B-BA5C-E520DAB08657}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IsaCookie", "Demo\IsaCookie\IsaCookie.vcproj", "{2E2B44C0-8E0A-491C-83E8-8EB2BA09D07A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IsaCookie", "Demo\IsaCookie\IsaCookie.vcxproj", "{2E2B44C0-8E0A-491C-83E8-8EB2BA09D07A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Isapi1", "Demo\Isapi1\Isapi1.vcproj", "{50FC1C8B-DDEE-43B8-8EB9-E0007598A9F7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Isapi1", "Demo\Isapi1\Isapi1.vcxproj", "{50FC1C8B-DDEE-43B8-8EB9-E0007598A9F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,5 +48,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEAF61BC-38DB-4577-B18C-CC4DE9AA9882}
 	EndGlobalSection
 EndGlobal

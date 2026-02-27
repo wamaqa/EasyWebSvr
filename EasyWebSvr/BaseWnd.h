@@ -1,9 +1,9 @@
-//***********************************************
-// ÎÄ¼şÃû³Æ£ºbasewnd.h
-// ¹¦¡¡¡¡ÄÜ£º´°¿Ú»ùÀà
-// ×÷¡¡¡¡Õß£ºwbj
-// ÈÕ¡¡¡¡ÆÚ£º2003-4-19
-// ¸üĞÂÈÕÆÚ: 2006-2-10
+ï»¿//***********************************************
+// æ–‡ä»¶åç§°ï¼šbasewnd.h
+// åŠŸã€€ã€€èƒ½ï¼šçª—å£åŸºç±»
+// ä½œã€€ã€€è€…ï¼šwbj
+// æ—¥ã€€ã€€æœŸï¼š2003-4-19
+// æ›´æ–°æ—¥æœŸ: 2006-2-10
 //***********************************************
 #ifndef __BASEWND_H__
 #define __BASEWND_H__
@@ -26,7 +26,7 @@ enum WndFuncTYPE
 
 struct MSGMAP_ENTRY
 {
-  UINT          Message;  // ¿ÉÄÜÊÇMessage£¬Ò²¿ÉÄÜÊÇCommandId
+  UINT          Message;  // å¯èƒ½æ˜¯Messageï¼Œä¹Ÿå¯èƒ½æ˜¯CommandId
   UINT          FuncType;
   MsgFUNC       MsgFunc;
 };
@@ -37,13 +37,13 @@ struct MSGMAP
   const MSGMAP_ENTRY   *pEntries;
 };
 
-// ÉùÃ÷ÏûÏ¢Ó³Éä
+// å£°æ˜æ¶ˆæ¯æ˜ å°„
 #define DECLARE_MESSAGE_MAP() \
   protected: \
     static const MSGMAP* __stdcall GetThisMessageMap(); \
     virtual const MSGMAP* GetMessageMap() const; \
 
-// ¿ªÊ¼ÏûÏ¢Ó³Éä
+// å¼€å§‹æ¶ˆæ¯æ˜ å°„
 #define BEGIN_MESSAGE_MAP(TheClass, BaseClass) \
   const MSGMAP* TheClass::GetMessageMap() const \
   { \
@@ -56,7 +56,7 @@ struct MSGMAP
     static const MSGMAP_ENTRY _MessageEntries[] =  \
     { \
 
-// ½áÊøÏûÏ¢Ó³Éä
+// ç»“æŸæ¶ˆæ¯æ˜ å°„
 #define END_MESSAGE_MAP() \
       { 0, 0, NULL } \
     }; \
@@ -169,25 +169,25 @@ inline BOOL BaseWND::UpdateWindow()
 
 void MakePoint(POINT *pPt, LPARAM LParam);
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³ÉÆÁÄ»×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆå±å¹•åæ ‡
 void ClientToScreen(HWND hWnd, RECT *pRect);
 
-// °ÑÆÁÄ»×ø±ê×ª»»³Éµ±Ç°¿Í»§Çø×ø±ê
+// æŠŠå±å¹•åæ ‡è½¬æ¢æˆå½“å‰å®¢æˆ·åŒºåæ ‡
 void ScreenToClient(HWND hWnd, RECT *pRect);
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³É¸¸´°¿Ú¿Í»§Çø×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆçˆ¶çª—å£å®¢æˆ·åŒºåæ ‡
 void ClientToParent(HWND hWnd, POINT *pPos);
 
-// °Ñµ±Ç°¿Í»§Çø×ø±ê×ª»»³É¸¸´°¿Ú¿Í»§Çø×ø±ê
+// æŠŠå½“å‰å®¢æˆ·åŒºåæ ‡è½¬æ¢æˆçˆ¶çª—å£å®¢æˆ·åŒºåæ ‡
 void ClientToParent(HWND hWnd, RECT *pRect);
 
-// Ìî³ä¾ØĞÎ
+// å¡«å……çŸ©å½¢
 void FillRect(HDC hDc, const RECT *pRect, COLORREF Color);
 
-// ÓÃ XOR ·½Ê½Ìî³ä¾ØĞÎ
+// ç”¨ XOR æ–¹å¼å¡«å……çŸ©å½¢
 void FillFocusRect(HDC hDc, CONST RECT *pRect);
 
-// ¾ÓÖĞ´°¿Ú
+// å±…ä¸­çª—å£
 BOOL CenterWindow(HWND hWnd, HWND hWndCenter = NULL);
 
 }

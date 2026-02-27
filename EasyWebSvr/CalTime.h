@@ -1,4 +1,4 @@
-// ¼ÆÊ±Àà£¬Ö÷ÒªÓÃÓÚ²âÊÔ³ÌĞòµÄ²¿·Ö»òÈ«²¿´úÂëµÄÔËĞĞ¼ä
+ï»¿// è®¡æ—¶ç±»ï¼Œä¸»è¦ç”¨äºæµ‹è¯•ç¨‹åºçš„éƒ¨åˆ†æˆ–å…¨éƒ¨ä»£ç çš„è¿è¡Œé—´
 // wbj 2002.12.26
 // wbj 2004.7.1
 
@@ -16,9 +16,9 @@ public:
   CalTIME();
   ~CalTIME();
   
-  void          BeginCountTime();       // ¿ªÊ¼¼ÆÊ±
-  void          EndCountTime();         // ½áÊø¼ÆÊ±
-  void          ReSetZeroTime();        // ¸´Ô­
+  void          BeginCountTime();       // å¼€å§‹è®¡æ—¶
+  void          EndCountTime();         // ç»“æŸè®¡æ—¶
+  void          ReSetZeroTime();        // å¤åŸ
   
   void          GetTotalTime(SYSTEMTIME &TotalSysTime);
   void          GetTotalTime(DWORD &TotalMilliSec);
@@ -30,8 +30,8 @@ public:
 #endif
 
 private:
-  DWORD         TotalTime;              // ×Ü¹²»¨·ÑµÄÊ±¼ä£¬ÒÔ 1/1000 Ãë¼Æ
-  DWORD         BeginTime;              // ×î½üµ÷ÓÃ BeginCountTime() Ê±µÄÊ±¼ä£¬ÒÔ 1/1000 Ãë¼Æ
+  DWORD         TotalTime;              // æ€»å…±èŠ±è´¹çš„æ—¶é—´ï¼Œä»¥ 1/1000 ç§’è®¡
+  DWORD         BeginTime;              // æœ€è¿‘è°ƒç”¨ BeginCountTime() æ—¶çš„æ—¶é—´ï¼Œä»¥ 1/1000 ç§’è®¡
   TCHAR         TimeStr[MAX_CALTIME_STRLEN];
 };
 
@@ -79,14 +79,14 @@ inline const TCHAR *CalTIME::GetTotalTimeStr(const TCHAR *pItemName)
 {
   lstrcpyn(TimeStr, pItemName, MAX_CALTIME_STRLEN - 50);
 
-  wsprintf(TimeStr + lstrlen(TimeStr), _T(": %d.%03d Ãë"), 
+  wsprintf(TimeStr + lstrlen(TimeStr), _T(": %d.%03d ç§’"), 
     TotalTime / 1000, TotalTime % 1000);
   return TimeStr;
 }
 
 inline void CalTIME::PopMessage(HWND hWnd, const TCHAR *pItemName)
 {
-  MessageBox(hWnd, GetTotalTimeStr(pItemName), _T("ÔËĞĞ¼ÆÊ±"), MB_ICONINFORMATION);
+  MessageBox(hWnd, GetTotalTimeStr(pItemName), _T("è¿è¡Œè®¡æ—¶"), MB_ICONINFORMATION);
 }
 
 inline BOOL CalTIME::WriteFileLog(const TCHAR *pFileName, const TCHAR *pItemName, const TCHAR *pSep)

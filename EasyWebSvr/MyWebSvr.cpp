@@ -1,4 +1,4 @@
-#include "stdafx.h"
+Ôªø#include "stdafx.h"
 #include "mywebsvr.h"
 
 CMyWebServer::CMyWebServer()
@@ -27,12 +27,12 @@ void CMyWebServer::OnRequestLog(const SOCKADDR_IN &ClientAddr, const CRequestDat
     if(RequestData.bValidate)
     {
         LogText.Format(_T("[%s] %s %s %s"), inet_ntoa(ClientAddr.sin_addr),
-            bExecute ? _T("÷¥––") : (LPCTSTR)RequestData.RequestMethod, (LPCTSTR)RequestData.WebFileName, 
-            bSuccess ? _T("≥…π¶") : _T(" ß∞‹"));
+            bExecute ? _T("ÊâßË°å") : (LPCTSTR)RequestData.RequestMethod, (LPCTSTR)RequestData.WebFileName, 
+            bSuccess ? _T("ÊàêÂäü") : _T("Â§±Ë¥•"));
     }
     else
     {
-        LogText.Format(_T("[%s] Œﬁ–ßµƒHTTP«Î«Û"), inet_ntoa(ClientAddr.sin_addr));
+        LogText.Format(_T("[%s] Êó†ÊïàÁöÑHTTPËØ∑Ê±Ç"), inet_ntoa(ClientAddr.sin_addr));
     }
 
     SvrLog.AddLog(LogText, TRUE);

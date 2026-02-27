@@ -1,234 +1,234 @@
-/*
-¹¦ÄÜ£º Web·şÎñÆ÷
+ï»¿/*
+åŠŸèƒ½ï¼š WebæœåŠ¡å™¨
 
-´ı¸Ä½ø£º
-//1. ÏŞÖÆContentLength×î´óÉÏ´«ÎÄ¼ş´óĞ¡
-//2. ³¬´óÎÄ¼şÏÂÔØ·Ö¶Î·¢ËÍ
-3. Ö´ĞĞCGI½ø³ÌÏŞÖÆÊ±¼ä
-//4. Ö§³ÖISAPI
-5. ²âÊÔ½ÓÊÕ¡¢½âÎö¡¢Ö´ĞĞ¡¢·¢ËÍ¡¢ÈÕÖ¾µÄÊ±¼ä£¬Ìá¸ßĞ§ÂÊ
-//6. exe×ÊÔ´°æ±¾ĞÅÏ¢
-7. ĞéÄâÄ¿Â¼
-8. »·¾³±äÁ¿
-/9. ´¦ÀíhttpÍ·ÖĞÎÄ¼şÊÇ·ñĞŞ¸Ä¡¢ÊÇ·ñ±£³ÖÁ¬½Ó
-//10. Ö§³Öphp
-11. ´¦ÀíRecvError£¬Á¬½ÓReset
-12. Ìá¸ßÅúÁ¿ÈÕÖ¾ListBoxµÄĞ§ÂÊ
-//13. ¶ÔISAPIµÄdll½øĞĞ»º´æ
-//14. cgi¡¢ISAPI²âÊÔÊ¾Àı
-//15. Ö§³ÖÎÄ¼şÏÂÔØ¶ÏµãĞø´«
-//16. ĞŞÕı¿ÉÒÔÓÃ..Ô½¼¶·ÃÎÊµÄBug
-//17. Ôö¼Ó¶ÔÖĞÎÄutf-8±àÂëµÄÖ§³Ö
-18. ÉèÖÃ½çÃætab¼ü²»Õı³£µÄBug
-//19. ¿ª»ú×Ô¶¯ÔËĞĞÊ±Æô¶¯¡¢×îĞ¡»¯
-//20. ·şÎñÆ÷ÔËĞĞÖĞºÍÍ£Ö¹Ê±£¬ÉèÖÃ²»Í¬µÄÍĞÅÌÍ¼±êºÍÍĞÅÌÌáÊ¾
-//21. ²Ëµ¥ÖĞÔö¼ÓÖ±½Ó´ò¿ªä¯ÀÀÆ÷·ÃÎÊÖ÷Ò³
-//22. ÔÊĞíÖ´ĞĞCGI/ISAPIÄ¬ÈÏ²»Ñ¡
-23. ¿¼ÂÇºó×ºÃûÎª.cgiµÄCGI³ÌĞò
-24. ¼ì²éwsprintf,strcpyµÈ¿ÉÄÜµÄ»º³åÇøÒç³ö
-//25. CGIµÄCookieµÈ»·¾³±äÁ¿
-26. CGI½ø³ÌÒâÍâËÀµôµÄ´¦Àí
-//27. ÍêÉÆ¿ª»úÔËĞĞ
-28. ·ÃÎÊ ¸´¼ş%20README ²»Õı³£µÄBug
-//29. cgi1.exe/aaa ÒªÄÜ·ÃÎÊµ½cgi1.exe
-30. Ö§³Öcgi/isapiÁÄÌìÊÒ£¬³ÖĞøÁ¬½Ó
-31. µ½Win98ÏÂ²âÊÔ
-32. ÍêÉÆ¡°¹ØÓÚ¡±½çÃæ
-//33. HTTP_REFERER ±êÖ¾
-//34. Location ÖØĞÂ¶¨Î»±êÖ¾
-35. ÄäÃû·ÃÎÊµÄÏà¹ØÏŞÖÆ
-26. ²âÊÔhttpĞ­ÒéµÄ±ê×¼ĞÔ£¬ºÍIIS×ö¶Ô±È
-27. Ö§³ÖHTTPS SSL
-28. ×èÖ¹ÔÚcgi/isapi³ÌĞòÖĞµ¯³öMessageBox
-29. ISAPI LocationÍøÒ³ÖØ¶¨Ïò
-//30. Ö´ĞĞcgi³ÌĞòÊ±£¬·µ»ØµÄhttpÍ·ÖĞÈ±ÉÙEasyWebServer±êÖ¾
-//31. Ö§³ÖHEAD
-32. ¿¼ÂÇÖ÷Ä¿Â¼ÎªÏà¶ÔÂ·¾¶
-//33. ÏŞÖÆHTTPÍ·µÄ\r\n\r\nÇ°µÄ×î´ó³¤¶È
-34. POSTÆÕÍ¨ÎÄ¼şÊ±£¬ÌáÊ¾405 Method Not Allowed
-//35. ÓÒÏÂ½ÇÍ¼±êÆô¶¯/Í£Ö¹
+å¾…æ”¹è¿›ï¼š
+//1. é™åˆ¶ContentLengthæœ€å¤§ä¸Šä¼ æ–‡ä»¶å¤§å°
+//2. è¶…å¤§æ–‡ä»¶ä¸‹è½½åˆ†æ®µå‘é€
+3. æ‰§è¡ŒCGIè¿›ç¨‹é™åˆ¶æ—¶é—´
+//4. æ”¯æŒISAPI
+5. æµ‹è¯•æ¥æ”¶ã€è§£æã€æ‰§è¡Œã€å‘é€ã€æ—¥å¿—çš„æ—¶é—´ï¼Œæé«˜æ•ˆç‡
+//6. exeèµ„æºç‰ˆæœ¬ä¿¡æ¯
+7. è™šæ‹Ÿç›®å½•
+8. ç¯å¢ƒå˜é‡
+/9. å¤„ç†httpå¤´ä¸­æ–‡ä»¶æ˜¯å¦ä¿®æ”¹ã€æ˜¯å¦ä¿æŒè¿æ¥
+//10. æ”¯æŒphp
+11. å¤„ç†RecvErrorï¼Œè¿æ¥Reset
+12. æé«˜æ‰¹é‡æ—¥å¿—ListBoxçš„æ•ˆç‡
+//13. å¯¹ISAPIçš„dllè¿›è¡Œç¼“å­˜
+//14. cgiã€ISAPIæµ‹è¯•ç¤ºä¾‹
+//15. æ”¯æŒæ–‡ä»¶ä¸‹è½½æ–­ç‚¹ç»­ä¼ 
+//16. ä¿®æ­£å¯ä»¥ç”¨..è¶Šçº§è®¿é—®çš„Bug
+//17. å¢åŠ å¯¹ä¸­æ–‡utf-8ç¼–ç çš„æ”¯æŒ
+18. è®¾ç½®ç•Œé¢tabé”®ä¸æ­£å¸¸çš„Bug
+//19. å¼€æœºè‡ªåŠ¨è¿è¡Œæ—¶å¯åŠ¨ã€æœ€å°åŒ–
+//20. æœåŠ¡å™¨è¿è¡Œä¸­å’Œåœæ­¢æ—¶ï¼Œè®¾ç½®ä¸åŒçš„æ‰˜ç›˜å›¾æ ‡å’Œæ‰˜ç›˜æç¤º
+//21. èœå•ä¸­å¢åŠ ç›´æ¥æ‰“å¼€æµè§ˆå™¨è®¿é—®ä¸»é¡µ
+//22. å…è®¸æ‰§è¡ŒCGI/ISAPIé»˜è®¤ä¸é€‰
+23. è€ƒè™‘åç¼€åä¸º.cgiçš„CGIç¨‹åº
+24. æ£€æŸ¥wsprintf,strcpyç­‰å¯èƒ½çš„ç¼“å†²åŒºæº¢å‡º
+//25. CGIçš„Cookieç­‰ç¯å¢ƒå˜é‡
+26. CGIè¿›ç¨‹æ„å¤–æ­»æ‰çš„å¤„ç†
+//27. å®Œå–„å¼€æœºè¿è¡Œ
+28. è®¿é—® å¤ä»¶%20README ä¸æ­£å¸¸çš„Bug
+//29. cgi1.exe/aaa è¦èƒ½è®¿é—®åˆ°cgi1.exe
+30. æ”¯æŒcgi/isapièŠå¤©å®¤ï¼ŒæŒç»­è¿æ¥
+31. åˆ°Win98ä¸‹æµ‹è¯•
+32. å®Œå–„â€œå…³äºâ€ç•Œé¢
+//33. HTTP_REFERER æ ‡å¿—
+//34. Location é‡æ–°å®šä½æ ‡å¿—
+35. åŒ¿åè®¿é—®çš„ç›¸å…³é™åˆ¶
+26. æµ‹è¯•httpåè®®çš„æ ‡å‡†æ€§ï¼Œå’ŒIISåšå¯¹æ¯”
+27. æ”¯æŒHTTPS SSL
+28. é˜»æ­¢åœ¨cgi/isapiç¨‹åºä¸­å¼¹å‡ºMessageBox
+29. ISAPI Locationç½‘é¡µé‡å®šå‘
+//30. æ‰§è¡Œcgiç¨‹åºæ—¶ï¼Œè¿”å›çš„httpå¤´ä¸­ç¼ºå°‘EasyWebServeræ ‡å¿—
+//31. æ”¯æŒHEAD
+32. è€ƒè™‘ä¸»ç›®å½•ä¸ºç›¸å¯¹è·¯å¾„
+//33. é™åˆ¶HTTPå¤´çš„\r\n\r\nå‰çš„æœ€å¤§é•¿åº¦
+34. POSTæ™®é€šæ–‡ä»¶æ—¶ï¼Œæç¤º405 Method Not Allowed
+//35. å³ä¸‹è§’å›¾æ ‡å¯åŠ¨/åœæ­¢
 //36. CGI Location
 
-²âÊÔcgiÉÏ´«/ÏÂÔØ´óÎÄ¼ş
-¾«¼ò´úÂë£¬Ìá¸ßĞ§ÂÊ
-ÈÕÖ¾¸ÄÎª·µ»Ø´úÂë£¬¶ø·Ç³É¹¦/Ê§°Ü
-ÉèÖÃ¸Ä±äºó£¬±ØÒªÖØÆôÊ±²ÅÖØÆô
-//ÖØÆôexplorerºó£¬ÍĞÅÌÍ¼±ê×´Ì¬´íÎóµÄBug
-urlÖĞº¬ÓĞ\nµÄBug
-½çÃæÑÕÉ«¡¢Ë¢ĞÂÎÊÌâ
-Ö§³ÖÓÃ»§ÊÚÈ¨ÈÏÖ¤
-ÏÔÊ¾Ä¿Â¼ÁĞ±íÊ±µÄÎÊÌâ£¨Content-Length£©
-Ö§³ÖwebÁÄÌìÊÒÄ£Ê½
+æµ‹è¯•cgiä¸Šä¼ /ä¸‹è½½å¤§æ–‡ä»¶
+ç²¾ç®€ä»£ç ï¼Œæé«˜æ•ˆç‡
+æ—¥å¿—æ”¹ä¸ºè¿”å›ä»£ç ï¼Œè€ŒéæˆåŠŸ/å¤±è´¥
+è®¾ç½®æ”¹å˜åï¼Œå¿…è¦é‡å¯æ—¶æ‰é‡å¯
+//é‡å¯exploreråï¼Œæ‰˜ç›˜å›¾æ ‡çŠ¶æ€é”™è¯¯çš„Bug
+urlä¸­å«æœ‰\nçš„Bug
+ç•Œé¢é¢œè‰²ã€åˆ·æ–°é—®é¢˜
+æ”¯æŒç”¨æˆ·æˆæƒè®¤è¯
+æ˜¾ç¤ºç›®å½•åˆ—è¡¨æ—¶çš„é—®é¢˜ï¼ˆContent-Lengthï¼‰
+æ”¯æŒwebèŠå¤©å®¤æ¨¡å¼
 
 
-¸üĞÂÀúÊ·£º
+æ›´æ–°å†å²ï¼š
 ==========
-ab.exe²âÊÔĞÔÄÜ
-¿¼ÂÇÄ¿Â¼ä¯ÀÀÊ±¶Ôºº×Ö±àÂë
+ab.exeæµ‹è¯•æ€§èƒ½
+è€ƒè™‘ç›®å½•æµè§ˆæ—¶å¯¹æ±‰å­—ç¼–ç 
 isapi keepalive
-·ÀÆÆ½â
-½Å±¾Ó³ÉäÊ±²»ÄÜÉèÖÃ¶Ôexe¡¢dllµÄÓ³Éä
-ÎÄµµÖĞÌáÊ¾Ä¿Â¼ä¯ÀÀÊ±£¬²»ÒªÑ¡ÖĞÖ´ĞĞÈ¨ÏŞ
-½¨Òé°Ñcgi/isapi³ÌĞò·ÅÈëcgi-binÄ¿Â¼
+é˜²ç ´è§£
+è„šæœ¬æ˜ å°„æ—¶ä¸èƒ½è®¾ç½®å¯¹exeã€dllçš„æ˜ å°„
+æ–‡æ¡£ä¸­æç¤ºç›®å½•æµè§ˆæ—¶ï¼Œä¸è¦é€‰ä¸­æ‰§è¡Œæƒé™
+å»ºè®®æŠŠcgi/isapiç¨‹åºæ”¾å…¥cgi-binç›®å½•
 
-2.0°æ¹¦ÄÜ --¼Æ»®
-1. Ö§³ÖISAPI¹ıÂËÆ÷
-2. ÏŞÖÆCGIÖ´ĞĞÊ±¼ä
-3. Ö§³ÖISAPI·µ»ØPending
-4. ´¦ÀíÁ¬½ÓÊı¹ı¶àµÄÇé¿ö
-5. Ñ¹Ëõ°üÖĞ·ÅISAPIÊ¾ÀıÔ´Âë
+2.0ç‰ˆåŠŸèƒ½ --è®¡åˆ’
+1. æ”¯æŒISAPIè¿‡æ»¤å™¨
+2. é™åˆ¶CGIæ‰§è¡Œæ—¶é—´
+3. æ”¯æŒISAPIè¿”å›Pending
+4. å¤„ç†è¿æ¥æ•°è¿‡å¤šçš„æƒ…å†µ
+5. å‹ç¼©åŒ…ä¸­æ”¾ISAPIç¤ºä¾‹æºç 
 
 2007.11.14
-1. ISAPIÖ´ĞĞÒì³£Ê±£¬ConnectionÉèÖÃÎªclose
-2. ĞŞÕıÄ³Ğ©CGI³ÌĞò¿ÉÄÜÖ´ĞĞ²»Õı³£µÄBug£¨·Ö¶à´ÎÊä³öÍ·£©
-3. ÍêÉÆÎÄµµ¡¢²âÊÔ£¬·¢²¼EasyWebServer1.9
+1. ISAPIæ‰§è¡Œå¼‚å¸¸æ—¶ï¼ŒConnectionè®¾ç½®ä¸ºclose
+2. ä¿®æ­£æŸäº›CGIç¨‹åºå¯èƒ½æ‰§è¡Œä¸æ­£å¸¸çš„Bugï¼ˆåˆ†å¤šæ¬¡è¾“å‡ºå¤´ï¼‰
+3. å®Œå–„æ–‡æ¡£ã€æµ‹è¯•ï¼Œå‘å¸ƒEasyWebServer1.9
 
 2007.11.13
-1. ÏÔÊ¾Ä¿Â¼ÁĞ±íÊ±£¬¶ÔÎÄ¼şºÍÄ¿Â¼ÅÅĞò
-2. ĞŞÕıÄ¿Â¼ÁĞ±íÒ³ÃæÓÃÄ³Ğ©ÏÂÔØ¹¤¾ß²»ÄÜÏÂÔØµÄBug£¨URL½âÂë£©
+1. æ˜¾ç¤ºç›®å½•åˆ—è¡¨æ—¶ï¼Œå¯¹æ–‡ä»¶å’Œç›®å½•æ’åº
+2. ä¿®æ­£ç›®å½•åˆ—è¡¨é¡µé¢ç”¨æŸäº›ä¸‹è½½å·¥å…·ä¸èƒ½ä¸‹è½½çš„Bugï¼ˆURLè§£ç ï¼‰
 
 2007.11.12
-1. ÍêÉÆCGIµÄStatus¡¢LocationµÈ
-2. ½Å±¾Ó³ÉäÔö¼ÓÓ¦ÓÃ³ÌĞò²ÎÊı¹¦ÄÜ
-3. ³õ²½ÊµÏÖÁË¶ÔPerlµÄÖ§³Ö£¨CGI°æperl.exe£©!
+1. å®Œå–„CGIçš„Statusã€Locationç­‰
+2. è„šæœ¬æ˜ å°„å¢åŠ åº”ç”¨ç¨‹åºå‚æ•°åŠŸèƒ½
+3. åˆæ­¥å®ç°äº†å¯¹Perlçš„æ”¯æŒï¼ˆCGIç‰ˆperl.exeï¼‰!
 
 2007.11.10
-1. ³õ²½ÊµÏÖ¶ÔKeepAlive³Ö¾ÃÁ¬½Ó¹¦ÄÜµÄÖ§³Ö
-2. ĞŞÕıµãÍĞÅÌ²Ëµ¥¿ÉÒÔµ¯³ö¶à¸öÉèÖÃ´°¿ÚµÄBug
+1. åˆæ­¥å®ç°å¯¹KeepAliveæŒä¹…è¿æ¥åŠŸèƒ½çš„æ”¯æŒ
+2. ä¿®æ­£ç‚¹æ‰˜ç›˜èœå•å¯ä»¥å¼¹å‡ºå¤šä¸ªè®¾ç½®çª—å£çš„Bug
 
 2007.11.8
-ÊµÏÖ½Å±¾Ó³Éä¹¦ÄÜ¼°½çÃæÉèÖÃ£¬¿ÉÒÔÖ§³ÖASPÁË£¨Ê¹ÓÃActiveHTML½âÊÍÆ÷£©!
+å®ç°è„šæœ¬æ˜ å°„åŠŸèƒ½åŠç•Œé¢è®¾ç½®ï¼Œå¯ä»¥æ”¯æŒASPäº†ï¼ˆä½¿ç”¨ActiveHTMLè§£é‡Šå™¨ï¼‰!
 
 2007.11.6
-1. ÏŞÖÆä¯ÀÀÆ÷Ìá½»µÄ×î´óHttpHeader´óĞ¡£¨·À¹¥»÷£©
-2. ÍêÉÆCGI/ISAPIÖ´ĞĞÊ§°ÜÊ±µÄHttpÍ·ĞÅÏ¢
-3. ÊµÏÖ¶ÔHTTPµÄHEADÃüÁîµÄÖ§³Ö
-4. ÍêÉÆÎÄµµ¡¢²âÊÔ£¬·¢²¼EasyWebServer1.8
+1. é™åˆ¶æµè§ˆå™¨æäº¤çš„æœ€å¤§HttpHeaderå¤§å°ï¼ˆé˜²æ”»å‡»ï¼‰
+2. å®Œå–„CGI/ISAPIæ‰§è¡Œå¤±è´¥æ—¶çš„Httpå¤´ä¿¡æ¯
+3. å®ç°å¯¹HTTPçš„HEADå‘½ä»¤çš„æ”¯æŒ
+4. å®Œå–„æ–‡æ¡£ã€æµ‹è¯•ï¼Œå‘å¸ƒEasyWebServer1.8
 
 2007.11.5
-1. ÍêÉÆISAPI»·¾³±äÁ¿£¨UserAgent¡¢Referer¡¢Authorization£©
-2. ĞŞÕı¿ª»ú×Ô¶¯ÔËĞĞ²ÎÊı²»ÄÜ±£´æµÄBug
-3. ÏŞÖÆä¯ÀÀÆ÷Ìá½»µÄ×î´óContent-Length´óĞ¡£¨·À¹¥»÷£©
+1. å®Œå–„ISAPIç¯å¢ƒå˜é‡ï¼ˆUserAgentã€Refererã€Authorizationï¼‰
+2. ä¿®æ­£å¼€æœºè‡ªåŠ¨è¿è¡Œå‚æ•°ä¸èƒ½ä¿å­˜çš„Bug
+3. é™åˆ¶æµè§ˆå™¨æäº¤çš„æœ€å¤§Content-Lengthå¤§å°ï¼ˆé˜²æ”»å‡»ï¼‰
 
 2007.10.21
-1. ÍêÉÆ¶ÔISAPIµÄÖ§³Ö£¨ResponseHeader¡¢TerminateExtension£©
-2. ÊµÏÖ¶ÔISAPI°æPHPµÄÖ§³Ö£¬ÍêÈ«µÄÖ§³ÖPHPÁË!!!
-3. Ìá¸ßÈÕÖ¾Êä³öµ½ÎÄ¼şÊ±µÄĞ§ÂÊ
-4. ÍêÉÆÎÄµµ¡¢²âÊÔ£¬·¢²¼EasyWebServer1.7
+1. å®Œå–„å¯¹ISAPIçš„æ”¯æŒï¼ˆResponseHeaderã€TerminateExtensionï¼‰
+2. å®ç°å¯¹ISAPIç‰ˆPHPçš„æ”¯æŒï¼Œå®Œå…¨çš„æ”¯æŒPHPäº†!!!
+3. æé«˜æ—¥å¿—è¾“å‡ºåˆ°æ–‡ä»¶æ—¶çš„æ•ˆç‡
+4. å®Œå–„æ–‡æ¡£ã€æµ‹è¯•ï¼Œå‘å¸ƒEasyWebServer1.7
 
 2007.10.12
-1. Ôö¼Ó¶ÔISAPIÌø×ª¹¦ÄÜµÄÖ§³Ö
-2. ĞŞÕıÔÚÄ³Ğ©Íâ¹ÛÉèÖÃÏÂ½çÃæÑÕÉ«ÏÔÊ¾²»Õı³£µÄÎÊÌâ
+1. å¢åŠ å¯¹ISAPIè·³è½¬åŠŸèƒ½çš„æ”¯æŒ
+2. ä¿®æ­£åœ¨æŸäº›å¤–è§‚è®¾ç½®ä¸‹ç•Œé¢é¢œè‰²æ˜¾ç¤ºä¸æ­£å¸¸çš„é—®é¢˜
 
 2006.5.19
-1. Ö§³Ö.cgiÀ©Õ¹ÃûµÄcgi³ÌĞò£¨ÆäÊµºÍ.exeÏàÍ¬£©
-2. ĞŞÕıÁËdemoÖĞµÄisapi1.dllÔÚÄ³Ğ©µçÄÔÖĞ²»ÄÜÔËĞĞµÄBug
-3. ÍêÉÆÎÄµµ¡¢²âÊÔ£¬·¢²¼EasyWebServer1.6
+1. æ”¯æŒ.cgiæ‰©å±•åçš„cgiç¨‹åºï¼ˆå…¶å®å’Œ.exeç›¸åŒï¼‰
+2. ä¿®æ­£äº†demoä¸­çš„isapi1.dllåœ¨æŸäº›ç”µè„‘ä¸­ä¸èƒ½è¿è¡Œçš„Bug
+3. å®Œå–„æ–‡æ¡£ã€æµ‹è¯•ï¼Œå‘å¸ƒEasyWebServer1.6
 
 2006.5.18
-1. ÊµÏÖÖ§³ÖPHP¹¦ÄÜµÄÉèÖÃ½çÃæ
-2. ĞŞÕıÁËÖØÆô×ÊÔ´¹ÜÀíÆ÷ºó£¬ÍĞÅÌÍ¼±ê×´Ì¬ÏÔÊ¾´íÎóµÄBug
+1. å®ç°æ”¯æŒPHPåŠŸèƒ½çš„è®¾ç½®ç•Œé¢
+2. ä¿®æ­£äº†é‡å¯èµ„æºç®¡ç†å™¨åï¼Œæ‰˜ç›˜å›¾æ ‡çŠ¶æ€æ˜¾ç¤ºé”™è¯¯çš„Bug
 
 2006.5.17
-ÊµÏÖĞÎÈç http://wbj/cgi µÄURLÌø×ªµ½ http://wbj/cgi/
+å®ç°å½¢å¦‚ http://wbj/cgi çš„URLè·³è½¬åˆ° http://wbj/cgi/
 
 2006.5.12
-1. ĞŞÕıÁË¶ÔÊ¹ÓÃÖØ¶¨Ïò¹¦ÄÜµÄphp³ÌĞòÔËĞĞ²»Õı³£µÄBug
-2. ĞŞÕıÁËÔÚFirefoxä¯ÀÀÆ÷ÏÂ¶ÔÊ¹ÓÃµ¥¶ÀcssÎÄ¼şµÄÍøÒ³ÏÔÊ¾²»Õı³£µÄBug
+1. ä¿®æ­£äº†å¯¹ä½¿ç”¨é‡å®šå‘åŠŸèƒ½çš„phpç¨‹åºè¿è¡Œä¸æ­£å¸¸çš„Bug
+2. ä¿®æ­£äº†åœ¨Firefoxæµè§ˆå™¨ä¸‹å¯¹ä½¿ç”¨å•ç‹¬cssæ–‡ä»¶çš„ç½‘é¡µæ˜¾ç¤ºä¸æ­£å¸¸çš„Bug
 
 2006.5.10
-³õ²½ÊµÏÖÁË¶ÔPHPµÄÖ§³Ö£¨cgi°æphp4£©
+åˆæ­¥å®ç°äº†å¯¹PHPçš„æ”¯æŒï¼ˆcgiç‰ˆphp4ï¼‰
 
 2006.3.30
-ĞŞÕıÁËÊ¹ÓÃOperaä¯ÀÀÆ÷Cookie²»Õı³£µÄBug
+ä¿®æ­£äº†ä½¿ç”¨Operaæµè§ˆå™¨Cookieä¸æ­£å¸¸çš„Bug
 
 2006.3.11
-ÍêÉÆ¹ØÓÚ½çÃæ¡¢ÎÄµµ
-²âÊÔ£¬·¢²¼EasyWebServer1.5
+å®Œå–„å…³äºç•Œé¢ã€æ–‡æ¡£
+æµ‹è¯•ï¼Œå‘å¸ƒEasyWebServer1.5
 
 2006.3.10
-1. ¹Ø»ú¼°ÍË³öÊ±±£´æ´°¿Ú×´Ì¬¡¢·şÎñÆ÷ÔËĞĞ×´Ì¬
-2. ·şÎñÆ÷ÔËĞĞºÍÍ£Ö¹Ê±£¬ÉèÖÃ²»Í¬µÄÍĞÅÌÍ¼±ê
+1. å…³æœºåŠé€€å‡ºæ—¶ä¿å­˜çª—å£çŠ¶æ€ã€æœåŠ¡å™¨è¿è¡ŒçŠ¶æ€
+2. æœåŠ¡å™¨è¿è¡Œå’Œåœæ­¢æ—¶ï¼Œè®¾ç½®ä¸åŒçš„æ‰˜ç›˜å›¾æ ‡
 
 2006.3.9
-1. ÍêÉÆ³ÌĞòICON
-2. Ôö¼Óä¯ÀÀÖ÷Ò³µÄ¹¦ÄÜ
+1. å®Œå–„ç¨‹åºICON
+2. å¢åŠ æµè§ˆä¸»é¡µçš„åŠŸèƒ½
 
 2006.3.8
-ÍêÉÆÁËISAPIµÄ²¿·Ö»·¾³±äÁ¿
+å®Œå–„äº†ISAPIçš„éƒ¨åˆ†ç¯å¢ƒå˜é‡
 
 2006.3.7
-1. ÊµÏÖÁË¶ÔÎÄ¼şÏÂÔØ¶ÏµãĞø´«µÄÖ§³Ö£¨RangeºÍContent-Range±ê¼Ç£©
-2. ÍĞÅÌtooltips·şÎñÆ÷×´Ì¬ÌáÊ¾
+1. å®ç°äº†å¯¹æ–‡ä»¶ä¸‹è½½æ–­ç‚¹ç»­ä¼ çš„æ”¯æŒï¼ˆRangeå’ŒContent-Rangeæ ‡è®°ï¼‰
+2. æ‰˜ç›˜tooltipsæœåŠ¡å™¨çŠ¶æ€æç¤º
 
 2006.3.6
-ÊµÏÖÁË¶ÔHTTPµÄLast-ModifiedºÍIf-Modified-SinceµÄÖ§³Ö
+å®ç°äº†å¯¹HTTPçš„Last-Modifiedå’ŒIf-Modified-Sinceçš„æ”¯æŒ
 
 2006.3.5
-³¬´óÎÄ¼şÏÂÔØ·Ö¶Î·¢ËÍ
+è¶…å¤§æ–‡ä»¶ä¸‹è½½åˆ†æ®µå‘é€
 
 2006.3.3
-1. ¸ÄĞ´HTTPÇëÇóµÄ½âÂë¹ı³Ì£¬ÍêÉÆCGI»·¾³±äÁ¿£¬ÍêÉÆ¹ÜµÀ¶¨Ïò£¬ĞŞÕıÁË²¿·ÖCGI³ÌĞòÔËĞĞ²»Õı³£µÄBug
-(Ôö¼ÓSCRIPT_NAME¡¢PATH_INFOµÈ»·¾³±äÁ¿) http://wbj/cgi1.exe/aaa?bbb
-2. È±Ê¡ÔÊĞíCGI/ISAPIÈ¨ÏŞ
+1. æ”¹å†™HTTPè¯·æ±‚çš„è§£ç è¿‡ç¨‹ï¼Œå®Œå–„CGIç¯å¢ƒå˜é‡ï¼Œå®Œå–„ç®¡é“å®šå‘ï¼Œä¿®æ­£äº†éƒ¨åˆ†CGIç¨‹åºè¿è¡Œä¸æ­£å¸¸çš„Bug
+(å¢åŠ SCRIPT_NAMEã€PATH_INFOç­‰ç¯å¢ƒå˜é‡) http://wbj/cgi1.exe/aaa?bbb
+2. ç¼ºçœå…è®¸CGI/ISAPIæƒé™
 
 2006.2.22
-1. ×´Ì¬À¸Ôö¼Ó¿ØÖÆ°´Å¥ºÍ²Ëµ¥°´Å¥
-2. ĞŞÕıÁË¶Ô·ÃÎÊsocketÍøÂçµÄCGI³ÌĞòÔËĞĞ²»Õı³£µÄBug
-3. ĞŞ¸ÄÁËÖ÷³ÌĞòµÄICON
+1. çŠ¶æ€æ å¢åŠ æ§åˆ¶æŒ‰é’®å’Œèœå•æŒ‰é’®
+2. ä¿®æ­£äº†å¯¹è®¿é—®socketç½‘ç»œçš„CGIç¨‹åºè¿è¡Œä¸æ­£å¸¸çš„Bug
+3. ä¿®æ”¹äº†ä¸»ç¨‹åºçš„ICON
 
 2006.1.22
-Ôö¼Ó¿ª»ú×Ô¶¯ÔËĞĞµÄ¹¦ÄÜ£¨×¢²á±íÆô¶¯×é£©
-·¢²¼EasyWebServer1.0
+å¢åŠ å¼€æœºè‡ªåŠ¨è¿è¡Œçš„åŠŸèƒ½ï¼ˆæ³¨å†Œè¡¨å¯åŠ¨ç»„ï¼‰
+å‘å¸ƒEasyWebServer1.0
 
 2006.1.20
-1. ÊµÏÖÁËÈ±Ê¡ÎÄµµÁĞ±íµÄ¹¦ÄÜ
-2. ÍêÉÆÈÕÖ¾ÉèÖÃ¹¦ÄÜ£¨Êä³öµ½´°¿Ú£¬Êä³öµ½ÎÄ¼ş£©
+1. å®ç°äº†ç¼ºçœæ–‡æ¡£åˆ—è¡¨çš„åŠŸèƒ½
+2. å®Œå–„æ—¥å¿—è®¾ç½®åŠŸèƒ½ï¼ˆè¾“å‡ºåˆ°çª—å£ï¼Œè¾“å‡ºåˆ°æ–‡ä»¶ï¼‰
 
 2006.1.19
-ÊµÏÖÁË¶ÔÖĞÎÄUTF-8±àÂëµÄÖ§³Ö
+å®ç°äº†å¯¹ä¸­æ–‡UTF-8ç¼–ç çš„æ”¯æŒ
 
 2006.1.18
-1. ÊµÏÖÁËÄ¿Â¼ä¯ÀÀµÄ¹¦ÄÜ
-2. ĞŞÕıÁË¿ÉÒÔÓÃ..Ô½¼¶·ÃÎÊµÄBug
-3. ´úÂë½á¹¹µ÷Õû£¬ÖØĞ´ÁËurlÂ·¾¶×ª»»µÄÏà¹Ø´úÂë
-4. Ôö¼Ó¶Ô¡°½âÎöHTTPÇëÇóÊ§°Ü¡±µÄÈÕÖ¾¼ÇÂ¼
+1. å®ç°äº†ç›®å½•æµè§ˆçš„åŠŸèƒ½
+2. ä¿®æ­£äº†å¯ä»¥ç”¨..è¶Šçº§è®¿é—®çš„Bug
+3. ä»£ç ç»“æ„è°ƒæ•´ï¼Œé‡å†™äº†urlè·¯å¾„è½¬æ¢çš„ç›¸å…³ä»£ç 
+4. å¢åŠ å¯¹â€œè§£æHTTPè¯·æ±‚å¤±è´¥â€çš„æ—¥å¿—è®°å½•
 
 2006.1.13
-ÊµÏÖÁËISAPIµÄ»º´ædllµÄ¹¦ÄÜ
+å®ç°äº†ISAPIçš„ç¼“å­˜dllçš„åŠŸèƒ½
 
 2006.1.12
-1. ½çÃæ×öÁËÖØ´óµ÷Õû£¬×öÁËÒ»¸ö×¨ÃÅµÄÉèÖÃ½çÃæ£¬
-   ·Ö¶à¸öTabÊôĞÔÒ³£¬°üÀ¨[³£¹æ]¡¢[È¨ÏŞ]¡¢[ÎÄµµ]¡¢[ÈÕÖ¾]
-2. Ôö¼Ó¶Ô×î´óÁ¬½ÓÊı¡¢³¬Ê±Ê±¼äµÄÉèÖÃ
+1. ç•Œé¢åšäº†é‡å¤§è°ƒæ•´ï¼Œåšäº†ä¸€ä¸ªä¸“é—¨çš„è®¾ç½®ç•Œé¢ï¼Œ
+   åˆ†å¤šä¸ªTabå±æ€§é¡µï¼ŒåŒ…æ‹¬[å¸¸è§„]ã€[æƒé™]ã€[æ–‡æ¡£]ã€[æ—¥å¿—]
+2. å¢åŠ å¯¹æœ€å¤§è¿æ¥æ•°ã€è¶…æ—¶æ—¶é—´çš„è®¾ç½®
 
 2006.1.6
-ÍêÉÆ½çÃæ¡¢ÎÄµµµÈ£¬·¢²¼EasyWebServer V0.8
+å®Œå–„ç•Œé¢ã€æ–‡æ¡£ç­‰ï¼Œå‘å¸ƒEasyWebServer V0.8
 
 2005.12.31
-ĞŞÕıÁË¶ÔISAPI³ÌĞòSOAP´¦Àí²»Õı³£µÄBug
+ä¿®æ­£äº†å¯¹ISAPIç¨‹åºSOAPå¤„ç†ä¸æ­£å¸¸çš„Bug
 
 2005.12.30
-1. ÊµÏÖÁË¶ÔISAPI³ÌĞòµÄÖ§³Ö£¡
-2. ÍêÉÆ½çÃæÉèÖÃ¡¢ÈÕÖ¾µÈ
+1. å®ç°äº†å¯¹ISAPIç¨‹åºçš„æ”¯æŒï¼
+2. å®Œå–„ç•Œé¢è®¾ç½®ã€æ—¥å¿—ç­‰
 
 2005.12.29
-³õ²½ÊµÏÖÁËGDI½çÃæ£¬¿ÉËõĞ¡µ½ÏµÍ³ÍĞÅÌ
+åˆæ­¥å®ç°äº†GDIç•Œé¢ï¼Œå¯ç¼©å°åˆ°ç³»ç»Ÿæ‰˜ç›˜
 
 2005.12.26
-1. ÊµÏÖÁË¶ÔCGI³ÌĞòPOST·½·¨µÄÖ§³Ö£¡
-2. ĞŞÕıÁË¶ÔURLº¬ÓĞ¿Õ¸ñµÈ²»Õı³£µÄBug
+1. å®ç°äº†å¯¹CGIç¨‹åºPOSTæ–¹æ³•çš„æ”¯æŒï¼
+2. ä¿®æ­£äº†å¯¹URLå«æœ‰ç©ºæ ¼ç­‰ä¸æ­£å¸¸çš„Bug
 
 2005.12.24
-1. ÑĞ¾¿ÁËÒ»ÕûÌìCGI¹ÜµÀ¶¨Ïò¼¼Êõ£¬Í·»èÑÛ»¨Ñ½£¬
-   Æ½°²Ò¹23:00£¬ÖÕÓÚ½â¾öÁËÊµÏÖCGIÖ§³ÖµÄ¹Ø¼ü¼¼ÊõÄÑÌâ£¡
-2. ÖØĞ´ÁËHttpÇëÇóµÄ½ÓÊÕÄ£¿é´úÂë
+1. ç ”ç©¶äº†ä¸€æ•´å¤©CGIç®¡é“å®šå‘æŠ€æœ¯ï¼Œå¤´æ˜çœ¼èŠ±å‘€ï¼Œ
+   å¹³å®‰å¤œ23:00ï¼Œç»ˆäºè§£å†³äº†å®ç°CGIæ”¯æŒçš„å…³é”®æŠ€æœ¯éš¾é¢˜ï¼
+2. é‡å†™äº†Httpè¯·æ±‚çš„æ¥æ”¶æ¨¡å—ä»£ç 
 
 2005.12.22
-³õ²½ÊµÏÖÁË¶ÔCGI³ÌĞòGET·½·¨µÄÖ§³Ö
+åˆæ­¥å®ç°äº†å¯¹CGIç¨‹åºGETæ–¹æ³•çš„æ”¯æŒ
 
 2005.12.20
-³õ°æ£¬ÊµÏÖÁË¶Ô¾²Ì¬ÍøÒ³µÄÖ§³Ö
+åˆç‰ˆï¼Œå®ç°äº†å¯¹é™æ€ç½‘é¡µçš„æ”¯æŒ
 
 */
 #include "stdafx.h"
@@ -248,7 +248,7 @@ isapi keepalive
 REQUEST_METHOD : GET/POST
 
 GET: 
-Êı¾İÔÚ QUERY_STRING »·¾³±äÁ¿ÖĞ
+æ•°æ®åœ¨ QUERY_STRING ç¯å¢ƒå˜é‡ä¸­
 
 POST:
 CONTENT_TYPE CONTENT_LENGTH
@@ -275,10 +275,10 @@ static int HexToInt(TCHAR ch)
     return -1;
 }
 
-//½âÂëË¼Â·:
-//  ±éÀúÔ´×Ö·û´®£¬Èç¹ûÅöµ½+£¬»»³É¿Õ¸ñ
-//  Èç¹ûÅöµ½%xx£¬ÇÒxxÊÇÊı×Ö£¬ÔòÖ´ĞĞ16½øÖÆ½âÂë
-//  ¶ÔÓÚxx£¬Èç¹ûµÚÒ»¸ö´óÓÚ0x7FµÄ×Ö·ûÒ²´óÓÚ0xE0£¬ÔòÈÏÎªÊÇUTF8±àÂë£¬ÔÙÖ´ĞĞUTF8½âÂë
+//è§£ç æ€è·¯:
+//  éå†æºå­—ç¬¦ä¸²ï¼Œå¦‚æœç¢°åˆ°+ï¼Œæ¢æˆç©ºæ ¼
+//  å¦‚æœç¢°åˆ°%xxï¼Œä¸”xxæ˜¯æ•°å­—ï¼Œåˆ™æ‰§è¡Œ16è¿›åˆ¶è§£ç 
+//  å¯¹äºxxï¼Œå¦‚æœç¬¬ä¸€ä¸ªå¤§äº0x7Fçš„å­—ç¬¦ä¹Ÿå¤§äº0xE0ï¼Œåˆ™è®¤ä¸ºæ˜¯UTF8ç¼–ç ï¼Œå†æ‰§è¡ŒUTF8è§£ç 
 static void UrlDecode(char *&pSrcBuf, char *&pDestBuf, bool &bUtf8)
 {
     assert(!bUtf8);
@@ -335,7 +335,7 @@ static void UrlDecode(char *pUrlStr)
             UrlDecode(pSrcBuf, pDestBuf, bUtf8);
             if(bUtf8)
             {
-                // ¿¼ÂÇÌá¸ß´Ë´¦UTF8½âÂëµÄĞ§ÂÊ ---------
+                // è€ƒè™‘æé«˜æ­¤å¤„UTF8è§£ç çš„æ•ˆç‡ ---------
                 // UTF8 --> UNICODE
                 int SrcLen = (int)strlen(pUrlStr);
                 int WideLen = MultiByteToWideChar(CP_UTF8, 0, pUrlStr, SrcLen, NULL, NULL);
@@ -361,23 +361,23 @@ static void UrlDecode(MtSTRING &UrlStr)
 }
 
 /*
-Ö»Òª¶ÁÈ¡µÚÒ»¸ö×Ö½Ú²¢ÅĞ¶ÏËüµÄ16½øÖÆ´óÓÚ0xE0¾Í¿ÉÖªËüÊÇUTF8£¡
+åªè¦è¯»å–ç¬¬ä¸€ä¸ªå­—èŠ‚å¹¶åˆ¤æ–­å®ƒçš„16è¿›åˆ¶å¤§äº0xE0å°±å¯çŸ¥å®ƒæ˜¯UTF8ï¼
 
-(ÎŞÂë):http://wbj/CGIÎÄµµ.chm
-(¼òµ¥):http://wbj/CGI%CE%C4%B5%B5.chm 
+(æ— ç ):http://wbj/CGIæ–‡æ¡£.chm
+(ç®€å•):http://wbj/CGI%CE%C4%B5%B5.chm 
 (UTF8):http://wbj/CGI%E6%96%87%E6%A1%A3.chm
 
-(¼òµ¥):http://wbj/¶áÃüÁ¬Ïß%20·´ÍĞÀ­Ë¹ĞĞ¶¯%20Antitrust-CD1-Tlf.avi
-(¼òµ¥):http://wbj/%B6%E1%C3%FC%C1%AC%CF%DF%20%B7%B4%CD%D0%C0%AD%CB%B9%D0%D0%B6%AF%20Antitrust-CD1-Tlf.avi
+(ç®€å•):http://wbj/å¤ºå‘½è¿çº¿%20åæ‰˜æ‹‰æ–¯è¡ŒåŠ¨%20Antitrust-CD1-Tlf.avi
+(ç®€å•):http://wbj/%B6%E1%C3%FC%C1%AC%CF%DF%20%B7%B4%CD%D0%C0%AD%CB%B9%D0%D0%B6%AF%20Antitrust-CD1-Tlf.avi
 (UTF8):http://wbj/%E5%A4%BA%E5%91%BD%E8%BF%9E%E7%BA%BF%20%E5%8F%8D%E6%89%98%E6%8B%89%E6%96%AF%E8%A1%8C%E5%8A%A8%20Antitrust-CD1-Tlf.avi
 
-http://wbj/CGIÎÄµµ.chm
+http://wbj/CGIæ–‡æ¡£.chm
 
-utf-8·½Ê½·¢ËÍ:
+utf-8æ–¹å¼å‘é€:
 GET /CGI%E6%96%87%E6%A1%A3.chm HTTP/1.1
 
-·Çutf-8·½Ê½·¢ËÍ:
-GET /CGIÎÄµµ.chm HTTP/1.1
+éutf-8æ–¹å¼å‘é€:
+GET /CGIæ–‡æ¡£.chm HTTP/1.1
 */
 
 CRequestData::CRequestData()
@@ -471,7 +471,7 @@ HTTP_ERROR CWebServerThread::ReadRequest(CRequestData &RequestData, int TimeOutM
             AllocLen - RequestData.RawDataLen - 1);
         if(Ret == 0)
         {
-            // ¿Í»§¶ËÕı³£¶Ï¿ª
+            // å®¢æˆ·ç«¯æ­£å¸¸æ–­å¼€
             LOG_INFO(GID_WEBSERVER, "Network error, closed.");
             return HERROR_NETWORK;
         }
@@ -484,7 +484,7 @@ HTTP_ERROR CWebServerThread::ReadRequest(CRequestData &RequestData, int TimeOutM
                 {
                     if(!TheSocket.WaitData(true, TimeOutMilliSeconds))
                     {
-                        // ·Ç×èÈûÄ£Ê½µÄ³¬Ê±
+                        // éé˜»å¡æ¨¡å¼çš„è¶…æ—¶
                         LOG_INFO(GID_WEBSERVER, "Network error, timeout.");
                         return HERROR_NETWORK;
                     }
@@ -492,15 +492,15 @@ HTTP_ERROR CWebServerThread::ReadRequest(CRequestData &RequestData, int TimeOutM
                 }
                 else if(Err == WSAETIMEDOUT)
                 {
-                    assert(false); // ±¾º¯ÊıÓ¦¸ÃÖ»ÓÃÓÚ·Ç×èÈûÄ£Ê½
-                    // ×èÈûÄ£Ê½µÄ³¬Ê±
+                    assert(false); // æœ¬å‡½æ•°åº”è¯¥åªç”¨äºéé˜»å¡æ¨¡å¼
+                    // é˜»å¡æ¨¡å¼çš„è¶…æ—¶
                     LOG_INFO(GID_WEBSERVER, "Network error, timeout.");
                     return HERROR_NETWORK;
                 }
                 else
                 {
-                    // ÆäËû´íÎó 
-                    // ·¢ÏÖ³£³öÏÖ 10054´íÎó  WSAECONNRESET
+                    // å…¶ä»–é”™è¯¯ 
+                    // å‘ç°å¸¸å‡ºç° 10054é”™è¯¯  WSAECONNRESET
                     LOG_INFO(GID_WEBSERVER, "Network error, ErrID=%d.", Err);
                     return HERROR_NETWORK;
                 }
@@ -524,10 +524,10 @@ HTTP_ERROR CWebServerThread::ReadRequest(CRequestData &RequestData, int TimeOutM
                 bFoundEndFlag = TRUE;
                 ContentDataIndex = (int)(pEndFlag + 4 - (char *)RequestData.pRawData);
 
-                // ½Ø¶Ï
+                // æˆªæ–­
                 pEndFlag[0] = '\0'; 
 
-                // ÕÒ "Content-Length"
+                // æ‰¾ "Content-Length"
                 char *pLine = (char *)RequestData.pRawData;
                 while(1)
                 {
@@ -914,9 +914,9 @@ BOOL ExecuteShellProcess(const char *pCommandLine, const void *pCgiEnv, const ch
                          PipeIoFUNC pWritePipeFunc, PipeIoFUNC pReadPipeFunc, LPARAM FuncParam)
 {
 /*
-¹ÜµÀÍ¼£º
+ç®¡é“å›¾ï¼š
           |----------|
-W1----->R1|  ×Ó½ø³Ì  |W2----->R2
+W1----->R1|  å­è¿›ç¨‹  |W2----->R2
           |----------|
 */
     SECURITY_ATTRIBUTES Sa;
@@ -935,11 +935,11 @@ W1----->R1|  ×Ó½ø³Ì  |W2----->R2
         return FALSE;
     } 
 
-    // È¥µô¾ä±úhWrite1ºÍhRead2µÄ¼Ì³ĞÊôĞÔ
+    // å»æ‰å¥æŸ„hWrite1å’ŒhRead2çš„ç»§æ‰¿å±æ€§
     RemoveHandleInheritAttr(hWrite1); 
     RemoveHandleInheritAttr(hRead2);
 
-    // ´´½¨×Ó½ø³Ì
+    // åˆ›å»ºå­è¿›ç¨‹
     STARTUPINFO Si;
     PROCESS_INFORMATION Pi; 
     Si.cb = sizeof(STARTUPINFO);
@@ -963,15 +963,15 @@ W1----->R1|  ×Ó½ø³Ì  |W2----->R2
     CloseHandle(hRead1);
     CloseHandle(hWrite2);
 
-    // Ğ´¹ÜµÀ
+    // å†™ç®¡é“
     pWritePipeFunc(hWrite1, FuncParam);
     CloseHandle(hWrite1);
 
-    // ¶Á¹ÜµÀ
+    // è¯»ç®¡é“
     pReadPipeFunc(hRead2, FuncParam);
     CloseHandle(hRead2);
 
-    // µÈ´ı×Ó½ø³Ì½áÊø
+    // ç­‰å¾…å­è¿›ç¨‹ç»“æŸ
     WaitForSingleObject(Pi.hProcess, INFINITE);
     CloseHandle(Pi.hProcess);
     CloseHandle(Pi.hThread);
@@ -1143,8 +1143,8 @@ BOOL CWebServerThread::ExecuteCgiProcess(const CRequestData &RequestData)
     MemFile.Write((LPCTSTR)(Str), (Str).GetLength() + 1); \
   } \
 
-// ºÏ³É CGI ½ø³ÌËùĞèµÄ»·¾³±äÁ¿
-// ´Ëº¯ÊıÓĞ´ıÌá¸ßĞ§ÂÊºÍ°²È«ĞÔ
+// åˆæˆ CGI è¿›ç¨‹æ‰€éœ€çš„ç¯å¢ƒå˜é‡
+// æ­¤å‡½æ•°æœ‰å¾…æé«˜æ•ˆç‡å’Œå®‰å…¨æ€§
 void CWebServerThread::BuildCgiEnvironment(const CRequestData &RequestData, MemFILE2 &MemFile)
 {
     for(TCHAR **pVariable = _tenviron; *pVariable; pVariable++ )
@@ -1153,10 +1153,10 @@ void CWebServerThread::BuildCgiEnvironment(const CRequestData &RequestData, MemF
             MemFile.Write(*pVariable, lstrlen(*pVariable) + 1);
     }
 
-    TCHAR TempStr[2048]; // ×¢ÒâÒç³ö------------
+    TCHAR TempStr[2048]; // æ³¨æ„æº¢å‡º------------
 
     // SERVER_SOFTWARE
-    const char *pServerSoftware = "SERVER_SOFTWARE="WEBSERVER_NAME_VERSION;
+    const char *pServerSoftware = "SERVER_SOFTWARE=EasyWebServer/1.92";
     MemFile.Write(pServerSoftware, lstrlen(pServerSoftware) + 1);
 
     // SERVER_PROTOCOL
@@ -1323,7 +1323,7 @@ BOOL WINAPI GetServerVariable(HCONN ConnID, char *pVariableName, void *pBuffer,
         GET_SERVER_VARIABLE_COPYSTR(pRemoteAddr, (DWORD)strlen(pRemoteAddr) + 1);
     }
     else if(stricmp(pVariableName, "REMOTE_HOST") == 0) 
-    {  // ÓĞ´ıÖ¤Êµ
+    {  // æœ‰å¾…è¯å®
         const char *pRemoteAddr = inet_ntoa(pServerThread->GetClientAddr().sin_addr);
         GET_SERVER_VARIABLE_COPYSTR(pRemoteAddr, (DWORD)strlen(pRemoteAddr) + 1);
     }
@@ -1526,9 +1526,9 @@ BOOL WINAPI ServerSupportFunction(HCONN ConnID, DWORD HSERRequest, void *pBuffer
             Header.AddServer(pServerThread->GetWebServer()->GetServerConfig().ServerName);
             pServerThread->bResponseKeepAlive = FALSE;
             Header.AddConnection(FALSE); 
-            // IIS5.1µÄ×ö·¨ÊÇ·ÖÎöpExtraHeadersÖĞÓĞÃ»ÓĞContent-LengthĞĞ£¬
-            //   Èç¹ûÓĞ£¬ÔòÓÃbResponseKeepAliveµÄÔ­ÓĞÖµ
-            //   Èç¹ûÃ»ÓĞ£¬ÔòÖÃConnectionÎªclose
+            // IIS5.1çš„åšæ³•æ˜¯åˆ†æpExtraHeadersä¸­æœ‰æ²¡æœ‰Content-Lengthè¡Œï¼Œ
+            //   å¦‚æœæœ‰ï¼Œåˆ™ç”¨bResponseKeepAliveçš„åŸæœ‰å€¼
+            //   å¦‚æœæ²¡æœ‰ï¼Œåˆ™ç½®Connectionä¸ºclose
 
             if(pExtraHeaders && *pExtraHeaders)
                 Header.AddExtraHeaders(pExtraHeaders);
@@ -1588,7 +1588,7 @@ BOOL WINAPI ServerSupportFunction(HCONN ConnID, DWORD HSERRequest, void *pBuffer
             // Flags
             pUMI->dwFlags = (HSE_URL_FLAGS_READ | HSE_URL_FLAGS_EXECUTE | HSE_URL_FLAGS_SCRIPT);
             pUMI->cchMatchingPath = RootDir.GetLength();
-            pUMI->cchMatchingURL = 0; // ºÍĞéÄâÄ¿Â¼ÓĞ¹Ø -----´ıÈ·ÈÏ
+            pUMI->cchMatchingURL = 0; // å’Œè™šæ‹Ÿç›®å½•æœ‰å…³ -----å¾…ç¡®è®¤
 
             // Url
             MtSTRING PhysicalUrl(RootDir);
@@ -1849,7 +1849,7 @@ BOOL CWebServerThread::SendHttpFile()
         ::SystemTimeToFileTime(&RequestData.IfModifiedSince, &FileTimeRequest) &&
         ::CompareFileTime(&FileTimeLastModify, &FileTimeRequest) == 0)
     {
-        // ÎÄ¼şÃ»ÓĞ±»ĞŞ¸Ä
+        // æ–‡ä»¶æ²¡æœ‰è¢«ä¿®æ”¹
         CResponseHeader Header;
         Header.AddStatus("304 Not Modified");
         Header.AddServer(((CWebServer *)pServer)->ServerConfig.ServerName);
@@ -2023,7 +2023,7 @@ static void GetFileDataList(const TCHAR *pDirName, FileDataLIST &FileDataList)
     {
         do
         {
-            //Èç¹ûÊÇµ±Ç°Ä¿Â¼»ò¸¸Ä¿Â¼, Ìø¹ı
+            //å¦‚æœæ˜¯å½“å‰ç›®å½•æˆ–çˆ¶ç›®å½•, è·³è¿‡
             if(_tcscmp(pFileData->cFileName, _T(".")) == 0 || 
                 _tcscmp(pFileData->cFileName, _T("..")) == 0)
                 continue;
@@ -2110,7 +2110,7 @@ BOOL CWebServerThread::BrowseDirectory(const TCHAR *pWebDirName, const TCHAR *pL
         ::FileTimeToLocalFileTime(&FileData.ftLastWriteTime, &LocalTime);
         ::FileTimeToSystemTime(&LocalTime, &FileTime);
 
-        GetDateFormat(LOCALE_SYSTEM_DEFAULT, 0, &FileTime, "yyyyÄêMMÔÂddÈÕ", DateStr, 20);
+        GetDateFormat(LOCALE_SYSTEM_DEFAULT, 0, &FileTime, "yyyyå¹´MMæœˆddæ—¥", DateStr, 20);
         GetTimeFormat(LOCALE_SYSTEM_DEFAULT, LOCALE_NOUSEROVERRIDE, &FileTime, NULL, TimeStr, 20);
 
         MtSTRING LinkStr(pWebDirName);
@@ -2141,46 +2141,46 @@ BOOL CWebServerThread::BrowseDirectory(const TCHAR *pWebDirName, const TCHAR *pL
 }
 
 /*
-   ×ª»»µ½±¾µØÂ·¾¶
-   È¡µÃÎÄ¼şÊôĞÔ£¬ÊÇÄ¿Â¼Âğ£¿
-   if(ÊÇ)
+   è½¬æ¢åˆ°æœ¬åœ°è·¯å¾„
+   å–å¾—æ–‡ä»¶å±æ€§ï¼Œæ˜¯ç›®å½•å—ï¼Ÿ
+   if(æ˜¯)
    {
-     if(×îºóÒ»¸ö×Ö·û²»ÊÇ/)
-       Ìí¼Ó/
+     if(æœ€åä¸€ä¸ªå­—ç¬¦ä¸æ˜¯/)
+       æ·»åŠ /
 
      BOOL bDirBrowse = FALSE;
-     if(ÔÊĞíÄ¿Â¼ä¯ÀÀ)
+     if(å…è®¸ç›®å½•æµè§ˆ)
      {
-       if(×ÜÊÇÄ¿Â¼ä¯ÀÀ)
+       if(æ€»æ˜¯ç›®å½•æµè§ˆ)
          bDirBrowse = TRUE;
-       else if(!±éÀúÈ±Ê¡ÎÄµµ())
+       else if(!éå†ç¼ºçœæ–‡æ¡£())
          bDirBrowse = TRUE;
        if(bDirBrowse)
        {
-         ÏÔÊ¾Ä¿Â¼ä¯ÀÀÄÚÈİ
-         ÈÕÖ¾
+         æ˜¾ç¤ºç›®å½•æµè§ˆå†…å®¹
+         æ—¥å¿—
          return;
        }
      }
      else
      {
-       if(!±éÀúÈ±Ê¡ÎÄµµ())
+       if(!éå†ç¼ºçœæ–‡æ¡£())
        {
-         ´íÎó:Ã»ÓĞÕÒµ½ÎÄ¼ş
-         ÈÕÖ¾
+         é”™è¯¯:æ²¡æœ‰æ‰¾åˆ°æ–‡ä»¶
+         æ—¥å¿—
          return;
        }
      }
    }
-   Ö´ĞĞ»ò·¢ËÍÎÄ¼ş
-   ÈÕÖ¾
+   æ‰§è¡Œæˆ–å‘é€æ–‡ä»¶
+   æ—¥å¿—
 */
 
-// Èç¹û·µ»ØTRUE, LocalFilePath·µ»Ø´æÔÚµÄÎÄ¼şÃû
-// Èç¹û·µ»ØFALSE£¬¾Í²»Òª¸Ä±äLocalFilePath
+// å¦‚æœè¿”å›TRUE, LocalFilePathè¿”å›å­˜åœ¨çš„æ–‡ä»¶å
+// å¦‚æœè¿”å›FALSEï¼Œå°±ä¸è¦æ”¹å˜LocalFilePath
 const TCHAR *CWebServerThread::GetExistDefaultHtml(MtSTRING &LocalFilePath, const StrLIST &DefaultDoclList)
 {
-    // ÓĞ´ıÌá¸ßĞ§ÂÊ
+    // æœ‰å¾…æé«˜æ•ˆç‡
     assert(LocalFilePath.Right(1) == "\\");
     StrListPOS ListPos = DefaultDoclList.GetHeadPosition();
     for(; ListPos != NULL; ListPos = ListPos->GetNext())
@@ -2247,37 +2247,37 @@ static CalTIME TTotal, TRead, TParse, TExecSend, TLog;
 #endif
 
 /*
-Â·¾¶×ª»»Ëã·¨£º
-ÏÈ·Ö½â£¿£¬È¡£¿Ç°ÃæµÄ²¿·Ö
+è·¯å¾„è½¬æ¢ç®—æ³•ï¼š
+å…ˆåˆ†è§£ï¼Ÿï¼Œå–ï¼Ÿå‰é¢çš„éƒ¨åˆ†
 
-ÊÇ·ñÓĞÖ´ĞĞÈ¨ÏŞ£¿
-if(ÓĞ)
+æ˜¯å¦æœ‰æ‰§è¡Œæƒé™ï¼Ÿ
+if(æœ‰)
 {
-  ÕÒ.exe, dllµÈ
-  if(ÕÒµ½)
+  æ‰¾.exe, dllç­‰
+  if(æ‰¾åˆ°)
   {
-    if(ÎÄ¼ş´æÔÚ)
-      Ö´ĞĞ³ÌĞò»ò½Å±¾
+    if(æ–‡ä»¶å­˜åœ¨)
+      æ‰§è¡Œç¨‹åºæˆ–è„šæœ¬
     else
-      ¸ÃÒ³²»´æÔÚ
+      è¯¥é¡µä¸å­˜åœ¨
     return;
   }
 }
 
-if(ÊÇÄ¿Â¼)
+if(æ˜¯ç›®å½•)
 {
-  ÕÒÈ±Ê¡ÎÄµµ
-  if(ÕÒµ½)
-    µİ¹é
-  else if(ÔÊĞíÄ¿Â¼ä¯ÀÀ)
-    Ä¿Â¼ä¯ÀÀ
+  æ‰¾ç¼ºçœæ–‡æ¡£
+  if(æ‰¾åˆ°)
+    é€’å½’
+  else if(å…è®¸ç›®å½•æµè§ˆ)
+    ç›®å½•æµè§ˆ
   else
-    ¸ÃÒ³²»´æÔÚ
+    è¯¥é¡µä¸å­˜åœ¨
 }
-else if(ÊÇÎÄ¼ş)
-  ÏÂÔØÎÄ¼ş
+else if(æ˜¯æ–‡ä»¶)
+  ä¸‹è½½æ–‡ä»¶
 else
-  ¸ÃÒ³²»´æÔÚ
+  è¯¥é¡µä¸å­˜åœ¨
 */
 
 BOOL CWebServerThread::ProcessRequest(CRequestData &RequestData, const MtSTRING &WebFileName, BOOL &bExecute)
@@ -2412,7 +2412,7 @@ BOOL CWebServerThread::ProcessRequest(CRequestData &RequestData, const MtSTRING 
     DWORD Attr = GetFileAttributes(RequestData.LocalFileName);
     if(Attr == INVALID_FILE_ATTRIBUTES)
     {
-        // ¸ÃÒ³²»´æÔÚ
+        // è¯¥é¡µä¸å­˜åœ¨
         SendHttpErrorStr("404 Object Not Found", "Object Not Found");
         return FALSE;
     }
@@ -2507,7 +2507,7 @@ int CWebServerThread::ServerProc()
                 assert(false);
             }
             
-            LOG_INFO(GID_WEBSERVER, "ReadRequest error, Ret=%d [¡ï¡ï¡ï]", Ret);
+            LOG_INFO(GID_WEBSERVER, "ReadRequest error, Ret=%d [â˜…â˜…â˜…]", Ret);
             return 0;
         }
 
@@ -2540,7 +2540,7 @@ int CWebServerThread::ServerProc()
             else
                 assert(false);
             pWebServer->OnRequestLog(ClientAddr, RequestData, FALSE, FALSE);
-            LOG_INFO(GID_WEBSERVER, "ParseRequest error, Ret=%d [¡ï¡ï¡ï]", Ret);
+            LOG_INFO(GID_WEBSERVER, "ParseRequest error, Ret=%d [â˜…â˜…â˜…]", Ret);
             return 0;
         }
         RequestData.bValidate = TRUE;
@@ -2649,19 +2649,19 @@ BOOL CWebServer::Init(const CWebServerConfig &Config)
 {
     if(Config.RootDirectory.IsEmpty())
     {
-        LastErrStr = _T("Ö÷Ä¿Â¼²»ÄÜÎª¿Õ!");
+        LastErrStr = _T("ä¸»ç›®å½•ä¸èƒ½ä¸ºç©º!");
         return FALSE;
     }
 
     if(!IsDirectoryExist(Config.RootDirectory))
     {
-        LastErrStr.Format(_T("Ö÷Ä¿Â¼[%s]²»´æÔÚ!"), (LPCTSTR)Config.RootDirectory);
+        LastErrStr.Format(_T("ä¸»ç›®å½•[%s]ä¸å­˜åœ¨!"), (LPCTSTR)Config.RootDirectory);
         return FALSE;
     }
 
     if(Config.NetTimeout <= 0)
     {
-        LastErrStr = _T("³¬Ê±Ê±¼ä±ØĞë´óÓÚ0");
+        LastErrStr = _T("è¶…æ—¶æ—¶é—´å¿…é¡»å¤§äº0");
         return FALSE;
     }
 
@@ -2721,7 +2721,7 @@ void CWebServer::OnServerClosed()
     TimeText += "\r\n";
     TimeText += TLog.GetTotalTimeStr("Log");
 
-    MessageBox(0, TimeText, "Ê±¼ä²âÊÔ", 0);
+    MessageBox(0, TimeText, "æ—¶é—´æµ‹è¯•", 0);
 
     TTotal.ReSetZeroTime();
     TRead.ReSetZeroTime();

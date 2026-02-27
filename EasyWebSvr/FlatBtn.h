@@ -1,9 +1,9 @@
-//***********************************************
-// �ļ����ƣ�flatbtn.h
-// �������ܣ�ƽ�水ť
-// �������ߣ�wbj
-// �ա����ڣ�2006-2-10
-// ��������: 2007-11-7
+﻿//***********************************************
+// 文件名称：flatbtn.h
+// 功　　能：平面按钮
+// 作　　者：wbj
+// 日　　期：2006-2-10
+// 更新日期: 2007-11-7
 //***********************************************
 #ifndef __FLATBTN_H__
 #define __FLATBTN_H__
@@ -74,14 +74,14 @@ private:
     void          _SetOwnerDrawStyle();
 
 private:
-    STRUCT_ICONS  BtnIcons[3];    // ��ťͼ������
-    COLORREF      BtnColor[4];    // ��ť��ɫ����
-    BOOL          bIsFlat;        // �Ƿ�Ϊƽ�水ť
-    BOOL          bIsCheckBox;    // �Ƿ�ΪCheckBox
-    UINT          CheckState;     // CheckBox��ѡ��״̬������bIsCheckBoxΪTRUEʱ��Ч��
-    BOOL          bDrawBorder;    // ƽ��ʱ�Ƿ���ʾ�����򣨽���bIsFlatΪTRUEʱ��Ч��
-    BOOL          bDrawFlatFocus; // ƽ��ʱ�Ƿ���ʾ����򣨽���bIsFlatΪTRUEʱ��Ч��
-    BOOL          bMouseOnButton; // ����Ƿ��ڰ�ť��
+    STRUCT_ICONS  BtnIcons[3];    // 按钮图标数组
+    COLORREF      BtnColor[4];    // 按钮颜色数组
+    BOOL          bIsFlat;        // 是否为平面按钮
+    BOOL          bIsCheckBox;    // 是否为CheckBox
+    UINT          CheckState;     // CheckBox的选中状态（仅在bIsCheckBox为TRUE时有效）
+    BOOL          bDrawBorder;    // 平面时是否显示悬浮框（仅在bIsFlat为TRUE时有效）
+    BOOL          bDrawFlatFocus; // 平面时是否显示焦点框（仅在bIsFlat为TRUE时有效）
+    BOOL          bMouseOnButton; // 鼠标是否在按钮内
 
     DECLARE_MESSAGE_MAP()
 };

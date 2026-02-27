@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "websvr.h"
 #include "svrlog.h"

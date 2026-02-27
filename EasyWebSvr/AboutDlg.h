@@ -1,4 +1,4 @@
-#ifndef __ABOUTDLG_H__
+﻿#ifndef __ABOUTDLG_H__
 #define __ABOUTDLG_H__
 
 #pragma once

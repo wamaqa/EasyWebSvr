@@ -1,4 +1,4 @@
-#ifndef __NETSVR_H__
+ï»¿#ifndef __NETSVR_H__
 #define __NETSVR_H__
 #pragma once
 
@@ -54,13 +54,13 @@ protected:
     virtual void        OnServerTimestep() {};
 
 protected:
-    BaseSOCKET          ListenSocket;   // ¼àÌıµÄSocket
-    UINT                ListenPort;     // ¼àÌıµÄ¶Ë¿Ú
-    WSAEVENT            hEventSocket;   // socketÊÂ¼ş
-    WSAEVENT            hEventExit;     // ÍË³öÊÂ¼ş
-    MtSTRING            LastErrStr;     // ´íÎóÔ­ÒòÃèÊö
-    volatile LONG       ThreadNum;      // Ïß³ÌÊı
-    LONG                MaxThreadNum;   // ×î´óÏß³ÌÊı
+    BaseSOCKET          ListenSocket;   // ç›‘å¬çš„Socket
+    UINT                ListenPort;     // ç›‘å¬çš„ç«¯å£
+    WSAEVENT            hEventSocket;   // socketäº‹ä»¶
+    WSAEVENT            hEventExit;     // é€€å‡ºäº‹ä»¶
+    MtSTRING            LastErrStr;     // é”™è¯¯åŸå› æè¿°
+    volatile LONG       ThreadNum;      // çº¿ç¨‹æ•°
+    LONG                MaxThreadNum;   // æœ€å¤§çº¿ç¨‹æ•°
     UINT                WaitTimestep;   // 
 
 private:

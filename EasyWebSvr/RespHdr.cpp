@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "resphdr.h"
 
 void CResponseHeader::AddStatusCode(int StatusCode)

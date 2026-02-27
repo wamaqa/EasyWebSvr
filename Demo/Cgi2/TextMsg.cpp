@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "textmsg.h"
 
 
@@ -13,7 +13,7 @@ TextMSG::~TextMSG()
     delete []pText;
 }
 
-// ¶ÁÊı¾İÎÄ¼ş
+// è¯»æ•°æ®æ–‡ä»¶
 BOOL TextMSG::ReadFile(FILE *pFile, int MaxTextLen)
 {
   int Len = sizeof(*this) - sizeof(TCHAR *);
@@ -37,7 +37,7 @@ BOOL TextMSG::ReadFile(FILE *pFile, int MaxTextLen)
   return TRUE;
 }
 
-// Ğ´Êı¾İÎÄ¼ş
+// å†™æ•°æ®æ–‡ä»¶
 BOOL TextMSG::WriteFile(FILE *pFile)
 {
   assert(pText != NULL && *pText);
